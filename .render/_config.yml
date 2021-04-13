@@ -3,10 +3,10 @@ theme: jekyll-theme-primer
 spec_server: specs.amwa.tv
 
 # AMWA ID
-amwa_id: IS-TEMPLATE
+amwa_id: IS-SINK-MD
 
 # Base name for site (typically lower case version of AMWA ID, or the repo name)
-baseurl: /is-template
+baseurl: /is-sink-md
 
 # Which release or branch appears in header links and on the home page
 default_tree: branches/v1.0-dev # alternatively e.g. releases/v1.0
