@@ -1,7 +1,7 @@
 # \[Work In Progress\] AMWA IS-11 NMOS Sink Metadata Processing \[Work In Progress\]
 
-[![Lint Status](https://github.com/AMWA-TV/is-11/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/is-11/actions?query=workflow%3ALint)
-[![Render Status](https://github.com/AMWA-TV/is-11/workflows/Render/badge.svg)](https://github.com/AMWA-TV/is-11/actions?query=workflow%3ARender)
+[![Lint Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ALint)
+[![Render Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ARender)
 
 This repository holds the source for this Specification, part of the family of [Networked Media Open Specifications](https://specs.amwa.tv/nmos) from the [Advanced Media Workflow Association](https://amwa.tv)
 
@@ -9,17 +9,17 @@ This repository holds the source for this Specification, part of the family of [
 
 ### What does it do?
 
-- It provides a template for AMWA NMOS Interface Specifcations.
+- Provides infomation about physical devices called Sinks associated with Receivers
+- Allows to configure media parameters of Senders basing on information about Sinks
 
 ### Why does it matter?
 
-- It helps ensure consistency between NMOS Specifications.
-- It helps us test our continuous integration.
+- State of a Sender can be tuned it's configurable to be compatible with an according Receiver
 
 ### How does it work?
 
-- It contains examples of documentation, API, schemas, and examples.
-- These are rendered to HTML and uploaded to specs.amwa.tv
+- An endpoint on the side of Senders is introduced for media parameters control
+- Receivers are followed with endpoints which list Sinks and describe them in detail
 
 <!-- INTRO-END -->
 
