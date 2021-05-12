@@ -14,7 +14,7 @@ This repository holds the source for this Specification, part of the family of [
 
 ### Why does it matter?
 
-- State of a Sender can be tuned to be compatible with an corresponding Receiver
+- State of a Sender can be tuned to be compatible with a corresponding Receiver or many compatable Receiver
 
 ### How does it work?
 
