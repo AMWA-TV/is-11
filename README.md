@@ -1,4 +1,4 @@
-# \[Work In Progress\] AMWA IS-11 NMOS Sink Metadata Processing \[Work In Progress\]
+# \[Work In Progress\] AMWA IS-11 NMOS Sink Metadata Processing
 
 [![Lint Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ALint)
 [![Render Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ARender)
