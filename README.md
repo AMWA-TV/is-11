@@ -1,4 +1,4 @@
-# \[Work In Progress\] AMWA IS-11 NMOS Sink Metadata Processing \[Work In Progress\]
+# \[Work In Progress\] AMWA IS-11 NMOS Sink Metadata Processing
 
 [![Lint Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ALint)
 [![Render Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ARender)
@@ -14,7 +14,7 @@ This repository holds the source for this Specification, part of the family of [
 
 ### Why does it matter?
 
-- State of a Sender can be tuned it's configurable to be compatible with an according Receiver
+- State of a Sender can be tuned to be compatible with a corresponding Receiver or many compatible Receivers
 
 ### How does it work?
 
