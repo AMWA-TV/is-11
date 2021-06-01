@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "color_sampling": {
+      "description": "Identifies the acceptable color (sub-)sampling mode of a video stream. It is complementary to Receiver Caps Parameter Constraint of the same name.",
+      "type": "string",
+      "enum": [
+        "RGB",
+        "RGBA",
+        "BGR ",
+        "BGRA",
+        "YCbCr-4:4:4",
+        "YCbCr-4:2:2",
+        "YCbCr-4:2:0",
+        "YCbCr-4:1:1",
+        "RGB+",
+        "RG+B",
+        "R+GB",
+        "BGR+",
+        "BG+R",
+        "B+GR"
+      ]
+    },
+    "component_depth": {
+      "description": "Identifies the acceptable number of bits per component sample of a video stream. It is complementary to Receiver Caps Parameter Constraint of the same name.",
+      "type": "integer"
+    },
+    "frame_width": {
+      "description" : "Width of the picture in pixels",
+      "type" : "integer"
+    },
+    "frame_height" : {
+      "description" : "Height of the picture in pixels",
+      "type" : "integer"
+    },
+    "interlace_mode" : {
+      "description" : "Interlaced video mode for frames in this Flow",
+      "type" : "string",
+      "default": "progressive",
+      "enum" : [
+        "progressive",
+        "interlaced_tff",
+        "interlaced_bff",
+        "interlaced_psf"
+      ]
+    },
+    "grain_rate" : {
+      "description": "Number of Grains per second for this Flow. Must be an integer division of, or equal to the Grain rate specified by the parent Source. Grain rate matches the frame rate for video (see NMOS Content Model). Specified for periodic Flows only.",
+      "type": "object",
+      "required" : [
+        "numerator"
+      ],
+      "properties" : {
+        "numerator" : {
+          "description" : "Numerator",
+          "type" : "integer"
+        },
+        "denominator" : {
+          "description" : "Denominator",
+          "type" : "integer",
+          "default" : 1
+        }
+      }
+    },
+    "media_type": {
+      "description": "Subclassification of the format using IANA assigned media types",
+      "type": "string",
+      "anyOf": [
+        {
+          "enum": [
+            "video/raw",
+            "video/H264",
+            "video/vc2"
+          ]
+        },
+        {
+          "pattern": "^video\\/[^\\s\\/]+$"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

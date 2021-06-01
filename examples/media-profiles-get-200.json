@@ -1,77 +1,107 @@
 [
   {
-    "width": 720,
-    "height": 400,
-    "frame_rate": 70
+    "frame_width": 720,
+    "frame_height": 400,
+    "grain_rate": {
+      "numerator": 70
+    }
   },
   {
-    "width": 640,
-    "height": 480,
-    "frame_rate": 60
+    "frame_width": 640,
+    "frame_height": 480,
+    "grain_rate": {
+      "numerator": 60
+    }
   },
   {
-    "width": 640,
-    "height": 480,
-    "frame_rate": 67
+    "frame_width": 640,
+    "frame_height": 480,
+    "grain_rate": {
+      "numerator": 67
+    }
   },
   {
-    "width": 640,
-    "height": 480,
-    "frame_rate": 72
+    "frame_width": 640,
+    "frame_height": 480,
+    "grain_rate": {
+      "numerator": 72
+    }
   },
   {
-    "width": 640,
-    "height": 480,
-    "frame_rate": 75
+    "frame_width": 640,
+    "frame_height": 480,
+    "grain_rate": {
+      "numerator": 75
+    }
   },
   {
-    "width": 800,
-    "height": 600,
-    "frame_rate": 56
+    "frame_width": 800,
+    "frame_height": 600,
+    "grain_rate": {
+      "numerator": 56
+    }
   },
   {
-    "width": 800,
-    "height": 600,
-    "frame_rate": 60
+    "frame_width": 800,
+    "frame_height": 600,
+    "grain_rate": {
+      "numerator": 60
+    }
   },
   {
-    "width": 800,
-    "height": 600,
-    "frame_rate": 72
+    "frame_width": 800,
+    "frame_height": 600,
+    "grain_rate": {
+      "numerator": 72
+    }
   },
   {
-    "width": 800,
-    "height": 600,
-    "frame_rate": 75
+    "frame_width": 800,
+    "frame_height": 600,
+    "grain_rate": {
+      "numerator": 75
+    }
   },
   {
-    "width": 832,
-    "height": 624,
-    "frame_rate": 75
+    "frame_width": 832,
+    "frame_height": 624,
+    "grain_rate": {
+      "numerator": 75
+    }
   },
   {
-    "width": 1024,
-    "height": 768,
-    "frame_rate": 60
+    "frame_width": 1024,
+    "frame_height": 768,
+    "grain_rate": {
+      "numerator": 60
+    }
   },
   {
-    "width": 1024,
-    "height": 768,
-    "frame_rate": 70
+    "frame_width": 1024,
+    "frame_height": 768,
+    "grain_rate": {
+      "numerator": 70
+    }
   },
   {
-    "width": 1024,
-    "height": 768,
-    "frame_rate": 75
+    "frame_width": 1024,
+    "frame_height": 768,
+    "grain_rate": {
+      "numerator": 75
+    }
   },
   {
-    "width": 1280,
-    "height": 1024,
-    "frame_rate": 75
+    "frame_width": 1280,
+    "frame_height": 1024,
+    "grain_rate": {
+      "numerator": 75
+    }
   },
   {
-    "width": 1152,
-    "height": 870,
-    "frame_rate": 75
+    "frame_width": 1152,
+    "frame_height": 870,
+    "grain_rate": {
+      "numerator": 75
+    }
   }
 ]
