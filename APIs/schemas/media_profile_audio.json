@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "grain_rate" : {
+      "description": "Number of Grains per second for this Flow. Must be an integer division of, or equal to the Grain rate specified by the parent Source. Grain rate matches the frame rate for video (see NMOS Content Model). Specified for periodic Flows only. (flow_core.json)",
+      "type": "object",
+      "required" : [
+        "numerator"
+      ],
+      "properties" : {
+        "numerator" : {
+          "description" : "Numerator",
+          "type" : "integer"
+        },
+        "denominator" : {
+          "description" : "Denominator",
+          "type" : "integer",
+          "default" : 1
+        }
+      }
+    },
+    "sample_rate" : {
+      "description": "Number of audio samples per second for this Flow",
+      "type": "object",
+      "required" : [
+        "numerator"
+      ],
+      "properties" : {
+        "numerator" : {
+          "description" : "Numerator",
+          "type" : "integer"
+        },
+        "denominator" : {
+          "description" : "Denominator",
+          "type" : "integer",
+          "default" : 1
+        }
+      }
+    },
+    "media_type": {
+      "description": "Subclassification of the format using IANA assigned media types",
+      "type": "string",
+      "anyOf": [
+        {
+          "enum": [
+            "audio/L24",
+            "audio/L20",
+            "audio/L16",
+            "audio/L8"
+          ]
+        },
+        {
+          "pattern": "^audio\\/[^\\s\\/]+$"
+        }
+      ]
+    },
+    "bit_depth" : {
+      "description" : "Bit depth of the audio samples",
+      "type" : "integer"
+    },
+    "channel_count" : {
+      "description" : "Identifies the acceptable number of channels of an audio stream. It is complementary to Receiver Caps Parameter Constraint of the same name.",
+      "type" : "integer",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}
