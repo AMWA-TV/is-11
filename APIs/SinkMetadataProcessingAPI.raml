@@ -1,9 +1,19 @@
 #%RAML 1.0
 
-title: EDID Processing
-baseUri: http://api.example.com/x-nmos/edid/{version}
+title: Sink Metadata Processing
+baseUri: http://api.example.com/x-nmos/sink-mp/{version}
 version: v1.0
 mediaType: application/json
+
+/:
+  displayName: Base
+  get:
+    description: List of resources available from this API - senders, receivers, and sinks. Each are compulsory parts of the spec.
+    responses:
+      200:
+        body:
+          example: !include ../examples/base-get-200.json
+          type: !include schemas/sink-api-base.json
 
 /senders:
   displayName: Senders
@@ -23,7 +33,7 @@ mediaType: application/json
           description: Returned when success.
           body:
             example: !include ../examples/sender-get-200.json
-            type: !include schemas/edidapi-sender.json
+            type: !include schemas/sink-api-sender.json
         404:
           description: Returned when the requested Sender ID does not exist.
     /media-profiles:
@@ -46,7 +56,8 @@ mediaType: application/json
             description: >
               Returned when the media profiles are rejected due to schema validation failure or if the Device doesn't support the requested mode.
           423:
-            description: Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
+            description: >
+              Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
           500:
             description: >
               Returned if the media profiles can't be applied due to a reason which is not related to a violation of schema.
@@ -65,7 +76,7 @@ mediaType: application/json
 /receivers:
   displayName: Receivers
   get:
-    description: List EDID Processing compatible Receivers. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
+    description: List Sink processing compatible Receivers. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
     responses:
         200:
           body:
@@ -79,7 +90,7 @@ mediaType: application/json
           description: Returned when success.
           body:
             example: !include ../examples/receiver-get-200.json
-            type: !include schemas/edidapi-receiver.json
+            type: !include schemas/sink-api-receiver.json
         404:
           description: Returned when the requested Receiver ID does not exist.
     /sinks:
@@ -118,4 +129,5 @@ mediaType: application/json
               application/octet-stream:
                 type: file
           404:
-            description: Returned when the EDID file doesn't exist.
+            description: >
+              Returned when the EDID file doesn't exist.
