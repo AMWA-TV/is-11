@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "description": "Describes the Sink Metadata Proccessing API /receivers/{receiverId} base resource",
+  "title": "Sink Metadata Proccessing API /receivers/{receiverId} base resource",
+  "items": {
+    "type": "string",
+    "enum": [
+      "sinks/"
+    ]
+  },
+  "minItems": 1,
+  "maxItems": 1,
+  "uniqueItems": true
+}
