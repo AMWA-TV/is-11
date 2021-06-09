@@ -24,6 +24,8 @@ mediaType: application/json
           body:
             example: !include ../examples/sender-get-200.json
             type: !include schemas/edidapi-sender.json
+        204:
+          description: Denotes an external change occured which violated the previous Media Profiles.
         404:
           description: Returned when the requested Sender ID does not exist.
     /media-profiles:
