@@ -15,7 +15,21 @@
     },
     "frame_rate": {
       "description": "Frame rate in Hz",
-      "type": "number"
+      "type": "object",
+      "required" : [
+        "numerator"
+      ],
+      "properties" : {
+        "numerator" : {
+          "description" : "Numerator",
+          "type" : "integer"
+        },
+        "denominator" : {
+          "description" : "Denominator",
+          "type" : "integer",
+          "default" : 1
+        }
+      }
     }
   }
 }
