@@ -48,7 +48,8 @@ mediaType: application/json
             description: >
               Returned when the media profiles are rejected due to schema validation failure or if the Device doesn't support the requested mode.
           423:
-            description: Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
+            description: >
+              Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
           500:
             description: >
               Returned if the media profiles can't be applied due to a reason which is not related to a violation of schema.
@@ -57,8 +58,8 @@ mediaType: application/json
       delete:
         description: Delete the last media profile array put before.
         responses:
-          200:
-            description: Returned when success.
+          204:
+            description: Returned when success. No body is included.
           500:
             description: >
               Returned if the media profiles can't delete due to a reason which is not related to a violation of schema.
