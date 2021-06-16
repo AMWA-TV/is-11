@@ -2,20 +2,34 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "required": [
-    "width",
-    "height",
+    "frame_width",
+    "frame_height",
     "frame_rate"
   ],
   "properties": {
-    "width": {
+    "frame_width": {
       "type": "integer"
     },
-    "height": {
+    "frame_height": {
       "type": "integer"
     },
     "frame_rate": {
       "description": "Frame rate in Hz",
-      "type": "number"
+      "type": "object",
+      "required" : [
+        "numerator"
+      ],
+      "properties" : {
+        "numerator" : {
+          "description" : "Numerator",
+          "type" : "integer"
+        },
+        "denominator" : {
+          "description" : "Denominator",
+          "type" : "integer",
+          "default" : 1
+        }
+      }
     }
   }
 }

@@ -2,24 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "grain_rate" : {
-      "description": "Number of Grains per second for this Flow. Must be an integer division of, or equal to the Grain rate specified by the parent Source. Grain rate matches the frame rate for video (see NMOS Content Model). Specified for periodic Flows only. (flow_core.json)",
-      "type": "object",
-      "required" : [
-        "numerator"
-      ],
-      "properties" : {
-        "numerator" : {
-          "description" : "Numerator",
-          "type" : "integer"
-        },
-        "denominator" : {
-          "description" : "Denominator",
-          "type" : "integer",
-          "default" : 1
-        }
-      }
-    },
     "sample_rate" : {
       "description": "Number of audio samples per second for this Flow",
       "type": "object",
