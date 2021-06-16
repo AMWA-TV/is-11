@@ -51,7 +51,10 @@ mediaType: application/json
           type: !include schemas/media_profiles.json
         responses:
           200:
-            description: Returned when success.
+            description: Returns when success.
+            body:
+              example: !include ../examples/media-profiles-get-200.json
+              type: !include schemas/media_profiles.json
           400:
             description: >
               Returned when the media profiles are rejected due to schema validation failure or if the Device doesn't support the requested mode.
