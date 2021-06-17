@@ -5,7 +5,9 @@
     "media_type",
     "frame_width",
     "frame_height",
-    "grain_rate"
+    "grain_rate",
+    "color_sampling",
+    "component_depth"
   ],
   "properties": {
     "color_sampling": {
