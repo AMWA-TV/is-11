@@ -1,25 +1,21 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "required": [
+    "media_type",
+    "frame_width",
+    "frame_height",
+    "grain_rate"
+  ],
   "properties": {
     "color_sampling": {
       "description": "Identifies the acceptable color (sub-)sampling mode of a video stream. It is complementary to Receiver Caps Parameter Constraint of the same name.",
       "type": "string",
       "enum": [
         "RGB",
-        "RGBA",
-        "BGR ",
-        "BGRA",
         "YCbCr-4:4:4",
         "YCbCr-4:2:2",
-        "YCbCr-4:2:0",
-        "YCbCr-4:1:1",
-        "RGB+",
-        "RG+B",
-        "R+GB",
-        "BGR+",
-        "BG+R",
-        "B+GR"
+        "YCbCr-4:2:0"
       ]
     },
     "component_depth": {
