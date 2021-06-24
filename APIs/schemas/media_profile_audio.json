@@ -4,6 +4,7 @@
   "properties": {
     "preference": {
       "type": "number",
+      "default": 0,
       "maximum": 100,
       "minimum": -100
     },
