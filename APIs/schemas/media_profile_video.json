@@ -2,6 +2,12 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
+    "preference": {
+      "type": "number",
+      "default": 0,
+      "maximum": 100,
+      "minimum": -100
+    },
     "color_sampling": {
       "description": "Identifies the acceptable color (sub-)sampling mode of a video stream. It is complementary to Receiver Caps Parameter Constraint of the same name.",
       "type": "string",
