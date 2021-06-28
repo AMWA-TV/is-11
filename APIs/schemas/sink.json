@@ -5,16 +5,6 @@
   "title": "Sink resource",
   "allOf": [
     { "$ref": "resource_core.json" },
-    {
-      "type": "object",
-      "required": [
-        "edid"
-      ],
-      "properties": {
-        "edid": {
-          "$ref": "edid.json"
-        }
-      }
-    }
+    { "$ref": "edid.json" }
   ]
 }

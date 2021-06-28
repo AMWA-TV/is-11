@@ -117,13 +117,26 @@ mediaType: application/json
           type: !include schemas/resource-list.json
   /{sinkId}:
     get:
-      description: Return Sink.
+      description: List all the API endpoints for a single Sink.
       responses:
         200:
           description: Returned when success.
           body:
             example: !include ../examples/sink-get-200.json
-            type: !include schemas/sink.json
+            type: !include schemas/sink-api-sink.json
+        404:
+          description: Returned when the requested Sink ID does not exist.
+    /properties:
+      get:
+        description: Return properties of Sink.
+        responses:
+          200:
+            description: Returned when success.
+            body:
+              example: !include ../examples/sink-properties-get-200.json
+              type: !include schemas/sink.json
+          404:
+            description: Returned when the requested Sink ID does not exist.
     /edid:
       get:
         description: Download an EDID file.
@@ -135,4 +148,4 @@ mediaType: application/json
                 type: file
           404:
             description: >
-              Returned when the EDID file doesn't exist.
+              Returned when the EDID file or the requested Sink ID doesn't exist.
