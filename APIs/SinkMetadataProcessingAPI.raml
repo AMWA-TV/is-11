@@ -139,13 +139,18 @@ mediaType: application/json
             description: Returned when the requested Sink ID does not exist.
     /edid:
       get:
-        description: Download an EDID file.
+        description: >
+          Redirects to the location of the EDID file or returns the EDID file directly.
+          Check HTTP response code to determine which mode of operation is in use. When returning the EDID file
+          directly ensure that the `Content-Type` entity header is correctly set.
         responses:
           200:
-            description: Returned when success.
+            description: The EDID file itself will be served
             body:
               application/octet-stream:
                 type: file
+          307:
+            description: A temporary redirect to the EDID file
           404:
             description: >
               Returned when the EDID file or the requested Sink ID doesn't exist.
