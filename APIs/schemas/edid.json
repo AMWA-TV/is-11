@@ -7,7 +7,7 @@
     "manufacture_year",
     "screen_size",
     "gamma",
-    "display_type",
+    "color_samplings",
     "established_timings"
   ],
   "properties": {
@@ -40,7 +40,7 @@
     "gamma": {
       "type": "number"
     },
-    "display_type": {
+    "color_samplings": {
       "description": "Digital display type in terms of supported subsampling modes",
       "type": "array",
       "minItems": 1,

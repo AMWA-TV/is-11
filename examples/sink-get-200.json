@@ -14,7 +14,7 @@
       "height": 30
     },
     "gamma": 2.2,
-    "display_type": [ "RGB", "YCbCr-4:4:4" ],
+    "color_samplings": [ "RGB", "YCbCr-4:4:4" ],
     "established_timings": [
       {
         "frame_width": 720,
