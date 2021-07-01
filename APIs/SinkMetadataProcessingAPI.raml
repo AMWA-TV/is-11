@@ -46,6 +46,8 @@ mediaType: application/json
               type: !include schemas/media_profiles.json
           205:
             description: Denotes an external change occurred which violated the previous Media Profiles.
+          404:
+            description: Returned when the requested Sender ID does not exist.
       put:
         description: Put desired media profiles.
         body:
@@ -60,6 +62,8 @@ mediaType: application/json
           400:
             description: >
               Returned when the media profiles are rejected due to schema validation failure or if the Device doesn't support the requested mode.
+          404:
+            description: Returned when the requested Sender ID does not exist.
           423:
             description: >
               Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
@@ -73,6 +77,8 @@ mediaType: application/json
         responses:
           204:
             description: Returned when success. No body is included.
+          404:
+            description: Returned when the requested Sender ID does not exist.
           500:
             description: >
               Returned if the media profiles can't delete due to a reason which is not related to a violation of schema.
@@ -83,10 +89,10 @@ mediaType: application/json
   get:
     description: List Sink processing compatible Receivers. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
     responses:
-        200:
-          body:
-            example: !include ../examples/resourcelist-get-200.json
-            type: !include schemas/resource-list.json
+      200:
+        body:
+          example: !include ../examples/resourcelist-get-200.json
+          type: !include schemas/resource-list.json
   /{receiverId}:
     get:
       description: List all the API endpoints for a single receiver.
@@ -106,6 +112,8 @@ mediaType: application/json
             body:
               example: !include ../examples/idlist-get-200.json
               type: !include schemas/id-list.json
+          404:
+            description: Returned when the requested Receiver ID does not exist.
 /sinks:
   displayName: Sinks
   get:
@@ -117,22 +125,40 @@ mediaType: application/json
           type: !include schemas/resource-list.json
   /{sinkId}:
     get:
-      description: Return Sink.
+      description: List all the API endpoints for a single Sink.
       responses:
         200:
           description: Returned when success.
           body:
             example: !include ../examples/sink-get-200.json
-            type: !include schemas/sink.json
-    /edid:
+            type: !include schemas/sink-api-sink.json
+        404:
+          description: Returned when the requested Sink ID does not exist.
+    /properties:
       get:
-        description: Download an EDID file.
+        description: Return properties of Sink.
         responses:
           200:
             description: Returned when success.
             body:
+              example: !include ../examples/sink-properties-get-200.json
+              type: !include schemas/sink.json
+          404:
+            description: Returned when the requested Sink ID does not exist.
+    /edid:
+      get:
+        description: >
+          Redirects to the location of the EDID file or returns the EDID file directly.
+          Check HTTP response code to determine which mode of operation is in use. When returning the EDID file
+          directly ensure that the `Content-Type` entity header is correctly set.
+        responses:
+          200:
+            description: The EDID file itself will be served
+            body:
               application/octet-stream:
                 type: file
+          307:
+            description: A temporary redirect to the EDID file
           404:
             description: >
-              Returned when the EDID file doesn't exist.
+              Returned when the EDID file or the requested Sink ID doesn't exist.
