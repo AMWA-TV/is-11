@@ -34,8 +34,6 @@ mediaType: application/json
           body:
             example: !include ../examples/sender-get-200.json
             type: !include schemas/sink-api-sender.json
-        205:
-          description: Denotes an external change occurred which violated the previous Media Profiles.
         404:
           description: Returned when the requested Sender ID does not exist.
     /media-profiles:
@@ -46,6 +44,8 @@ mediaType: application/json
             body:
               example: !include ../examples/media-profiles-get-200.json
               type: !include schemas/media_profiles.json
+          205:
+            description: Denotes an external change occurred which violated the previous Media Profiles.
       put:
         description: Put desired media profiles.
         body:
