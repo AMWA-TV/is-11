@@ -60,22 +60,6 @@
           "default" : 1
         }
       }
-    },
-    "media_type": {
-      "description": "Subclassification of the format using IANA assigned media types",
-      "type": "string",
-      "anyOf": [
-        {
-          "enum": [
-            "video/raw",
-            "video/H264",
-            "video/vc2"
-          ]
-        },
-        {
-          "pattern": "^video\\/[^\\s\\/]+$"
-        }
-      ]
     }
   },
   "additionalProperties": false
