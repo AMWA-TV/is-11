@@ -1,6 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "required": [
+    "media_type",
+    "channel_count"
+  ],
   "properties": {
     "preference": {
       "type": "number",

@@ -1,5 +1,7 @@
 [
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 720,
     "frame_height": 400,
     "grain_rate": {
@@ -7,6 +9,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 640,
     "frame_height": 480,
     "grain_rate": {
@@ -14,6 +18,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 640,
     "frame_height": 480,
     "grain_rate": {
@@ -21,6 +27,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 640,
     "frame_height": 480,
     "grain_rate": {
@@ -28,6 +36,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 640,
     "frame_height": 480,
     "grain_rate": {
@@ -35,6 +45,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 800,
     "frame_height": 600,
     "grain_rate": {
@@ -42,6 +54,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 800,
     "frame_height": 600,
     "grain_rate": {
@@ -49,6 +63,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 800,
     "frame_height": 600,
     "grain_rate": {
@@ -56,6 +72,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 800,
     "frame_height": 600,
     "grain_rate": {
@@ -63,6 +81,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 832,
     "frame_height": 624,
     "grain_rate": {
@@ -70,6 +90,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 1024,
     "frame_height": 768,
     "grain_rate": {
@@ -77,6 +99,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 1024,
     "frame_height": 768,
     "grain_rate": {
@@ -84,6 +108,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 1024,
     "frame_height": 768,
     "grain_rate": {
@@ -91,6 +117,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 1280,
     "frame_height": 1024,
     "grain_rate": {
@@ -98,6 +126,8 @@
     }
   },
   {
+    "color_sampling": "RGB",
+    "component_depth": 8,
     "frame_width": 1152,
     "frame_height": 870,
     "grain_rate": {
