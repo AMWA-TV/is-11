@@ -33,7 +33,7 @@ mediaType: application/json
           description: Returned when success.
           body:
             example: !include ../examples/sender-get-200.json
-            type: !include schemas/sink-api-sender.json
+            type: !include schemas/sender-base.json
         404:
           description: Returned when the requested Sender ID does not exist.
     /media-profiles:
@@ -101,7 +101,7 @@ mediaType: application/json
           description: Returned when success.
           body:
             example: !include ../examples/receiver-get-200.json
-            type: !include schemas/sink-api-receiver.json
+            type: !include schemas/receiver-base.json
         404:
           description: Returned when the requested Receiver ID does not exist.
     /sinks:
@@ -131,7 +131,7 @@ mediaType: application/json
           description: Returned when success.
           body:
             example: !include ../examples/sink-get-200.json
-            type: !include schemas/sink-api-sink.json
+            type: !include schemas/sink-base.json
         404:
           description: Returned when the requested Sink ID does not exist.
     /properties:
