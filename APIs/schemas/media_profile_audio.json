@@ -47,10 +47,6 @@
         }
       ]
     },
-    "bit_depth" : {
-      "description" : "Bit depth of the audio samples",
-      "type" : "integer"
-    },
     "channel_count" : {
       "description" : "Identifies the acceptable number of channels of an audio stream. It is complementary to Receiver Caps Parameter Constraint of the same name.",
       "type" : "integer",
