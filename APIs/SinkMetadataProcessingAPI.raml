@@ -54,11 +54,6 @@ mediaType: application/json
           example: !include ../examples/media-profiles-get-200.json
           type: !include schemas/media_profiles.json
         responses:
-          200:
-            description: Returned when a request is accepted and changes are immediately applied.
-            body:
-              example: !include ../examples/media-profiles-get-200.json
-              type: !include schemas/media_profiles.json
           202:
             description: Returned when a request is accepted and changes can't be immediately applied.
             body:
