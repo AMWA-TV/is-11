@@ -67,11 +67,17 @@ mediaType: application/json
           400:
             description: >
               Returned when the media profiles are rejected due to schema validation failure or if the Device doesn't support the requested mode.
+            body:
+              type: !include schemas/error.json
           404:
             description: Returned when the requested Sender ID does not exist.
+            body:
+              type: !include schemas/error.json
           423:
             description: >
               Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
+            body:
+              type: !include schemas/error.json
           500:
             description: >
               Returned if the media profiles can't be applied due to a reason which is not related to a violation of schema.
