@@ -4,7 +4,7 @@
   "required": [
     "frame_width",
     "frame_height",
-    "frame_rate"
+    "grain_rate"
   ],
   "properties": {
     "frame_width": {
@@ -13,7 +13,7 @@
     "frame_height": {
       "type": "integer"
     },
-    "frame_rate": {
+    "grain_rate": {
       "description": "Frame rate in Hz",
       "type": "object",
       "required" : [
@@ -30,6 +30,17 @@
           "default" : 1
         }
       }
+    },
+    "interlace_mode" : {
+      "description" : "Interlaced video mode for frames",
+      "type" : "string",
+      "default": "progressive",
+      "enum" : [
+        "progressive",
+        "interlaced_tff",
+        "interlaced_bff",
+        "interlaced_psf"
+      ]
     }
   }
 }
