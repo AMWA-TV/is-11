@@ -4,7 +4,7 @@ The Sink Metadata Processing API provides a mechanism to change the settings ass
 
 ## Senders
 
-The `/media-profiles` endpoint allows the client to pass an array of [Media Profiles](1.0.%20Overview.md#media-profile) to a Sender and let the underlying implementation to choose exactly which format from the set it will use. A client can pass a single Media Profile to specify the exact format.
+The `/media-profiles` endpoint allows the client to pass an array of [Media Profiles](Overview.md#media-profile) to a Sender and let the underlying implementation to choose exactly which format from the set it will use. A client can pass a single Media Profile to specify the exact format.
 
 ### Role of Media Profiles
 
