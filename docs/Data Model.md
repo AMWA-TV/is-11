@@ -9,7 +9,7 @@ In order to ensure consistent behaviour in a facility employing this identity, s
 
 ![Extended IS-04 Model Diagram](../docs/images/is-11-data-model.png)
 
-The IS-04 heirarchy is preserved with the exception of the addition of Sender can identify an association with 0 or more Input resources and Receiver can identify an association with 0 or more Output resources.
+The IS-04 hierarchy is preserved with the exception of the addition of Sender can identify an association with 0 or more Input resources and Receiver can identify an association with 0 or more Output resources.
 
 ## Input Representation
 
