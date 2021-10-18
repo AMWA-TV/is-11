@@ -13,7 +13,7 @@ Receivers listed under IS-11 `/receivers` endpoint MUST use BCP-005-01 to expres
 
 ## Discovery
 
-The Sink Metadata Processing API should be advertised as a ‘control’ endpoint under an IS-04 NMOS device in the controls array using the `urn:x-nmos:control:sink-mp` type. For consistency the href URL offered should always end with a trailing slash.
+The Sink Metadata Processing API should be advertised as a ‘control’ endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:sink-mp` type. For consistency the href URL offered should always end with a trailing slash.
 
 Example:
 
@@ -53,6 +53,6 @@ The UUIDs used to advertise Senders and Receivers in the Sink Metadata Processin
 
 ## Version Increments
 
-In order to prevent unnecessary polling of the Sink Metadata Processing API, changes to Sinks are signalled via the IS-04 versioning mechanism. When the Sink parameters of a Receiver are modified, or when set of Sinks associated with the Receiver is changed, the `version` attribute of the relevant IS-04 Receiver MUST be incremented.
+In order to prevent unnecessary polling of the Sink Metadata Processing API, changes to Inputs and Outputs are signalled via the IS-04 versioning mechanism. When the Input/Output parameters of a Sender/Receiver are modified, or when set of Inputs/Outputs associated with the Sender/Receiver is changed, the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
 
-If `/media-profiles` PUT or DELETE operation applied to a Sender causes change of a Source or a Flow, their versions MUST be incremented as well. If such change causes subsequent change of Connection API `transport_file`, version of the relevant IS-04 Sender MUST be incremented as IS-05 dictates.
+If `/media-profiles` PUT or DELETE operation applied to a Sender causes change of Inputs, Source or Flow of the Sender, their versions MUST be incremented as well. If such change causes subsequent change of Connection API `transport_file`, version of the relevant IS-04 Sender MUST be incremented as IS-05 dictates.

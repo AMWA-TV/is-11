@@ -9,7 +9,7 @@
 
 ## Introduction
 
-AMWA IS-11 specifies how how Sources, Flows and Senders within an NMOS compatible system can be reconfigured and EDIDs of Sinks associated with Receivers can be obtained.
+AMWA IS-11 specifies how Sources, Flows and Senders within an NMOS compatible system can be reconfigured and EDIDs of Outputs associated with Receivers can be obtained.
 
 The Specification includes:
 
@@ -31,13 +31,17 @@ and "OPTIONAL" in this documentation set are to be interpreted as described in [
 
 The terms 'Node', 'Device', 'Sender' and 'Receiver' are used extensively in this documenation set. The [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/2.0._Technical_Overview.html) provides an outline of these terms, and IS-04 provides corresponding schema definitions.
 
-### Sink
+### Input
 
-A media consuming unit associated with an IS-04 Receiver. Sink is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An input of a Sender. Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+
+### Output
+
+A media consuming unit associated with an IS-04 Receiver. Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Media Profile
 
-Description of a format that is acceptable for all Receivers implied to be a part of a connection. A Media Profile consists of separate media parameters required to configure a Sender, Flow, and/or Source. Media profiles follow the same EDID mapping as [BCP-005-1 EDID to Receiver Capabilities][BCP-005-1].
+Description of a format that is acceptable for all Receivers implied to be a part of a connection. A Media Profile consists of separate media parameters required to configure Input(s) of a Sender, and, subsequently, a Flow and a Source of the Sender. Media Profiles follow the same EDID mapping as [BCP-005-1 EDID to Receiver Capabilities][BCP-005-1].
 
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
 [BCP-005-1]: https://specs.amwa.tv/bcp-005-01 "AMWA BCP-005-01 NMOS EDID to Receiver Capabilities Mapping"

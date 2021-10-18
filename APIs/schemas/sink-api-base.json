@@ -6,12 +6,13 @@
   "items": {
     "type": "string",
     "enum": [
+      "inputs/",
+      "outputs/",
       "senders/",
-      "receivers/",
-      "sinks/"
+      "receivers/"
     ]
   },
-  "minItems": 3,
-  "maxItems": 3,
+  "minItems": 4,
+  "maxItems": 4,
   "uniqueItems": true
 }

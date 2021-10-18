@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Describes an Input",
+  "title": "Input resource",
+  "allOf": [
+    { "$ref": "resource_core.json" }
+  ]
+}

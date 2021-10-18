@@ -9,8 +9,8 @@ This repository holds the source for this Specification, part of the family of [
 
 ### What does it do?
 
-- Provides infomation about physical devices called Sinks associated with Receivers
-- Allows to configure media parameters of Senders basing on information about Sinks
+- Introduces Inputs associated with Sender and Outputs associated with Receivers
+- Allows to configure media parameters of Senders through its Inputs basing on information about Outputs of Receivers
 
 ### Why does it matter?
 
@@ -19,7 +19,7 @@ This repository holds the source for this Specification, part of the family of [
 ### How does it work?
 
 - An endpoint on the side of Senders is introduced for media parameters control
-- Receivers are followed with endpoints which list Sinks and describe them in detail
+- Senders and Receivers are followed with endpoints which list Inputs and Outputs respectively and describe them in detail
 
 <!-- INTRO-END -->
 

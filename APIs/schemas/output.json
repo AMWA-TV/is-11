@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "description": "Describes a sink",
-  "title": "Sink resource",
+  "description": "Describes an Output",
+  "title": "Output resource",
   "allOf": [
     { "$ref": "resource_core.json" },
     { "$ref": "edid.json" }
