@@ -38,7 +38,7 @@ mediaType: application/json
           description: Returned when the requested Sender ID does not exist.
     /inputs:
       get:
-        description: List of Inputs connected to the Sender.
+        description: List of Inputs associated with the Sender.
         responses:
           200:
             description: Returned when success.
@@ -119,7 +119,7 @@ mediaType: application/json
       get:
         responses:
           200:
-            description: List of Outputs connected to the Receiver.
+            description: List of Outputs associated with the Receiver.
             body:
               example: !include ../examples/resourcelist-get-200.json
               type: !include schemas/resource-list.json

@@ -10,7 +10,7 @@ This repository holds the source for this Specification, part of the family of [
 ### What does it do?
 
 - Introduces Inputs associated with Sender and Outputs associated with Receivers
-- Allows to configure media parameters of Senders through its Inputs basing on information about Outputs of Receivers
+- Allows the configuration of media parameters of Senders and Inputs using information coming from Receivers and Outputs.
 
 ### Why does it matter?
 

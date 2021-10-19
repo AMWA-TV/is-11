@@ -55,4 +55,4 @@ The UUIDs used to advertise Senders and Receivers in the Sink Metadata Processin
 
 In order to prevent unnecessary polling of the Sink Metadata Processing API, changes to Inputs and Outputs are signalled via the IS-04 versioning mechanism. When the Input/Output parameters of a Sender/Receiver are modified, or when set of Inputs/Outputs associated with the Sender/Receiver is changed, the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
 
-If `/media-profiles` PUT or DELETE operation applied to a Sender causes change of Inputs, Source or Flow of the Sender, their versions MUST be incremented as well. If such change causes subsequent change of Connection API `transport_file`, version of the relevant IS-04 Sender MUST be incremented as IS-05 dictates.
+If `/media-profiles` PUT or DELETE operation applied to a Sender causes a change of Inputs, Source or Flow, their versions MUST be incremented as well. If such a change causes subsequent changes to the Connection API `transport_file`, version of the relevant IS-04 Sender MUST be incremented as IS-05 dictates.

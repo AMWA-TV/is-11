@@ -6,7 +6,7 @@ The Sink Metadata Processing API provides a mechanism to change the settings ass
 
 The `/inputs` endpoint returns a list of IDs corresponding to Inputs associated to the specific Sender. If this list changes then the associated [IS-04][IS-04] Sender MUST update its version (in registered mode this MUST update the registered resource).
 
-The `/media-profiles` endpoint allows the client to pass an array of [Media Profiles](Overview.md#media-profile) to a Sender with subsequent passing to Inputs. The Inputs let the Source and Flow to choose exactly which format from the set they will use. A client can pass a single Media Profile to specify the exact format.
+The `/media-profiles` endpoint allows the client to pass an array of [Media Profiles](Overview.md#media-profile) to a Sender. The sender can then make these restrictions visible to its associated Inputs. The Inputs let the Source and Flow to choose exactly which format from the set they will use. A client can pass a single Media Profile to specify the exact format.
 
 ### Role of Media Profiles
 
