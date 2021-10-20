@@ -33,11 +33,11 @@ The terms 'Node', 'Device', 'Sender' and 'Receiver' are used extensively in this
 
 ### Input
 
-An input of a Sender. Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+A media producing unit which may be associated with one or multiple IS-04 Senders. Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Output
 
-A media consuming unit associated with an IS-04 Receiver. Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+A media consuming unit which may be associated with one or multiple IS-04 Receivers. Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Media Profile
 
