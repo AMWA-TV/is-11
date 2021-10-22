@@ -9,7 +9,7 @@
 
 ## Introduction
 
-AMWA IS-11 specifies how Sources, Flows and Senders within an NMOS compatible system can be reconfigured and EDIDs of Outputs associated with Receivers can be obtained.
+The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. Receiver provides Receiver Capabilities and exposes its Outputs each of which may have EDID. Sender has Media Profiles, which restrict media formats allowed for sending, and Inputs each of which may have an effective EDID to present to its upstream media producing unit.
 
 The Specification includes:
 
@@ -33,11 +33,11 @@ The terms 'Node', 'Device', 'Sender' and 'Receiver' are used extensively in this
 
 ### Input
 
-A media producing unit which may be associated with one or multiple IS-04 Senders. Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Input is a unit consuming media data for providing it to Sender(s). Input may present metadata about media consuming capabilities to its upstream counterpart. Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Output
 
-A media consuming unit which may be associated with one or multiple IS-04 Receivers. Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Output is a unit producing media data provided by Receiver(s). Output may consume metadata about the media consuming capabilities from its downstream counterpart. Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Media Profile
 

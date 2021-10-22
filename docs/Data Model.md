@@ -1,6 +1,5 @@
 # Data Model: Identifier Mapping
 
-[IS-04][IS-04] uses a logical data model which is extended in this specification with the addition of the Inputs and Outputs resources.
 All the language in IS-04 takes precedence.
 
 In order to ensure consistent behaviour in a facility employing this identity, some rules apply when generating and handling identifiers.

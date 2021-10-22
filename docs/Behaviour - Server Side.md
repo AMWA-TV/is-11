@@ -25,7 +25,7 @@ When a Sender is in this state, ie. responding with a `205 Reset Content`, this 
 ### Request Methods
 
 - A `GET` request returns the last successfully applied Media Profiles array.
-- A `PUT` request MUST be validated and if the Sender supports the proposed Media Profile, the Inputs are started to be reconfigured which causes updating of the corresponding Flow, Source, and/or Sender properties. If successful, the operation MUST return the accepted Media Profiles array, otherwise an error MUST be returned and nothing changed.
+- A `PUT` request MUST be validated and if the Sender supports the proposed Media Profiles, the associated Inputs may be reconfigured to adhere to the Media Profiles constraints, which may eventually cause the update of the corresponding Flows, Sources, and Sender. If successful, the operation MUST return the accepted Media Profiles array, otherwise an error MUST be returned and nothing changed.
 - A `DELETE` request MUST clear the last successfully applied Media Profiles array. It turns Media Profiles to the initial state which exclude Sink Metadata Processing out of the process. It is RECOMMENDED to be performed by a client after disconnecting all Receivers from an according Sender.
 
 When the `/media-profiles` structure changes as a consequence of PUT or DELETE (request is validated and accepted by the API server), then the associated [IS-04][IS-04] Sender MUST have its version updated (in registered mode this MUST update the registered resource).
