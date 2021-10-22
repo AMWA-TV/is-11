@@ -8,21 +8,19 @@ In order to ensure consistent behaviour in a facility employing this identity, s
 
 ![Extended IS-04 Model Diagram](../docs/images/is-11-data-model.png)
 
-The IS-04 hierarchy is preserved. Additionally, Senders can be associated with 0 or more Input resources and Receiver can be associated with 0 or more Output resources.
+The IS-04 hierarchy is preserved. Additionally, Senders can be associated with 1 or more Input resources and Receiver can be associated with 1 or more Output resources.
 
 ## Input Representation
 
 A new Input is created in the following circumstance:
 
-- At the presence of an IS-11 compatible Sender
-- At the point of origin for a baseband connection
+- At the presence of a physical source device which reads EDID
 
 ## Output Representation
 
 A new Output is created in the following circumstance:
 
-- At the presence of a physical display
-- At the point of capture for a baseband connection
+- At the presence of a physical sink device which provides EDID
 
 ## Identifier Persistence
 
@@ -72,5 +70,3 @@ It is suggested that Output IDs be generated using the combination of:
 
 - The parent Receiver ID
 - A connection identifier such as a channel name, index or similar
-
-[IS-04]: https://specs.amwa.tv/is-04/
