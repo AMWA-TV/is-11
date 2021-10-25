@@ -8,7 +8,7 @@ mediaType: application/json
 /:
   displayName: Base
   get:
-    description: List of resources available from this API - senders, receivers, and sinks. Each are compulsory parts of the spec.
+    description: List of resources available from this API - Inputs, Outputs, Senders, and Receivers. Each are compulsory parts of the spec.
     responses:
       200:
         body:
@@ -36,6 +36,17 @@ mediaType: application/json
             type: !include schemas/sender-base.json
         404:
           description: Returned when the requested Sender ID does not exist.
+    /inputs:
+      get:
+        description: List of Inputs associated with the Sender.
+        responses:
+          200:
+            description: Returned when success.
+            body:
+              example: !include ../examples/resourcelist-get-200.json
+              type: !include schemas/resource-list.json
+          404:
+            description: Returned when the requested Sender ID does not exist.
     /media-profiles:
       get:
         description: Show the last media profile array put before.
@@ -104,47 +115,95 @@ mediaType: application/json
             type: !include schemas/receiver-base.json
         404:
           description: Returned when the requested Receiver ID does not exist.
-    /sinks:
+    /outputs:
       get:
         responses:
           200:
-            description: List of Sinks connected to the Receiver.
+            description: List of Outputs associated with the Receiver.
             body:
-              example: !include ../examples/idlist-get-200.json
-              type: !include schemas/id-list.json
+              example: !include ../examples/resourcelist-get-200.json
+              type: !include schemas/resource-list.json
           404:
             description: Returned when the requested Receiver ID does not exist.
-/sinks:
-  displayName: Sinks
+/inputs:
+  displayName: Inputs
   get:
     responses:
       200:
-        description: List of Sinks connected to the Receiver.
+        description: List of Inputs.
         body:
           example: !include ../examples/resourcelist-get-200.json
           type: !include schemas/resource-list.json
-  /{sinkId}:
+  /{inputId}:
     get:
-      description: List all the API endpoints for a single Sink.
+      description: List all the API endpoints for a single Input.
       responses:
         200:
           description: Returned when success.
           body:
-            example: !include ../examples/sink-get-200.json
-            type: !include schemas/sink-base.json
+            example: !include ../examples/input-output-get-200.json
+            type: !include schemas/input-output-base.json
         404:
-          description: Returned when the requested Sink ID does not exist.
+          description: Returned when the requested Input ID does not exist.
     /properties:
       get:
-        description: Return properties of Sink.
+        description: Return properties of the Input.
         responses:
           200:
             description: Returned when success.
             body:
-              example: !include ../examples/sink-properties-get-200.json
-              type: !include schemas/sink.json
+              example: !include ../examples/input-properties-get-200.json
+              type: !include schemas/input.json
           404:
-            description: Returned when the requested Sink ID does not exist.
+            description: Returned when the requested Input ID does not exist.
+    /edid:
+      get:
+        description: >
+          Redirects to the location of the effective EDID file or returns the effective EDID file directly.
+          Check HTTP response code to determine which mode of operation is in use. When returning the effective EDID file
+          directly ensure that the `Content-Type` entity header is correctly set.
+        responses:
+          200:
+            description: The effective EDID file itself will be served
+            body:
+              application/octet-stream:
+                type: file
+          307:
+            description: A temporary redirect to the effective EDID file
+          404:
+            description: >
+              Returned when the effective EDID file or the requested Input ID doesn't exist.
+/outputs:
+  displayName: Outputs
+  get:
+    responses:
+      200:
+        description: List of Outputs.
+        body:
+          example: !include ../examples/resourcelist-get-200.json
+          type: !include schemas/resource-list.json
+  /{outputId}:
+    get:
+      description: List all the API endpoints for a single Output.
+      responses:
+        200:
+          description: Returned when success.
+          body:
+            example: !include ../examples/input-output-get-200.json
+            type: !include schemas/input-output-base.json
+        404:
+          description: Returned when the requested Output ID does not exist.
+    /properties:
+      get:
+        description: Return properties of the Output.
+        responses:
+          200:
+            description: Returned when success.
+            body:
+              example: !include ../examples/output-properties-get-200.json
+              type: !include schemas/output.json
+          404:
+            description: Returned when the requested Output ID does not exist.
     /edid:
       get:
         description: >
@@ -161,4 +220,4 @@ mediaType: application/json
             description: A temporary redirect to the EDID file
           404:
             description: >
-              Returned when the EDID file or the requested Sink ID doesn't exist.
+              Returned when the EDID file or the requested Output ID doesn't exist.
