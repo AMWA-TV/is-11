@@ -47,52 +47,58 @@ mediaType: application/json
               type: !include schemas/resource-list.json
           404:
             description: Returned when the requested Sender ID does not exist.
-    /media-profiles:
+    /constraints:
       get:
-        description: Show the last media profile array put before.
+        description: Show the last applied Constraints.
         responses:
           200:
             body:
-              example: !include ../examples/media-profiles-get-200.json
-              type: !include schemas/media_profiles.json
+              example: !include ../examples/constraints-get-200.json
+              type: !include schemas/constraints.json
           205:
             description: Denotes an external change occurred which violated the previous Media Profiles.
           404:
             description: Returned when the requested Sender ID does not exist.
       put:
-        description: Put desired media profiles.
+        description: Replace previous Constraints with new ones.
         body:
-          example: !include ../examples/media-profiles-get-200.json
-          type: !include schemas/media_profiles.json
+          example: !include ../examples/constraints-get-200.json
+          type: !include schemas/constraints.json
         responses:
           200:
             description: Returns when success.
             body:
-              example: !include ../examples/media-profiles-get-200.json
-              type: !include schemas/media_profiles.json
+              example: !include ../examples/constraints-get-200.json
+              type: !include schemas/constraints.json
           400:
             description: >
-              Returned when the media profiles are rejected due to schema validation failure or if the Device doesn't support the requested mode.
+              Returned when the Constraints are rejected due to schema validation failure or if the Sender isn't capable to adhere to the Constraints.
           404:
             description: Returned when the requested Sender ID does not exist.
           423:
             description: >
-              Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
+              Returned when the Constraints can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
           500:
             description: >
-              Returned if the media profiles can't be applied due to a reason which is not related to a violation of schema.
+              Returned if the Constraints can't be applied due to a reason which is not related to a violation of schema.
             body:
               type: !include schemas/error.json
       delete:
-        description: Delete the last media profile array put before.
+        description: Delete the active Constraints.
         responses:
-          204:
-            description: Returned when success. No body is included.
+          200:
+            description: Returns when success.
+            body:
+              example: !include ../examples/empty-constraints-get-200.json
+              type: !include schemas/empty_constraints.json
           404:
             description: Returned when the requested Sender ID does not exist.
+          423:
+            description: >
+              Returned when the Constraints can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
           500:
             description: >
-              Returned if the media profiles can't delete due to a reason which is not related to a violation of schema.
+              Returned if the Constraints can't deleted due to a reason which is not related to a violation of schema.
             body:
               type: !include schemas/error.json
 /receivers:
