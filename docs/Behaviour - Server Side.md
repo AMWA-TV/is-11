@@ -1,4 +1,6 @@
-# Constraints of Sender
+# Behaviour: Server Side
+
+## Constraints of Sender
 
 The initial state of Constraints of a Sender MUST be an empty `constraint_sets` array. This state indicates a Sender is unconstrained. Creating a connection with such a Sender via [IS-05][IS-05] is not impacted by IS-11.
 
@@ -18,17 +20,17 @@ When a Sender is in this state, it MUST NOT allow [IS-05][IS-05] activations.
 - `PUT` request MUST be validated and if the Sender is capable to adhere the proposed Constraints, the associated Inputs may be reconfigured, which may eventually cause the update of the corresponding Flows, Sources, and Sender. If successful, the operation MUST return the accepted Constraints, otherwise an error MUST be returned and nothing changed.
 - `DELETE` request MUST clear Constraints. It turns the Sender to the initial state which excludes IS-11 out of the process.
 
-# Receivers
+## Receivers
 
 If an active Receiver becomes unable to handle Flow, it is REQUIRED to take the following actions:
 - MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
 - MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
 
-# Inputs
+## Inputs
 
 The `/edid` endpoint allows a client to download the effective EDID if it exists. If the EDID information for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
-# Outputs
+## Outputs
 
 The `/edid` endpoint allows a client to download the binary EDID if it exists. If the EDID information for the Output changes and it is associated with any Receivers, then all of the Receivers in question MUST update their versions (in registered mode this MUST update the registered resources).
 
