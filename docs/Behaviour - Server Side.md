@@ -6,11 +6,12 @@ The initial state of Constraints of a Sender MUST be an empty `constraint_sets` 
 
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
-Once Constraints are accepted, a Flow and a Source of the specific Sender MUST NOT break the Constraints. This commitment MUST be adhered to when an external change (i.e. not from the `/constraints` endpoint) modifies any aspect of the stream. If the change does not satisfy the Constraints, the Sender MUST NOT transmit the signal over the network. The Sender is REQUIRED to take the following actions:
+Once a Sender accepts Constraints, this Sender, the Flow associated with this Sender and the Source associated with this Flow MUST satisfy the Constraints when the Sender is active. At any time if the Source, the Flow and the active Sender cannot satisfy the Constraints, the Sender MUST NOT transmit the Flow over the network. The Sender is REQUIRED to take the following actions:
 
 - MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
 - MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
-- MUST respond with `205 Reset Content` when answering `GET /constraints` to indicate it is no longer following or adhering to the Constraints. This response SHOULD persist until the next valid `PUT` or `DELETE /constraints` request or an external change which leads to the Sender adheres the Constraints.
+
+Regardless whether a constrained Sender is active, if this Sender, the Flow associated with this Sender or the Source associated with this Flow does not satisfy the Constraints, Sink Metadata Processing API MUST respond with `205 Reset Content` to `GET /constraints` requests. This response SHOULD persist until the Source, the Flow and the Sender satisfy the Constraints.
 
 When a Sender is in this state, it MUST NOT allow [IS-05][IS-05] activations.
 
