@@ -2,7 +2,7 @@
 
 ## Constraints of Sender
 
-The initial state of Constraints of a Sender MUST be an empty `constraint_sets` array. This state indicates a Sender is unconstrained. Creating a connection with such a Sender via [IS-05][IS-05] is not impacted by IS-11.
+The initial state of Constraints of a Sender MUST be an empty `constraint_sets` array. This state indicates a Sender is unconstrained.
 
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
