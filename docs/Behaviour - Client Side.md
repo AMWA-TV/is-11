@@ -2,7 +2,7 @@
 
 ## Constraints of Sender
 
-Before making an [IS-05][IS-05] connection, NMOS Controller chooses Receivers intended to be a part of this connection. If these Receivers are managed with IS-11, NMOS Controller MUST gather their Receiver Capabilities and make such intersection of them that they can be utilized for building Constraints satisfying all the Receivers. After that NMOS Controller MUST `PUT /constraints` and make the IS-05 connection if succeed. After breaking this connection via IS-05, NMOS Controller is RECOMMENDED to `DELETE /constraints`.
+Before making an [IS-05][IS-05] connection, NMOS Controller chooses Receivers intended to be a part of this connection. If these Receivers are managed with IS-11, NMOS Controller MUST gather their Receiver Capabilities and make such intersection of them that they can be utilized for building Constraints satisfying all the Receivers. After that NMOS Controller MUST `PUT /constraints` and make the IS-05 connection if contraints have been applied succesfully. After breaking this connection via IS-05, NMOS Controller is RECOMMENDED to `DELETE /constraints`.
 
 If multiple Receivers have equal Constraint Sets, NMOS Controller MUST take only one of them. If they differ only in `urn:x-nmos:cap:meta:preference`, then one with the highest priority MUST be taken.
 

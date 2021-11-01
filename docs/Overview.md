@@ -61,7 +61,7 @@ Each Input has `properties` resource, which has metadata about this Input, and `
 
 ### Outputs
 
-Each Output has `properties` resource, which has metadata about this Output, and `edid` resource, which keeps EDID presented to this Output by its downstream counterpart.
+Each Output has a `properties` resource, which has metadata about this Output, and an `edid` resource, which holds the EDID presented to this Output by its downstream counterpart.
 
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
 [IS-04]: https://specs.amwa.tv/is-04 "IS-04 NMOS Discovery & Registration"
