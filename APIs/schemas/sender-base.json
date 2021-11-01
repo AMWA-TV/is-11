@@ -7,7 +7,7 @@
     "type": "string",
     "enum": [
       "inputs/",
-      "media-profiles/"
+      "constraints/"
     ]
   },
   "minItems": 2,

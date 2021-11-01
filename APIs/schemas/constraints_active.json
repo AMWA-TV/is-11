@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "Describes empty Constraints",
+  "description": "Describes Constraints",
   "title": "Constraints",
   "required": [
     "constraint_sets"
@@ -10,10 +10,7 @@
       "type": "array",
       "items": {
         "$ref": "https://raw.githubusercontent.com/AMWA-TV/nmos-receiver-capabilities/v1.0.0/APIs/schemas/constraint_set.json"
-      },
-      "minItems": 0,
-      "maxItems": 0
+      }
     }
   }
 }
-  

@@ -1,0 +1,21 @@
+{
+  "parameter_constraints":[
+     "urn:x-nmos:cap:meta:preference",
+     "urn:x-nmos:cap:meta:enabled",
+     "urn:x-nmos:cap:format:media_type",
+     "urn:x-nmos:cap:format:grain_rate",
+     "urn:x-nmos:cap:format:frame_width",
+     "urn:x-nmos:cap:format:frame_height",
+     "urn:x-nmos:cap:format:interlace_mode",
+     "urn:x-nmos:cap:format:colorspace",
+     "urn:x-nmos:cap:format:color_sampling",
+     "urn:x-nmos:cap:format:component_depth",
+     "urn:x-nmos:cap:format:channel_count",
+     "urn:x-nmos:cap:format:sample_rate",
+     "urn:x-nmos:cap:format:sample_depth",
+     "urn:x-nmos:cap:format:event_type",
+     "urn:x-nmos:cap:transport:packet_time",
+     "urn:x-nmos:cap:transport:max_packet_time",
+     "urn:x-nmos:cap:transport:st2110_21_sender_type"
+  ]
+}
