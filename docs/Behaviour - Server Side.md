@@ -18,7 +18,7 @@ When a Sender is in this state, it MUST NOT allow [IS-05][IS-05] activations.
 ## Request Methods
 
 - `GET` request returns the last successfully applied Constraints.
-- `PUT` request MUST be validated and if the Sender is capable to adhere the proposed Constraints, the associated Inputs may be reconfigured, which may eventually cause the update of the corresponding Flows, Sources, `/transportfile` and Sender. If successful, the operation MUST return the accepted Constraints, otherwise an error MUST be returned and nothing changed.
+- `PUT` request MUST be validated and if the Sender supports Parameter Constraints used in the proposed Constraints and is capable to adhere at least one of the Constraint Sets, then the associated Inputs may be reconfigured, which may eventually cause the update of the corresponding Flows, Sources, `/transportfile` and Sender. If successful, the operation MUST return the accepted Constraints, otherwise an error MUST be returned and nothing changed.
 - `DELETE` request MUST clear Constraints. It turns the Sender to the initial state which excludes IS-11 out of the process.
 
 ## Receivers

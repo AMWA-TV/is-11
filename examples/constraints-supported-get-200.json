@@ -1,5 +1,6 @@
 {
-  "parameter_constraints":[
+  "parameter_constraints": [
+    "urn:x-nmos:cap:meta:label",
      "urn:x-nmos:cap:meta:preference",
      "urn:x-nmos:cap:meta:enabled",
      "urn:x-nmos:cap:format:media_type",
