@@ -14,7 +14,6 @@ mediaType: application/json
         body:
           example: !include ../examples/base-get-200.json
           type: !include schemas/sink-api-base.json
-
 /senders:
   displayName: Senders
   get:
@@ -43,10 +42,12 @@ mediaType: application/json
           200:
             description: Returned when success.
             body:
-              example: !include ../examples/resourcelist-get-200.json
-              type: !include schemas/resource-list.json
+              example: !include ../examples/uuidlist-get-200.json
+              type: !include schemas/uuid-list.json
           404:
             description: Returned when the requested Sender ID does not exist.
+            body:
+              type: !include schemas/error.json
     /constraints:
       get:
         description: Constraints root
@@ -68,6 +69,8 @@ mediaType: application/json
               description: Denotes an external change occurred which led to the current Constraints violation.
             404:
               description: Returned when the requested Sender ID does not exist.
+              body:
+                type: !include schemas/error.json
         put:
           description: Replace previous Constraints with new ones.
           body:
@@ -82,14 +85,22 @@ mediaType: application/json
             400:
               description: >
                 Returned when the Constraints are rejected due to schema validation failure or if the Sender doesn't support Parameter Constraints used.
+              body:
+                type: !include schemas/error.json
             404:
               description: Returned when the requested Sender ID does not exist.
+              body:
+                type: !include schemas/error.json
             422:
               description: >
                 Returned when the Sender isn't capable to adhere to the Constraints although the request is valid and the Sender supports all the Parameter Constraints used.
+              body:
+                type: !include schemas/error.json
             423:
               description: >
                 Returned when the Constraints can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
+              body:
+                type: !include schemas/error.json
             500:
               description: >
                 Returned if the Constraints can't be applied due to a reason which is not related to a violation of schema.
@@ -105,9 +116,13 @@ mediaType: application/json
                 type: !include schemas/empty_constraints_active.json
             404:
               description: Returned when the requested Sender ID does not exist.
+              body:
+                type: !include schemas/error.json
             423:
               description: >
                 Returned when the Constraints can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
+              body:
+                type: !include schemas/error.json
             500:
               description: >
                 Returned if the Constraints can't be deleted due to a reason which is not related to a violation of schema.
@@ -142,22 +157,26 @@ mediaType: application/json
             type: !include schemas/receiver-base.json
         404:
           description: Returned when the requested Receiver ID does not exist.
+          body:
+            type: !include schemas/error.json
     /outputs:
       get:
         responses:
           200:
             description: List of Outputs associated with the Receiver.
             body:
-              example: !include ../examples/resourcelist-get-200.json
-              type: !include schemas/resource-list.json
+              example: !include ../examples/uuidlist-get-200.json
+              type: !include schemas/uuid-list.json
           404:
             description: Returned when the requested Receiver ID does not exist.
+            body:
+              type: !include schemas/error.json
 /inputs:
   displayName: Inputs
   get:
     responses:
       200:
-        description: List of Inputs.
+        description: List of Inputs.  All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
         body:
           example: !include ../examples/resourcelist-get-200.json
           type: !include schemas/resource-list.json
@@ -172,6 +191,8 @@ mediaType: application/json
             type: !include schemas/input-output-base.json
         404:
           description: Returned when the requested Input ID does not exist.
+          body:
+            type: !include schemas/error.json
     /properties:
       get:
         description: Return properties of the Input.
@@ -183,6 +204,8 @@ mediaType: application/json
               type: !include schemas/input.json
           404:
             description: Returned when the requested Input ID does not exist.
+            body:
+              type: !include schemas/error.json
     /edid:
       get:
         description: >
@@ -205,7 +228,7 @@ mediaType: application/json
   get:
     responses:
       200:
-        description: List of Outputs.
+        description: List of Outputs. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
         body:
           example: !include ../examples/resourcelist-get-200.json
           type: !include schemas/resource-list.json
@@ -231,6 +254,8 @@ mediaType: application/json
               type: !include schemas/output.json
           404:
             description: Returned when the requested Output ID does not exist.
+            body:
+              type: !include schemas/error.json
     /edid:
       get:
         description: >
@@ -244,7 +269,9 @@ mediaType: application/json
               application/octet-stream:
                 type: file
           307:
-            description: A temporary redirect to the EDID file
+            description: A temporary redirect to the EDID file.
           404:
             description: >
               Returned when the EDID file or the requested Output ID doesn't exist.
+            body:
+              type: !include schemas/error.json
