@@ -21,7 +21,7 @@ mediaType: application/json
     description: Sender root
     responses:
       200:
-        description: List EDID Processing compatible Senders. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
+        description: List Senders managed with IS-11. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
         body:
           example: !include ../examples/resourcelist-get-200.json
           type: !include schemas/resource-list.json
@@ -47,58 +47,85 @@ mediaType: application/json
               type: !include schemas/resource-list.json
           404:
             description: Returned when the requested Sender ID does not exist.
-    /media-profiles:
+    /constraints:
       get:
-        description: Show the last media profile array put before.
+        description: Constraints root
         responses:
           200:
+            description: Returned when success.
             body:
-              example: !include ../examples/media-profiles-get-200.json
-              type: !include schemas/media_profiles.json
-          205:
-            description: Denotes an external change occurred which violated the previous Media Profiles.
-          404:
-            description: Returned when the requested Sender ID does not exist.
-      put:
-        description: Put desired media profiles.
-        body:
-          example: !include ../examples/media-profiles-get-200.json
-          type: !include schemas/media_profiles.json
-        responses:
-          200:
-            description: Returns when success.
-            body:
-              example: !include ../examples/media-profiles-get-200.json
-              type: !include schemas/media_profiles.json
-          400:
-            description: >
-              Returned when the media profiles are rejected due to schema validation failure or if the Device doesn't support the requested mode.
-          404:
-            description: Returned when the requested Sender ID does not exist.
-          423:
-            description: >
-              Returned when the media profiles can't be applied temporarily (e.g. due to an existing connection).
-          500:
-            description: >
-              Returned if the media profiles can't be applied due to a reason which is not related to a violation of schema.
-            body:
-              type: !include schemas/error.json
-      delete:
-        description: Delete the last media profile array put before.
-        responses:
-          204:
-            description: Returned when success. No body is included.
-          404:
-            description: Returned when the requested Sender ID does not exist.
-          500:
-            description: >
-              Returned if the media profiles can't delete due to a reason which is not related to a violation of schema.
-            body:
-              type: !include schemas/error.json
+              example: !include ../examples/constraints-get-200.json
+              type: !include schemas/constraints-base.json
+      /active:
+        get:
+          description: Show the last applied Constraints.
+          responses:
+            200:
+              body:
+                example: !include ../examples/constraints-active-get-200.json
+                type: !include schemas/constraints_active.json
+            205:
+              description: Denotes an external change occurred which led to the current Constraints violation.
+            404:
+              description: Returned when the requested Sender ID does not exist.
+        put:
+          description: Replace previous Constraints with new ones.
+          body:
+            example: !include ../examples/constraints-active-get-200.json
+            type: !include schemas/constraints_active.json
+          responses:
+            200:
+              description: Returns when success.
+              body:
+                example: !include ../examples/constraints-active-get-200.json
+                type: !include schemas/constraints_active.json
+            400:
+              description: >
+                Returned when the Constraints are rejected due to schema validation failure or if the Sender doesn't support Parameter Constraints used.
+            404:
+              description: Returned when the requested Sender ID does not exist.
+            422:
+              description: >
+                Returned when the Sender isn't capable to adhere to the Constraints although the request is valid and the Sender supports all the Parameter Constraints used.
+            423:
+              description: >
+                Returned when the Constraints can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
+            500:
+              description: >
+                Returned if the Constraints can't be applied due to a reason which is not related to a violation of schema.
+              body:
+                type: !include schemas/error.json
+        delete:
+          description: Delete the active Constraints.
+          responses:
+            200:
+              description: Returns when success.
+              body:
+                example: !include ../examples/empty-constraints-active-get-200.json
+                type: !include schemas/empty_constraints_active.json
+            404:
+              description: Returned when the requested Sender ID does not exist.
+            423:
+              description: >
+                Returned when the Constraints can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
+            500:
+              description: >
+                Returned if the Constraints can't be deleted due to a reason which is not related to a violation of schema.
+              body:
+                type: !include schemas/error.json
+      /supported:
+        get:
+          description: Lists Constraints supported by the Sender
+          responses:
+            200:
+              description: Returned when success.
+              body:
+                example: !include ../examples/constraints-supported-get-200.json
+                type: !include schemas/constraints_supported.json
 /receivers:
   displayName: Receivers
   get:
-    description: List Sink processing compatible Receivers. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
+    description: List Receivers managed with IS-11. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down.
     responses:
       200:
         body:

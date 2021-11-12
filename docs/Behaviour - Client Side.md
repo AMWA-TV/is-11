@@ -1,15 +1,19 @@
-# PUTting Media Profiles
+# Behaviour: Client Side
 
-Before making an IS-05 connection, NMOS Controller chooses Receivers intended to be a part of this connection. If they are IS-11 compatible Receivers, NMOS Controller MUST gather their Receiver Capabilities and make such intersection of them that they can be utilized for building Media Profiles satisfying all the Receivers. After that NMOS Controller MUST PUT /media-profiles and make the IS-05 connection if succeed. After breaking this connection via IS-05, NMOS Controller is RECOMMENDED to DELETE /media-profiles.
+## Constraints of Sender
 
-If multiple Receivers have an equal Constraint Set, NMOS Controller MUST take only one of them. If they differ only in `urn:x-nmos:cap:meta:preference`, then one with the highest priority MUST be taken.
+Before making an [IS-05][IS-05] connection, NMOS Controller chooses a Sender and Receivers. Then NMOS Controller MUST `GET /constraints/supported` from the Sender, collect Receiver Capabilities from the Receivers and make such intersection of them that they can be utilized for building Constraints satisfying all the Receivers and using Parameter Constraints supported by the Sender. If the Sender supports less Parameter Constraints than used in the Receiver Capabilities, the NMOS Controller SHOULD inform the user about it. After that NMOS Controller MUST `PUT /constraints` and make the IS-05 connection if contraints have been applied succesfully. After breaking this connection via IS-05, NMOS Controller is RECOMMENDED to `DELETE /constraints`.
 
-# Dynamic format changes on Sender
+If multiple Receivers have equal Constraint Sets, NMOS Controller MUST take only one of them. If they differ only in `urn:x-nmos:cap:meta:preference`, then one with the highest priority MUST be taken.
 
-## Changes which break Media Profiles
+## Dynamic format changes on Sender
 
-NMOS Controller MUST track Sender's `subscription`'s `active` property during the IS-05 connection. If it became `false` unexpectedly, NMOS Controller SHOULD GET `/media-profiles` to figure out the reason of breaking the connection. If the request returns `205 Reset Content`, NMOS Controller SHOULD either disconnect all the Receivers or PUT `/media-profiles` once again and re-enable Sender via IS-05.
+### Changes which break Constraints
 
-## Changes which do not break Media Profiles
+NMOS Controller MUST track Sender's `subscription`'s `active` property during the IS-05 connection. If it became `false` unexpectedly, NMOS Controller SHOULD `GET /constraints` to figure out the reason of breaking the connection. If the request returns `205 Reset Content`, NMOS Controller SHOULD either disconnect all the Receivers or `PUT /constraints` once again and re-enable Sender via IS-05.
 
-Sender's changes which follow the Media Profiles put do not effect the `active` property so NMOS Controller MUST track Source's, Flow's and Sender's versions. If any of them has changed, NMOS Controller SHOULD PATCH /staged of all the Receivers with new transportfile if it's used for the IS-05 connection.
+### Changes which do not break Constraints
+
+Sender's changes which follow the Constraints do not effect the `active` property so NMOS Controller MUST track version of Inputs, the Source, the Flow and the Sender. If any of them has changed, NMOS Controller SHOULD `PATCH /staged` of all the Receivers with new `transportfile` if it's used for the IS-05 connection.
+
+[IS-05]: https://specs.amwa.tv/is-05/

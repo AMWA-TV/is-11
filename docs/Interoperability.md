@@ -9,11 +9,13 @@ The Sink Metadata Processing Specification was designed to be used alongside the
 
 IS-05 dictates that IS-04 APIs SHOULD be operating at version 1.2 or greater in order to ensure full interoperability and Sink Metadata Processing Specification inherits this requirement.
 
+Any references to terms and JSON Schemas defined in BCP-004-01 relate to version 1.0.0.
+
 Receivers listed under IS-11 `/receivers` endpoint MUST use BCP-005-01 to express their Receiver Capabilities.
 
 ## Discovery
 
-The Sink Metadata Processing API should be advertised as a ‘control’ endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:sink-mp` type. For consistency the href URL offered should always end with a trailing slash.
+The Sink Metadata Processing API should be advertised as a `control` endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:sink-mp` type. For consistency the href URL offered should always end with a trailing slash.
 
 Example:
 
@@ -55,4 +57,4 @@ The UUIDs used to advertise Senders and Receivers in the Sink Metadata Processin
 
 In order to prevent unnecessary polling of the Sink Metadata Processing API, changes to Inputs and Outputs are signalled via the IS-04 versioning mechanism. When the Input/Output parameters of a Sender/Receiver are modified, or when set of Inputs/Outputs associated with the Sender/Receiver is changed, the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
 
-If `/media-profiles` PUT or DELETE operation applied to a Sender causes a change of Inputs, Source or Flow, their versions MUST be incremented as well. If such a change causes subsequent changes to the Connection API `transport_file`, version of the relevant IS-04 Sender MUST be incremented as IS-05 dictates.
+If `/constraints` PUT or DELETE operation applied to a Sender causes a change of Inputs, Source or Flow, their versions MUST be incremented as well. If such a change causes changes to the Connection API `/transportfile` resource, version of the relevant IS-04 Sender MUST be incremented.
