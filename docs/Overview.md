@@ -72,4 +72,4 @@ Each Output has a `properties` resource, which has metadata about this Output, a
 [IS-05]: https://specs.amwa.tv/is-05 "IS-05 NMOS Device Connection Management"
 [BCP-004-01]: https://specs.amwa.tv/bcp-004-01 "BCP-004-01 NMOS Receiver Capabilities"
 [BCP-005-01]: https://specs.amwa.tv/bcp-005-01 "BCP-005-01 NMOS Receiver Capabilities"
-[Resource-Core-Schema]: https://github.com/AMWA-TV/nmos-discovery-registration/blob/v1.3.x/APIs/schemas/resource_core.json "AMWA NMOS IS-04 v1.3.x Resource Core JSON schema"
+[Resource-Core-Schema]: https://github.com/AMWA-TV/nmos-discovery-registration/blob/v1.3.1/APIs/schemas/resource_core.json "AMWA NMOS IS-04 v1.3.x Resource Core JSON schema"
