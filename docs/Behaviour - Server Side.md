@@ -1,25 +1,25 @@
 # Behaviour: Server Side
 
-## Constraints of Sender
+## Active Constraints of Sender
 
-The initial state of Constraints of a Sender MUST be an empty `constraint_sets` array. This state indicates a Sender is unconstrained.
+The initial state of Active Constraints of a Sender MUST be an empty `constraint_sets` array. This state indicates a Sender is unconstrained.
 
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
-Once a Sender accepts Constraints, this Sender, the Flow and the Connection API `/transportfile` resource (if used) associated with this Sender and the Source associated with this Flow MUST satisfy the Constraints when the Sender is active. At any time if the Source, the Flow, the `/transportfile` (if used) and the active Sender cannot satisfy the Constraints, the Sender MUST NOT transmit the Flow over the network. The Sender is REQUIRED to take the following actions:
+Once a Sender accepts proposed Active Constraints, this Sender, the Flow and the Connection API `/transportfile` resource (if used) associated with this Sender and the Source associated with this Flow MUST satisfy the Active Constraints when the Sender is active. At any time if the Source, the Flow, the `/transportfile` (if used) and the active Sender cannot satisfy the Active Constraints, the Sender MUST NOT transmit the Flow over the network. The Sender is REQUIRED to take the following actions:
 
 - MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
 - MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
 
-Regardless whether a constrained Sender is active, if this Sender, the Flow or the `/transportfile` (if used) associated with this Sender or the Source associated with this Flow does not satisfy the Constraints, Sink Metadata Processing API MUST respond with `205 Reset Content` to `GET /constraints` requests. This response SHOULD persist until the Source, the Flow, the `/transportfile` (if used) and the Sender satisfy the Constraints.
+Regardless whether a constrained Sender is active, if this Sender, the Flow or the `/transportfile` (if used) associated with this Sender or the Source associated with this Flow does not satisfy the Active Constraints, Sink Metadata Processing API MUST respond with `205 Reset Content` to `GET /constraints` requests. This response SHOULD persist until the Source, the Flow, the `/transportfile` (if used) and the Sender satisfy the Active Constraints.
 
 When a Sender is in this state, it MUST NOT allow [IS-05][IS-05] activations.
 
-## Request Methods
+### Request Methods
 
-- `GET` request returns the last successfully applied Constraints.
-- `PUT` request MUST be validated and if the Sender supports Parameter Constraints used in the proposed Constraints and is capable to adhere at least one of the Constraint Sets, then the associated Inputs may be reconfigured, which may eventually cause the update of the corresponding Flows, Sources, `/transportfile` and Sender. If successful, the operation MUST return the accepted Constraints, otherwise an error MUST be returned and nothing changed.
-- `DELETE` request MUST clear Constraints. It turns the Sender to the initial state which excludes IS-11 out of the process.
+- `GET` request returns the last successfully applied Active Constraints.
+- `PUT` request MUST be validated and if the Sender supports Parameter Constraints used in the proposed Active Constraints and is capable to adhere at least one of the Constraint Sets, then the associated Inputs may be reconfigured, which may eventually cause the update of the corresponding Flows, Sources, `/transportfile` and Sender. If successful, the operation MUST return the accepted Active Constraints, otherwise an error MUST be returned and nothing changed.
+- `DELETE` request MUST clear Active Constraints. It turns the Sender to the initial state which excludes IS-11 out of the process.
 
 ## Receivers
 

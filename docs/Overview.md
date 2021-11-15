@@ -20,7 +20,7 @@ The Specification includes:
   - Additional details and recommendations for implementers of API providers and clients.
   - Information about compatibility between different API versions.
 
-The terms 'Node', 'Device', 'Sender' and 'Receiver' are used extensively in this documenation set. The [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/2.0._Technical_Overview.html) provides an outline of these terms, and IS-04 provides corresponding schema definitions.
+The terms 'Node', 'Device', 'Source', 'Flow', 'Sender' and 'Receiver' are used extensively in this documenation set. The [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/2.0._Technical_Overview.html) provides an outline of these terms, and IS-04 provides corresponding schema definitions.
 
 The terms 'Parameter Constraint' and 'Constraint Set' used in this documentation set are defined in [BCP-004-01][BCP-004-01].
 
@@ -53,7 +53,7 @@ Each Sender has `inputs` resource, which lists identifiers of all Inputs associa
 
 #### Constraints
 
-There is `active` resource which holds active constraints and `supported` resource which lists all the Parameter Constraints this Sender supports.
+There is `active` resource which holds Active Constraints and `supported` resource which lists all the Parameter Constraints supported by this Sender.
 
 ### Receivers
 
