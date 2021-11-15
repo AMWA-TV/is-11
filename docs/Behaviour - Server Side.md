@@ -29,9 +29,27 @@ If an active Receiver becomes unable to handle Flow, it is REQUIRED to take the 
 
 ## Inputs
 
-The `/edid` endpoint allows a client to download the effective EDID if it exists. If the EDID information for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
+### Properties
+
+The `/properties` endpoint shows properties of the Input. In particular, it MAY contain information parsed from Base EDID and Effective EDID if they are present and the Device is capable to parse EDID binaries.
+
+### Base EDID
+
+`GET /edid/base` and `PUT /edid/base` operations allow a client to download and replace the Base EDID respectively if it exists. If the Base EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
+
+### Effective EDID
+
+Effective EDID is such combination of Base EDID and Active Constraints that the baseband signal from the Input can be transmitted by the Sender without breaking Active Constraints.
+
+The `/edid/effective` endpoint allows a client to download the Effective EDID if it exists. If the Effective EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
 ## Outputs
+
+### Properties
+
+The `/properties` endpoint shows properties of the Output. In particular, it MAY contain information parsed from EDID if it is present and the Device is capable to parse EDID binaries.
+
+### EDID
 
 The `/edid` endpoint allows a client to download the binary EDID if it exists. If the EDID information for the Output changes and it is associated with any Receivers, then all of the Receivers in question MUST update their versions (in registered mode this MUST update the registered resources).
 

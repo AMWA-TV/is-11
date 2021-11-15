@@ -9,7 +9,7 @@
 
 ## Introduction
 
-The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. Receiver provides Receiver Capabilities and exposes its Outputs each of which may have EDID. Sender has Constraints, which restrict media formats allowed for sending, and Inputs each of which may have an effective EDID to present to its upstream media producing unit.
+The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. Receiver provides Receiver Capabilities and exposes its Outputs each of which may have EDID. Sender has Constraints, which restrict media formats allowed for sending, and Inputs each of which may have an Effective EDID to present to its upstream media producing unit.
 
 The Specification includes:
 
@@ -61,11 +61,15 @@ Each Receiver has `outputs` resource, which lists identifiers of all Outputs ass
 
 ### Inputs
 
-Each Input has `properties` resource, which has metadata about this Input, and `edid` resource, which keeps effective EDID presented to an upstream counterpart of this Input.
+Each Input has `properties` resource, which has metadata about this Input, and `edid` resource, which may hold EDIDs associated with this Input.
+
+#### EDID
+
+There is `base` resource which holds Base EDID which is used by Input as basis for creating Effective EDID. `effective` resource holds Effective EDID presented to an upstream counterpart of this Input.
 
 ### Outputs
 
-Each Output has a `properties` resource, which has metadata about this Output, and an `edid` resource, which holds the EDID presented to this Output by its downstream counterpart.
+Each Output has a `properties` resource, which has metadata about this Output, and an `edid` resource, which may hold the EDID presented to this Output by its downstream counterpart.
 
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
 [IS-04]: https://specs.amwa.tv/is-04 "IS-04 NMOS Discovery & Registration"
