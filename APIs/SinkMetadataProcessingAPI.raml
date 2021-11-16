@@ -248,12 +248,12 @@ mediaType: application/json
                 type: !include schemas/error.json
         put:
           description: Replace Base EDID with new one
+          body:
+            application/octet-stream:
+              type: file
           responses:
-            202:
+            204:
               description: Returns when success.
-              body:
-                application/octet-stream:
-                  type: file
             400:
               description: >
                 Returned when the Base EDID is rejected due to validation failure.
@@ -275,6 +275,29 @@ mediaType: application/json
             500:
               description: >
                 Returned if the Base EDID can't be applied due to a reason not listed above.
+              body:
+                type: !include schemas/error.json
+        delete:
+          description: Replace Base EDID with default one
+          responses:
+            204:
+              description: Returns when success.
+            404:
+              description: Returned when the requested Input ID does not exist.
+              body:
+                type: !include schemas/error.json
+            405:
+              description: Returned when the Input doesn't support changing Base EDID or doesn't support EDID at all.
+              body:
+                type: !include schemas/error.json
+            423:
+              description: >
+                Returned when the Base EDID can't be reset temporarily due to Device restrictions (e.g. if the Sender is active).
+              body:
+                type: !include schemas/error.json
+            500:
+              description: >
+                Returned if the Base EDID can't be reset due to a reason not listed above.
               body:
                 type: !include schemas/error.json
       /effective:

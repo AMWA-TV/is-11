@@ -4,6 +4,7 @@
   "label": "Display 1",
   "description": "Display placed on the table in the kitchen",
   "tags": [],
+  "edid_support": true,
   "edid": {
     "manufacturer": "ABC",
     "manufacture_week": 19,

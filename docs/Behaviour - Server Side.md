@@ -31,15 +31,19 @@ If an active Receiver becomes unable to handle Flow, it is REQUIRED to take the 
 
 ### Properties
 
-The `/properties` endpoint shows properties of the Input. In particular, it MAY contain information parsed from Base EDID and Effective EDID if they are present and the Device is capable to parse EDID binaries.
+The `/properties` endpoint shows properties of the Input. In particular, it MAY contain information parsed from Base EDID and Effective EDID if the Input supports EDID and the Node is capable to parse EDID binaries.
 
 ### Base EDID
 
-`GET /edid/base` and `PUT /edid/base` operations allow a client to download and replace the Base EDID respectively if it exists. If the Base EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
+The initial state of Base EDID is such an EDID which this Input presents to the upstream counterpart if Active Constraints are empty.
+
+`GET /edid/base` and `PUT /edid/base` operations allow a client to download and replace the Base EDID respectively if it exists. `DELETE /edid/base` resets Base EDID to the initial state. If the Base EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
 ### Effective EDID
 
-Effective EDID is such combination of Base EDID and Active Constraints that the baseband signal from the Input can be transmitted by the Sender without breaking Active Constraints.
+Effective EDID is such combination of Base EDID and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
+
+If Active Constraints are empty, then Effective EDID is the same as Base EDID.
 
 The `/edid/effective` endpoint allows a client to download the Effective EDID if it exists. If the Effective EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
@@ -47,7 +51,7 @@ The `/edid/effective` endpoint allows a client to download the Effective EDID if
 
 ### Properties
 
-The `/properties` endpoint shows properties of the Output. In particular, it MAY contain information parsed from EDID if it is present and the Device is capable to parse EDID binaries.
+The `/properties` endpoint shows properties of the Output. In particular, it MAY contain information parsed from EDID if it is present and the Node is capable to parse EDID binaries.
 
 ### EDID
 
