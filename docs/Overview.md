@@ -65,7 +65,7 @@ Each Input has `properties` resource, which has metadata about this Input, and `
 
 #### EDID
 
-There is `base` resource which holds Base EDID which is used by Input as basis for creating Effective EDID. `effective` resource holds Effective EDID presented to an upstream counterpart of this Input.
+There is `base` resource which holds Base EDID which may be used by Input as basis for creating Effective EDID. `effective` resource holds Effective EDID presented to an upstream counterpart of this Input.
 
 ### Outputs
 
