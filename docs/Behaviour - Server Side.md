@@ -39,9 +39,9 @@ There is no Base EDID at the initial state. If Base EDID for an Input changes, t
 
 ### Effective EDID
 
-Effective EDID is such EDID that the baseband signal from the Input can be transmitted by the Senders associated with this Input without breaking their Active Constraints.
+Effective EDID is such combination of Base EDID and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
 
-If Base EDID is set, it's used as basis for Effective EDID.
+If Base EDID is not set, Effective EDID is built on basis of a default Effective EDID defined for the Input by manufacturer.
 
 The `/edid/effective` endpoint allows a client to download the Effective EDID if it exists. If the Effective EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
