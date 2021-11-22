@@ -4,231 +4,234 @@
   "label": "Display 1",
   "description": "Display placed on the table in the kitchen",
   "tags": [],
-  "manufacturer": "SAM Model b43",
-  "manufacture_week": 19,
-  "manufacture_year": 2018,
-  "screen_size": {
-    "width": 53,
-    "height": 30
-  },
-  "gamma": 2.2,
-  "display_type": [ "RGB", "YCbCr-4:4:4" ],
-  "established_timings": [
-    {
-      "frame_width": 720,
-      "frame_height": 400,
-      "grain_rate": {
-        "numerator": 70
-      }
+  "edid_support": true,
+  "edid": {
+    "manufacturer": "ABC",
+    "manufacture_week": 19,
+    "manufacture_year": 2018,
+    "screen_size": {
+      "width": 53,
+      "height": 30
     },
-    {
-      "frame_width": 640,
-      "frame_height": 480,
-      "grain_rate": {
-        "numerator": 60
+    "gamma": 2.2,
+    "display_type": [ "RGB", "YCbCr-4:4:4" ],
+    "established_timings": [
+      {
+        "frame_width": 720,
+        "frame_height": 400,
+        "grain_rate": {
+          "numerator": 70
+        }
+      },
+      {
+        "frame_width": 640,
+        "frame_height": 480,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 640,
+        "frame_height": 480,
+        "grain_rate": {
+          "numerator": 67
+        }
+      },
+      {
+        "frame_width": 640,
+        "frame_height": 480,
+        "grain_rate": {
+          "numerator": 72
+        }
+      },
+      {
+        "frame_width": 640,
+        "frame_height": 480,
+        "grain_rate": {
+          "numerator": 75
+        }
+      },
+      {
+        "frame_width": 800,
+        "frame_height": 600,
+        "grain_rate": {
+          "numerator": 56
+        }
+      },
+      {
+        "frame_width": 800,
+        "frame_height": 600,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 800,
+        "frame_height": 600,
+        "grain_rate": {
+          "numerator": 72
+        }
+      },
+      {
+        "frame_width": 800,
+        "frame_height": 600,
+        "grain_rate": {
+          "numerator": 75
+        }
+      },
+      {
+        "frame_width": 832,
+        "frame_height": 624,
+        "grain_rate": {
+          "numerator": 75
+        }
+      },
+      {
+        "frame_width": 1024,
+        "frame_height": 768,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1024,
+        "frame_height": 768,
+        "grain_rate": {
+          "numerator": 70
+        }
+      },
+      {
+        "frame_width": 1024,
+        "frame_height": 768,
+        "grain_rate": {
+          "numerator": 75
+        }
+      },
+      {
+        "frame_width": 1280,
+        "frame_height": 1024,
+        "grain_rate": {
+          "numerator": 75
+        }
+      },
+      {
+        "frame_width": 1152,
+        "frame_height": 870,
+        "grain_rate": {
+          "numerator": 75
+        }
       }
-    },
-    {
-      "frame_width": 640,
-      "frame_height": 480,
-      "grain_rate": {
-        "numerator": 67
+    ],
+    "standard_timings": [
+      {
+        "frame_width": 1152,
+        "frame_height": 864,
+        "grain_rate": {
+          "numerator": 75
+        }
+      },
+      {
+        "frame_width": 1280,
+        "frame_height": 720,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1280,
+        "frame_height": 800,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1280,
+        "frame_height": 1024,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1440,
+        "frame_height": 900,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1600,
+        "frame_height": 900,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1680,
+        "frame_height": 1050,
+        "grain_rate": {
+          "numerator": 60
+        }
       }
-    },
-    {
-      "frame_width": 640,
-      "frame_height": 480,
-      "grain_rate": {
-        "numerator": 72
+    ],
+    "detailed_timings": [
+      {
+        "frame_width": 1920,
+        "frame_height": 1080,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1280,
+        "frame_height": 720,
+        "grain_rate": {
+          "numerator": 60
+        }
       }
-    },
-    {
-      "frame_width": 640,
-      "frame_height": 480,
-      "grain_rate": {
-        "numerator": 75
+    ],
+    "cta_861_timings": [
+      {
+        "frame_width": 1920,
+        "frame_height": 1080,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1280,
+        "frame_height": 720,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 1920,
+        "frame_height": 1080,
+        "grain_rate": {
+          "numerator": 50
+        }
+      },
+      {
+        "frame_width": 1280,
+        "frame_height": 720,
+        "grain_rate": {
+          "numerator": 50
+        }
+      },
+      {
+        "frame_width": 720,
+        "frame_height": 480,
+        "grain_rate": {
+          "numerator": 60
+        }
+      },
+      {
+        "frame_width": 720,
+        "frame_height": 576,
+        "grain_rate": {
+          "numerator": 50
+        }
       }
-    },
-    {
-      "frame_width": 800,
-      "frame_height": 600,
-      "grain_rate": {
-        "numerator": 56
-      }
-    },
-    {
-      "frame_width": 800,
-      "frame_height": 600,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 800,
-      "frame_height": 600,
-      "grain_rate": {
-        "numerator": 72
-      }
-    },
-    {
-      "frame_width": 800,
-      "frame_height": 600,
-      "grain_rate": {
-        "numerator": 75
-      }
-    },
-    {
-      "frame_width": 832,
-      "frame_height": 624,
-      "grain_rate": {
-        "numerator": 75
-      }
-    },
-    {
-      "frame_width": 1024,
-      "frame_height": 768,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1024,
-      "frame_height": 768,
-      "grain_rate": {
-        "numerator": 70
-      }
-    },
-    {
-      "frame_width": 1024,
-      "frame_height": 768,
-      "grain_rate": {
-        "numerator": 75
-      }
-    },
-    {
-      "frame_width": 1280,
-      "frame_height": 1024,
-      "grain_rate": {
-        "numerator": 75
-      }
-    },
-    {
-      "frame_width": 1152,
-      "frame_height": 870,
-      "grain_rate": {
-        "numerator": 75
-      }
-    }
-  ],
-  "standard_timings": [
-    {
-      "frame_width": 1152,
-      "frame_height": 864,
-      "grain_rate": {
-        "numerator": 75
-      }
-    },
-    {
-      "frame_width": 1280,
-      "frame_height": 720,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1280,
-      "frame_height": 800,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1280,
-      "frame_height": 1024,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1440,
-      "frame_height": 900,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1600,
-      "frame_height": 900,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1680,
-      "frame_height": 1050,
-      "grain_rate": {
-        "numerator": 60
-      }
-    }
-  ],
-  "detailed_timings": [
-    {
-      "frame_width": 1920,
-      "frame_height": 1080,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1280,
-      "frame_height": 720,
-      "grain_rate": {
-        "numerator": 60
-      }
-    }
-  ],
-  "cta_861_timings": [
-    {
-      "frame_width": 1920,
-      "frame_height": 1080,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1280,
-      "frame_height": 720,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 1920,
-      "frame_height": 1080,
-      "grain_rate": {
-        "numerator": 50
-      }
-    },
-    {
-      "frame_width": 1280,
-      "frame_height": 720,
-      "grain_rate": {
-        "numerator": 50
-      }
-    },
-    {
-      "frame_width": 720,
-      "frame_height": 480,
-      "grain_rate": {
-        "numerator": 60
-      }
-    },
-    {
-      "frame_width": 720,
-      "frame_height": 576,
-      "grain_rate": {
-        "numerator": 50
-      }
-    }
-  ]
+    ]
+  }
 }

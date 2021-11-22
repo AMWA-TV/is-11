@@ -9,7 +9,7 @@
 
 ## Introduction
 
-The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. Receiver provides Receiver Capabilities and exposes its Outputs each of which may have EDID. Sender has Constraints, which restrict media formats allowed for sending, and Inputs each of which may have an effective EDID to present to its upstream media producing unit.
+The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. Receiver provides Receiver Capabilities and exposes its Outputs each of which may have EDID. Sender has Constraints, which restrict media formats allowed for sending, and Inputs each of which may have an Effective EDID to present to its upstream media producing unit.
 
 The Specification includes:
 
@@ -20,7 +20,7 @@ The Specification includes:
   - Additional details and recommendations for implementers of API providers and clients.
   - Information about compatibility between different API versions.
 
-The terms 'Node', 'Device', 'Sender' and 'Receiver' are used extensively in this documenation set. The [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/2.0._Technical_Overview.html) provides an outline of these terms, and IS-04 provides corresponding schema definitions.
+The terms 'Node', 'Device', 'Source', 'Flow', 'Sender' and 'Receiver' are used extensively in this documenation set. The [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/2.0._Technical_Overview.html) provides an outline of these terms, and IS-04 provides corresponding schema definitions.
 
 The terms 'Parameter Constraint' and 'Constraint Set' used in this documentation set are defined in [BCP-004-01][BCP-004-01].
 
@@ -53,7 +53,7 @@ Each Sender has `inputs` resource, which lists identifiers of all Inputs associa
 
 #### Constraints
 
-There is `active` resource which holds active constraints and `supported` resource which lists all the Parameter Constraints this Sender supports.
+There is `active` resource which holds Active Constraints and `supported` resource which lists all the Parameter Constraints supported by this Sender.
 
 ### Receivers
 
@@ -61,11 +61,15 @@ Each Receiver has `outputs` resource, which lists identifiers of all Outputs ass
 
 ### Inputs
 
-Each Input has `properties` resource, which has metadata about this Input, and `edid` resource, which keeps effective EDID presented to an upstream counterpart of this Input.
+Each Input has `properties` resource, which has metadata about this Input, and `edid` resource, which may hold EDIDs associated with this Input.
+
+#### EDID
+
+There is `base` resource which holds Base EDID which may be used by Input as basis for creating Effective EDID. `effective` resource holds Effective EDID presented to an upstream counterpart of this Input.
 
 ### Outputs
 
-Each Output has a `properties` resource, which has metadata about this Output, and an `edid` resource, which holds the EDID presented to this Output by its downstream counterpart.
+Each Output has a `properties` resource, which has metadata about this Output, and an `edid` resource, which may hold the EDID presented to this Output by its downstream counterpart.
 
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
 [IS-04]: https://specs.amwa.tv/is-04 "IS-04 NMOS Discovery & Registration"

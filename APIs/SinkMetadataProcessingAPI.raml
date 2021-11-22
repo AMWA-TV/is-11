@@ -57,28 +57,32 @@ mediaType: application/json
             body:
               example: !include ../examples/constraints-get-200.json
               type: !include schemas/constraints-base.json
+          404:
+            description: Returned when the requested Sender ID does not exist.
+            body:
+              type: !include schemas/error.json
       /active:
         get:
-          description: Show the last applied Constraints.
+          description: Show the Active Constraints.
           responses:
             200:
               body:
                 example: !include ../examples/constraints-active-get-200.json
                 type: !include schemas/constraints_active.json
             205:
-              description: Denotes an external change occurred which led to the current Constraints violation.
+              description: Denotes an external change occurred which led to violation of the Active Constraints.
             404:
               description: Returned when the requested Sender ID does not exist.
               body:
                 type: !include schemas/error.json
         put:
-          description: Replace previous Constraints with new ones.
+          description: Replace Active Constraints with other ones.
           body:
             example: !include ../examples/constraints-active-get-200.json
             type: !include schemas/constraints_active.json
           responses:
             200:
-              description: Returns when success.
+              description: Returned when success.
               body:
                 example: !include ../examples/constraints-active-get-200.json
                 type: !include schemas/constraints_active.json
@@ -103,14 +107,14 @@ mediaType: application/json
                 type: !include schemas/error.json
             500:
               description: >
-                Returned if the Constraints can't be applied due to a reason which is not related to a violation of schema.
+                Returned if the Constraints can't be applied due to a reason not listed above.
               body:
                 type: !include schemas/error.json
         delete:
-          description: Delete the active Constraints.
+          description: Reset the Active Constraints.
           responses:
             200:
-              description: Returns when success.
+              description: Returned when success.
               body:
                 example: !include ../examples/empty-constraints-active-get-200.json
                 type: !include schemas/empty_constraints_active.json
@@ -120,12 +124,12 @@ mediaType: application/json
                 type: !include schemas/error.json
             423:
               description: >
-                Returned when the Constraints can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
+                Returned when the Active Constraints can't be reset temporarily due to Device restrictions (e.g. if the Sender is active).
               body:
                 type: !include schemas/error.json
             500:
               description: >
-                Returned if the Constraints can't be deleted due to a reason which is not related to a violation of schema.
+                Returned when the Active Constraints can't be reset due to a reason not listed above.
               body:
                 type: !include schemas/error.json
       /supported:
@@ -137,6 +141,10 @@ mediaType: application/json
               body:
                 example: !include ../examples/constraints-supported-get-200.json
                 type: !include schemas/constraints_supported.json
+            404:
+              description: Returned when the requested Sender ID does not exist.
+              body:
+                type: !include schemas/error.json
 /receivers:
   displayName: Receivers
   get:
@@ -208,21 +216,115 @@ mediaType: application/json
               type: !include schemas/error.json
     /edid:
       get:
-        description: >
-          Redirects to the location of the effective EDID file or returns the effective EDID file directly.
-          Check HTTP response code to determine which mode of operation is in use. When returning the effective EDID file
-          directly ensure that the `Content-Type` entity header is correctly set.
+        description: List all the API endpoints for EDIDs associated with the Input.
         responses:
           200:
-            description: The effective EDID file itself will be served
+            description: Returned when success.
             body:
-              application/octet-stream:
-                type: file
-          307:
-            description: A temporary redirect to the effective EDID file
+              example: !include ../examples/input-edid-get-200.json
+              type: !include schemas/input-edid-base.json
+          204:
+            description: The upstream counterpart of this Input does not support EDID.
           404:
-            description: >
-              Returned when the effective EDID file or the requested Input ID doesn't exist.
+            description: Returned when the requested Input ID does not exist.
+            body:
+              type: !include schemas/error.json
+      /base:
+        get:
+          description: >
+            Redirects to the location of the Base EDID file or returns the Base EDID file directly.
+            Check HTTP response code to determine which mode of operation is in use. When returning the Base EDID file
+            directly ensure that the `Content-Type` entity header is correctly set.
+          responses:
+            200:
+              description: The Base EDID file itself.
+              body:
+                application/octet-stream:
+                  type: file
+            204:
+              description: There is no Base EDID set.
+            307:
+              description: A temporary redirect to the Base EDID file.
+            404:
+              description: >
+                Returned when the requested Input ID doesn't exist.
+              body:
+                type: !include schemas/error.json
+        put:
+          description: Set Base EDID
+          body:
+            application/octet-stream:
+              type: file
+          responses:
+            204:
+              description: Returns when success.
+            400:
+              description: >
+                Returned when the Base EDID is rejected due to validation failure.
+              body:
+                type: !include schemas/error.json
+            404:
+              description: Returned when the requested Input ID does not exist.
+              body:
+                type: !include schemas/error.json
+            405:
+              description: Returned when the Input doesn't support changing Base EDID or doesn't support EDID at all.
+              body:
+                type: !include schemas/error.json
+            423:
+              description: >
+                Returned when the Base EDID can't be applied temporarily due to Device restrictions (e.g. if the Sender is active).
+              body:
+                type: !include schemas/error.json
+            500:
+              description: >
+                Returned if the Base EDID can't be applied due to a reason not listed above.
+              body:
+                type: !include schemas/error.json
+        delete:
+          description: Remove Base EDID
+          responses:
+            204:
+              description: Returns when success.
+            404:
+              description: Returned when the requested Input ID does not exist.
+              body:
+                type: !include schemas/error.json
+            405:
+              description: Returned when the Input doesn't support changing Base EDID or doesn't support EDID at all.
+              body:
+                type: !include schemas/error.json
+            423:
+              description: >
+                Returned when the Base EDID can't be reset temporarily due to Device restrictions (e.g. if the Sender is active).
+              body:
+                type: !include schemas/error.json
+            500:
+              description: >
+                Returned if the Base EDID can't be reset due to a reason not listed above.
+              body:
+                type: !include schemas/error.json
+      /effective:
+        get:
+          description: >
+            Redirects to the location of the Effective EDID file or returns the Effective EDID file directly.
+            Check HTTP response code to determine which mode of operation is in use. When returning the Effective EDID file
+            directly ensure that the `Content-Type` entity header is correctly set.
+          responses:
+            200:
+              description: The Effective EDID file itself.
+              body:
+                application/octet-stream:
+                  type: file
+            204:
+              description: The upstream counterpart of this Input does not support EDID.
+            307:
+              description: A temporary redirect to the Effective EDID file.
+            404:
+              description: >
+                Returned when the requested Input ID doesn't exist.
+              body:
+                type: !include schemas/error.json
 /outputs:
   displayName: Outputs
   get:
@@ -268,6 +370,8 @@ mediaType: application/json
             body:
               application/octet-stream:
                 type: file
+          204:
+            description: The downstream counterpart of this Output does not provide EDID.
           307:
             description: A temporary redirect to the EDID file.
           404:
