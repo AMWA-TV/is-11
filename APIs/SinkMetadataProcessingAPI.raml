@@ -35,6 +35,8 @@ mediaType: application/json
             type: !include schemas/sender-base.json
         404:
           description: Returned when the requested Sender ID does not exist.
+          body:
+            type: !include schemas/error.json
     /inputs:
       get:
         description: List of Inputs associated with the Sender.
@@ -224,7 +226,7 @@ mediaType: application/json
               example: !include ../examples/input-edid-get-200.json
               type: !include schemas/input-edid-base.json
           204:
-            description: The upstream counterpart of this Input does not support EDID.
+            description: The Input does not support EDID.
           404:
             description: Returned when the requested Input ID does not exist.
             body:
@@ -317,7 +319,7 @@ mediaType: application/json
                 application/octet-stream:
                   type: file
             204:
-              description: The upstream counterpart of this Input does not support EDID.
+              description: The Input does not support EDID.
             307:
               description: A temporary redirect to the Effective EDID file.
             404:
@@ -371,7 +373,7 @@ mediaType: application/json
               application/octet-stream:
                 type: file
           204:
-            description: The downstream counterpart of this Output does not provide EDID.
+            description: The Output does not support EDID or the downstream counterpart of this Output does not provide EDID.
           307:
             description: A temporary redirect to the EDID file.
           404:

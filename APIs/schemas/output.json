@@ -13,7 +13,7 @@
       "properties": {
         "edid": { "$ref": "edid.json" },
         "edid_support": {
-          "description": "Whether a downstream counterpart of this Output has EDID",
+          "description": "Whether the Output supports EDID",
           "type": "boolean"
         }
       }
