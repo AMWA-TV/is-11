@@ -4,5 +4,6 @@
   "label": "Video card 1",
   "description": "Video card in the PC placed in the office",
   "tags": [],
+  "connected": true,
   "edid_support": true
 }

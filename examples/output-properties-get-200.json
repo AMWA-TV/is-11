@@ -4,6 +4,7 @@
   "label": "Display 1",
   "description": "Display placed on the table in the kitchen",
   "tags": [],
+  "connected": true,
   "edid_support": true,
   "edid": {
     "manufacturer": "ABC",

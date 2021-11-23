@@ -14,13 +14,13 @@ The IS-04 hierarchy is preserved. Additionally, Senders managed with IS-11 SHOUL
 
 A new Input is created in the following circumstance:
 
-- At the presence of a physical source device which reads EDID
+- At the presence of a physical interface for connection to an upstream media producing unit
 
 ## Output Representation
 
 A new Output is created in the following circumstance:
 
-- At the presence of a physical sink device which provides EDID
+- At the presence of a physical interface for connection to a downstream media consuming unit
 
 ## Identifier Persistence
 
@@ -38,16 +38,16 @@ SHOULD change if:
 
 - Sender ID changes
 - A different physical interface (such as an HDMI output) is mapped to originate the essence
-- A different physical source is connect to the same interface (using the manufacturer information, serial number, or unique identifier)
 
 SHOULD NOT change if:
 
 - A Sender is re-configured, adding or removing some Inputs, but keeping this one
+- A different upstream counterpart is connected to the same interface
 
 It is suggested that Input IDs be generated using the combination of:
 
 - The parent Sender ID
-- A connection identifier such as a channel name, index or similar
+- A physical interface identifier such as its name, index or similar
 
 ### Output ID
 
@@ -59,14 +59,13 @@ SHOULD change if:
 
 - Receiver ID changes
 - A different physical interface (such as an HDMI input) is mapped to consume the essence
-- A different physical display is connect to the same interface (using the manufacturer information, serial number, or unique identifier)
 
 SHOULD NOT change if:
 
-- Configuration parameters associated with the Flow are changed, such as its operating resolution or bitrate
 - A Receiver is re-configured, adding or removing some Outputs, but keeping this one
+- A different upstream counterpart is connected to the same interface
 
 It is suggested that Output IDs be generated using the combination of:
 
 - The parent Receiver ID
-- A connection identifier such as a channel name, index or similar
+- A physical interface identifier such as its name, index or similar

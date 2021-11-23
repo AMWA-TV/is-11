@@ -49,7 +49,7 @@ The API is divided into the following parts:
 
 ### Senders
 
-Each Sender has `inputs` resource, which lists identifiers of all Inputs associated with this Sender and `constraints` base resource in charge of restrictions for the Flow associated with this Sender.
+Each Sender has `inputs` resource, which lists identifiers of all Inputs associated with this Sender, `constraints` base resource in charge of restrictions for the Flow associated with this Sender and `status` resource showing Sender's state in terms of IS-11.
 
 #### Constraints
 
