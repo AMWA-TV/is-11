@@ -8,12 +8,17 @@
     {
       "type": "object",
       "required": [
+        "connected",
         "edid_support"
       ],
       "properties": {
         "base_edid": { "$ref": "edid.json" },
+        "connected": {
+          "description": "Whether the upstream counterpart of this Input is connected",
+          "type": "boolean"
+        },
         "edid_support": {
-          "description": "Whether an upstream counterpart of the Input supports EDID",
+          "description": "Whether the Input supports EDID",
           "type": "boolean"
         },
         "effective_edid": { "$ref": "edid.json" }

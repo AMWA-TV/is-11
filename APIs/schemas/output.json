@@ -8,12 +8,17 @@
     {
       "type": "object",
       "required": [
+        "connected",
         "edid_support"
       ],
       "properties": {
+        "connected": {
+          "description": "Whether the downstream counterpart of this Output is connected",
+          "type": "boolean"
+        },
         "edid": { "$ref": "edid.json" },
         "edid_support": {
-          "description": "Whether a downstream counterpart of this Output has EDID",
+          "description": "Whether the Output supports EDID",
           "type": "boolean"
         }
       }
