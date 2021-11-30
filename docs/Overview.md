@@ -57,7 +57,7 @@ There is `active` resource which holds Active Constraints and `supported` resour
 
 ### Receivers
 
-Each Receiver has `outputs` resource, which lists identifiers of all Outputs associated with this Receiver.
+Each Receiver has `outputs` resource, which lists identifiers of all Outputs associated with this Receiver,  and `status` resource showing Receiver's state in terms of IS-11.
 
 ### Inputs
 
