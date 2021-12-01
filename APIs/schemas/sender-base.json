@@ -6,11 +6,12 @@
   "items": {
     "type": "string",
     "enum": [
+      "constraints/",
       "inputs/",
-      "constraints/"
+      "status/"
     ]
   },
-  "minItems": 2,
-  "maxItems": 2,
+  "minItems": 3,
+  "maxItems": 3,
   "uniqueItems": true
 }

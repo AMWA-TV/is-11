@@ -6,10 +6,11 @@
   "items": {
     "type": "string",
     "enum": [
-      "outputs/"
+      "outputs/",
+      "status/"
     ]
   },
-  "minItems": 1,
-  "maxItems": 1,
+  "minItems": 2,
+  "maxItems": 2,
   "uniqueItems": true
 }
