@@ -16,26 +16,30 @@ Once a Sender accepts proposed Active Constraints, this Sender, the Flow and the
 
 ## State of Sender
 
-A Sender managed with IS-11 has five states:
+A Sender managed with IS-11 has the following states:
 - `Unconstrained` when Active Constraints of this Sender is an empty `constraint_sets` array.
 - `Constrained` when this Sender, the Flow and the `/transportfile` (if used) associated with this Sender and the Source associated with this Flow satisfy the Active Constraints.
 - `Active Constraints Violation` when this Sender, the Flow or the `/transportfile` (if used) associated with this Sender or the Source associated with this Flow does not satisfy the Active Constraints. When an inactive Sender is in this state, it MUST NOT allow [IS-05][IS-05] activations.
 - `No Signal` when there is no signal from Inputs associated with this Sender.
 - `Awaiting Signal` when Active Constraints was just PUT and the signal from Inputs associated with this Sender is not stable yet. This is a transitional state until one of the previous ones can be established.
 
+## State of Receiver
+
+A Receiver managed with IS-11 has the following states:
+- `No Transport File` when there's no active `transport_file`.
+- `OK` when this Receiver's active `transport_file` does not violate Receiver Capabilities.
+- `Receiver Capabilities Violation` when this Receiver's active `transport_file` violates Receiver Capabilities.
+
 ## Preventing restrictions violation
 
-At any time if State of the active Sender becomes `Active Constraints Violation`, the Sender MUST NOT transmit the Flow over the network. The Sender is REQUIRED to take the following actions:
+At any time if State of an active Sender becomes `Active Constraints Violation`, the Sender MUST NOT transmit the Flow over the network. The Sender is REQUIRED to take the following actions:
 - MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
 - MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
 
-If staged parameters update is requested for a Receiver with a `/transportfile` violating Receiver Capabilities, the Receiver is REQUIRED to refuse such request with `400 Bad Request`. If the Receiver is active, it also MUST stop receiving the Flow by taking the following actions:
+At any time if State of an active Receiver becomes `Receiver Capabilities Violation`, the Receiver MUST stop receiving the Flow by taking the following actions:
 - MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
 - MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
 
-If an active Receiver changes its Receiver Capabilities, then it MUST validate `/transportfile` against them and if the validation fails, it MUST stop receiving the Flow by taking the following actions:
-- MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
-- MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
 ## Inputs
 
 ### Properties

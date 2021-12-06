@@ -57,8 +57,8 @@ mediaType: application/json
           200:
             description: Returned when success.
             body:
-              example: !include ../examples/status-get-200.json
-              type: !include schemas/status.json
+              example: !include ../examples/sender-status-get-200.json
+              type: !include schemas/sender-status.json
           404:
             description: Returned when the requested Sender ID does not exist.
             body:
@@ -180,6 +180,19 @@ mediaType: application/json
           description: Returned when the requested Receiver ID does not exist.
           body:
             type: !include schemas/error.json
+    /status:
+      get:
+        description: Shows whether the Receiver is configured properly for receiving Flow and indicates a reason if it is not
+        responses:
+          200:
+            description: Returned when success.
+            body:
+              example: !include ../examples/receiver-status-get-200.json
+              type: !include schemas/receiver-status.json
+          404:
+            description: Returned when the requested Receiver ID does not exist.
+            body:
+              type: !include schemas/error.json
     /outputs:
       get:
         responses:
