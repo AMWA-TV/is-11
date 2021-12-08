@@ -12,7 +12,7 @@ Once a Sender accepts proposed Active Constraints, this Sender, the Flow and the
 
 - `GET` request returns the last successfully applied Active Constraints.
 - `PUT` request MUST be validated and if the Sender supports Parameter Constraints used in the proposed Active Constraints and is capable to adhere at least one of the Constraint Sets, then the associated Inputs may be reconfigured, which may eventually cause the update of the corresponding Flows, Sources, `/transportfile` and Sender. If successful, the operation MUST return the accepted Active Constraints, otherwise an error MUST be returned and nothing changed.
-- `DELETE` request MUST clear Active Constraints. It turns the Sender to the initial state which excludes IS-11 out of the process.
+- `DELETE` request MUST clear Active Constraints.
 
 ## State of Sender
 
@@ -39,6 +39,10 @@ At any time if State of an active Sender becomes `Active Constraints Violation`,
 At any time if State of an active Receiver becomes `Receiver Capabilities Violation`, the Receiver MUST stop receiving the Flow by taking the following actions:
 - MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
 - MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
+
+## Signal altering indication
+
+A Device SHOULD provide parent Flows and parent Sources to a Sender's Flow and associated Source if the signal being transmitted from the Sender is not identical to the signal being captured from the Input(s).
 
 ## Inputs
 
