@@ -9,7 +9,7 @@
 
 ## Introduction
 
-The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. Receiver provides Receiver Capabilities and exposes its Outputs each of which may hold EDID from its downstream counterpart. Sender has Active Constraints, which restrict media formats allowed for sending, and Inputs each of which may have an Effective EDID to present to its upstream media producing unit.
+The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. A Receiver provides Receiver Capabilities and exposes its Outputs, each of which may hold EDID from its downstream counterpart. A Sender has Active Constraints, which restrict media formats allowed for sending, and Inputs, each of which may have an Effective EDID to present to its upstream media producing unit.
 
 The Specification includes:
 
@@ -35,37 +35,37 @@ and "OPTIONAL" in this documentation set are to be interpreted as described in [
 
 ### Input
 
-An Input is a unit consuming media data for providing it to Sender(s). Input may present metadata about media consuming capabilities to its upstream counterpart. Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Input is a unit consuming media data for providing it to Sender(s). Input may present metadata about media consuming capabilities to its upstream counterpart. Each Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Output
 
-An Output is a unit producing media data provided by Receiver(s). Output may hold metadata about the media consuming capabilities from its downstream counterpart. Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Output is a unit producing media data provided by Receiver(s). Output may hold metadata about the media consuming capabilities from its downstream counterpart. Each Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ## API Structure
 
-The API provides a mechanism to get information about Inputs associated with Senders and Outpus associated with Receivers and to constrain Sender from sending Flow not supported by its subscribers.
+The API provides a mechanism to get information about Inputs associated with Senders and Outputs associated with Receivers and to constrain a Sender from sending a Flow not supported by its subscribers.
 
 The API is divided into the following parts:
 
 ### Senders
 
-Each Sender has `inputs` resource, which lists identifiers of all Inputs associated with this Sender, `constraints` base resource in charge of restrictions for the Flow associated with this Sender and `status` resource showing Sender's state in terms of IS-11.
+Each Sender has an `inputs` resource, which lists identifiers of all Inputs associated with this Sender, a `constraints` base resource in charge of restrictions for the Flow associated with this Sender and a `status` resource showing the Sender's state in terms of IS-11.
 
 #### Constraints
 
-There is `active` resource which holds Active Constraints and `supported` resource which lists all the Parameter Constraints supported by this Sender.
+There is an `active` resource which holds Active Constraints and a `supported` resource which lists all the Constraint Sets supported by this Sender.
 
 ### Receivers
 
-Each Receiver has `outputs` resource, which lists identifiers of all Outputs associated with this Receiver,  and `status` resource showing Receiver's state in terms of IS-11.
+Each Receiver has an `outputs` resource, which lists identifiers of all Outputs associated with this Receiver, and a `status` resource showing the Receiver's state in terms of IS-11.
 
 ### Inputs
 
-Each Input has `properties` resource, which has metadata about this Input, and `edid` resource, which may hold EDIDs associated with this Input.
+Each Input has a `properties` resource, which has metadata about this Input, and an `edid` resource, which may hold EDIDs associated with this Input.
 
 #### EDID
 
-There is `base` resource which holds Base EDID used by Input as basis for creating Effective EDID. `effective` resource holds Effective EDID presented to an upstream counterpart of this Input.
+There is a `base` resource which holds Base EDID used by the Input as the basis for creating the Effective EDID. The `effective` resource holds the Effective EDID presented to an upstream counterpart of this Input.
 
 ### Outputs
 
