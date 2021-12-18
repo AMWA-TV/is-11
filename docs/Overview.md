@@ -1,4 +1,4 @@
-# AMWA IS-11 NMOS Sink Metedata Proccessing Specification: Overview \[Work In Progress\]
+# AMWA IS-11 NMOS Flow Compatibility Management Specification: Overview \[Work In Progress\]
 
 {:.no_toc}
 

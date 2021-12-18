@@ -1,7 +1,7 @@
-# \[Work In Progress\] AMWA IS-11 NMOS Sink Metadata Processing
+# \[Work In Progress\] AMWA IS-11 NMOS Flow Compatibility Management
 
-[![Lint Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ALint)
-[![Render Status](https://github.com/AMWA-TV/nmos-sink-metadata-processing/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-sink-metadata-processing/actions?query=workflow%3ARender)
+[![Lint Status](https://github.com/AMWA-TV/nmos-flow-compatibility-management/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-flow-compatibility-management/actions?query=workflow%3ALint)
+[![Render Status](https://github.com/AMWA-TV/nmos-flow-compatibility-management/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-flow-compatibility-management/actions?query=workflow%3ARender)
 
 This repository holds the source for this Specification, part of the family of [Networked Media Open Specifications](https://specs.amwa.tv/nmos) from the [Advanced Media Workflow Association](https://amwa.tv)
 
