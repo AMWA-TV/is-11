@@ -53,7 +53,7 @@ Each Sender has an `inputs` resource, which lists identifiers of all Inputs asso
 
 #### Constraints
 
-There is an `active` resource which holds Active Constraints and a `supported` resource which lists all the Constraint Sets supported by this Sender.
+There is an `active` resource which holds Active Constraints and a `supported` resource which lists all the Parameter Constraints supported by this Sender.
 
 ### Receivers
 
