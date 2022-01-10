@@ -3,7 +3,7 @@
   "version": "1441704616:592733244",
   "label": "Video card 1",
   "description": "Video card in the PC placed in the office",
-  "tags": [],
+  "tags": {},
   "connected": true,
   "edid_support": true
 }

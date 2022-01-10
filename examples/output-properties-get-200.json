@@ -3,7 +3,7 @@
   "version": "1441704616:592733242",
   "label": "Display 1",
   "description": "Display placed on the table in the kitchen",
-  "tags": [],
+  "tags": {},
   "connected": true,
   "edid_support": true,
   "edid": {
@@ -15,7 +15,7 @@
       "height": 30
     },
     "gamma": 2.2,
-    "display_type": [ "RGB", "YCbCr-4:4:4" ],
+    "color_samplings": [ "RGB", "YCbCr-4:4:4" ],
     "established_timings": [
       {
         "frame_width": 720,
