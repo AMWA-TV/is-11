@@ -36,7 +36,7 @@ Example:
         },
         {
             "type": "urn:x-nmos:control:fcm/v1.0",
-            "href": "http://hostname/x-nmos/fcm/v1.0/"
+            "href": "http://hostname/x-nmos/flowcompatibility/v1.0/"
         }
     ],
     "tags": {},
