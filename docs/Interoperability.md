@@ -15,7 +15,7 @@ Receivers, managed with IS-11 and associated with Outputs which support EDID, SH
 
 ## Discovery
 
-The Flow Compatibility Management API should be advertised as a `control` endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:fcm` type. For consistency the href URL offered should always end with a trailing slash.
+The Flow Compatibility Management API should be advertised as a `control` endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:fc-ctrl` type. For consistency the href URL offered should always end with a trailing slash.
 
 Example:
 
@@ -35,8 +35,8 @@ Example:
             "href": "http://hostname/x-nmos/connection/v1.1/"
         },
         {
-            "type": "urn:x-nmos:control:fcm/v1.0",
-            "href": "http://hostname/x-nmos/fcm/v1.0/"
+            "type": "urn:x-nmos:control:fc-ctrl/v1.0",
+            "href": "http://hostname/x-nmos/flowcompatibility/v1.0/"
         }
     ],
     "tags": {},
