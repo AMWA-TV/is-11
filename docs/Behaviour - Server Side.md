@@ -26,13 +26,9 @@ A Receiver managed with IS-11 has the following states:
 
 ## Preventing restrictions violation
 
-At any time if State of an active Sender becomes `Active Constraints Violation`, the Sender MUST NOT transmit the Flow over the network. The Sender is REQUIRED to take the following actions:
-- MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
-- MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
+At any time if State of an active Sender becomes `Active Constraints Violation`, the Sender MUST NOT transmit the Flow over the network. An inactive Sender in this state MUST NOT allow activations.
 
-At any time if State of an active Receiver becomes `Receiver Capabilities Violation`, the Receiver MUST stop receiving the Flow by taking the following actions:
-- MUST set the [IS-05][IS-05] `/active`'s `master_enable` property to `false`.
-- MUST update the [IS-04][IS-04] `subscription`'s `active` property to `false` (regardless of unicast or multicast).
+At any time if State of an active Receiver becomes `Receiver Capabilities Violation`, the Receiver SHOULD stop receiving the Flow. An inactive Receiver in this state SHOULD NOT allow activations.
 
 ## Signal altering indication
 
