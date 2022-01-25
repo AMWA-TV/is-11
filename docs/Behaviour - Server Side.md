@@ -6,23 +6,23 @@ The initial state of Active Constraints of a Sender MUST be an empty `constraint
 
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
-Once a Sender accepts proposed Active Constraints, this Sender, the Flow and the Connection API `/transportfile` resource (if used) associated with this Sender and the Source associated with this Flow MUST satisfy the Active Constraints when the Sender is active.
+Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of BCP-004-01.
 
 ## State of Sender
 
 A Sender managed with IS-11 has the following states:
 - `Unconstrained` when Active Constraints of this Sender is an empty `constraint_sets` array.
-- `Constrained` when this Sender, the Flow and the `/transportfile` (if used) associated with this Sender and the Source associated with this Flow satisfy the Active Constraints.
-- `Active Constraints Violation` when this Sender, the Flow or the `/transportfile` (if used) associated with this Sender or the Source associated with this Flow does not satisfy the Active Constraints. When an inactive Sender is in this state, it MUST NOT allow [IS-05][IS-05] activations.
+- `Constrained` when the Active Constraints are satisfied.
+- `Active Constraints Violation` when at least one Parameter Constraint of each Constraint Set is not satisfied.
 - `No Signal` when there is no signal from Inputs associated with this Sender.
-- `Awaiting Signal` when Active Constraints was just PUT and the signal from Inputs associated with this Sender is not stable yet. This is a transitional state until one of the previous ones can be established.
+- `Awaiting Signal` when Inputs associated with this Sender were reconfigured recently and the signal is not stable yet. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update such associated resources as Flow and Source while this Sender is in this state.
 
 ## State of Receiver
 
 A Receiver managed with IS-11 has the following states:
-- `No Transport File` when there's no active `transport_file`.
-- `OK` when this Receiver's active `transport_file` does not violate Receiver Capabilities.
-- `Receiver Capabilities Violation` when this Receiver's active `transport_file` violates Receiver Capabilities.
+- `No Transport File` when there's no active transport file.
+- `OK` when this Receiver's active transport file does not violate Receiver Capabilities.
+- `Receiver Capabilities Violation` when this Receiver's active transport file violates Receiver Capabilities.
 
 ## Preventing restrictions violation
 
