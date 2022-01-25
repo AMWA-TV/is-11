@@ -8,12 +8,6 @@ Non-empty `constraint_sets` array MUST be treated as unordered unless at least o
 
 Once a Sender accepts proposed Active Constraints, this Sender, the Flow and the Connection API `/transportfile` resource (if used) associated with this Sender and the Source associated with this Flow MUST satisfy the Active Constraints when the Sender is active.
 
-### Request Methods
-
-- `GET` request returns the last successfully applied Active Constraints.
-- `PUT` request MUST be validated and if the Sender supports Parameter Constraints used in the proposed Active Constraints and is capable to adhere at least one of the Constraint Sets, then the associated Inputs may be reconfigured, which may eventually cause the update of the corresponding Flows, Sources, `/transportfile` and Sender. If successful, the operation MUST return the accepted Active Constraints, otherwise an error MUST be returned and nothing changed.
-- `DELETE` request MUST clear Active Constraints.
-
 ## State of Sender
 
 A Sender managed with IS-11 has the following states:
