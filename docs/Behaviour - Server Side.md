@@ -6,7 +6,7 @@ The initial state of Active Constraints of a Sender MUST be an empty `constraint
 
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
-Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of BCP-004-01.
+Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of [BCP-004-01][BCP-004-01].
 
 ## State of Sender
 
@@ -62,5 +62,4 @@ The `/properties` endpoint shows properties of the Output. In particular, it MAY
 
 The `/edid` endpoint allows a client to download the binary EDID if it exists. If the EDID information for the Output changes and it is associated with any Receivers, then all of the Receivers in question MUST update their versions (in registered mode this MUST update the registered resources).
 
-[IS-04]: https://specs.amwa.tv/is-04/
-[IS-05]: https://specs.amwa.tv/is-05/
+[BCP-004-01]: https://specs.amwa.tv/bcp-004-01/
