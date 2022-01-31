@@ -7,13 +7,14 @@ The initial state of Active Constraints of a Sender MUST be an empty `constraint
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
 Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of [BCP-004-01][BCP-004-01].
+Active Constraints are violated when at least one Parameter Constraint of each Constraint Set is not satisfied in terms of [BCP-004-01][BCP-004-01].
 
 ## State of Sender
 
 A Sender managed with IS-11 has the following states:
 - `Unconstrained` when Active Constraints of this Sender is an empty `constraint_sets` array.
 - `Constrained` when the Active Constraints are satisfied.
-- `Active Constraints Violation` when at least one Parameter Constraint of each Constraint Set is not satisfied.
+- `Active Constraints Violation` when Active Constraints are violated.
 - `No Signal` when there is no signal from Inputs associated with this Sender.
 - `Awaiting Signal` when the signal from Inputs associated to this Sender is transitioning and the signal is not stable yet. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
 
@@ -26,9 +27,9 @@ A Receiver managed with IS-11 has the following states:
 
 ## Preventing restrictions violation
 
-At any time if State of an active Sender becomes `Active Constraints Violation`, the Sender MUST NOT transmit the Flow over the network. An inactive Sender in this state MUST NOT allow activations.
+At any time if State of an active Sender becomes `Active Constraints Violation`, the Sender MUST become inactive. An inactive Sender in this state MUST NOT allow activations.
 
-At any time if State of an active Receiver becomes `Receiver Capabilities Violation`, the Receiver SHOULD stop receiving the Flow. An inactive Receiver in this state SHOULD NOT allow activations.
+At any time if State of an active Receiver becomes `Receiver Capabilities Violation`, the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations.
 
 ## Signal altering indication
 
