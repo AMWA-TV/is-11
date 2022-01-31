@@ -55,6 +55,6 @@ The UUIDs used to advertise Senders and Receivers in the Flow Compatibility Mana
 
 ## Version Increments
 
-In order to prevent unnecessary polling of the Flow Compatibility Management API, changes to it are signalled via the IS-04 versioning mechanism. E.g. when the Input/Output parameters of a Sender/Receiver are modified, when set of Inputs/Outputs associated with the Sender/Receiver is changed, or when Status of Sender/Receiver is updated, then the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
+In order to prevent unnecessary polling of the Flow Compatibility Management API, changes are signaled via the IS-04 versioning mechanism of the associated Sender and Receiver resources. E.g. when properties of any Input/Output associated with the Sender/Receiver are modified, when set of Inputs/Outputs associated with the Sender/Receiver is changed, or when Status of Sender/Receiver is updated, then the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
 
-If any resource such as Source, Flow, Sender etc. changes over its lifetime, then its `version` attribute MUST be incremented as well.
+If properties of any resource such as Source, Flow, Sender, Receiver, etc. change over its lifetime, then its `version` attribute MUST be incremented as well.
