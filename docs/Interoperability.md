@@ -9,13 +9,13 @@ The Flow Compatibility Management Specification was designed to be used alongsid
 
 IS-05 dictates that IS-04 APIs SHOULD be operating at version 1.2 or greater in order to ensure full interoperability and Flow Compatibility Management Specification inherits this requirement.
 
-Any references to terms and JSON Schemas defined in BCP-004-01 relate to version 1.0.0.
+Any references to terms and JSON Schemas defined in BCP-004-01 relate to version 1.0.
 
 Receivers, managed with IS-11 and associated with Outputs which support EDID, SHOULD use BCP-005-01 to express Receiver Capabilities that came from the EDID(s) and BCP-004-01 to express their own Receiver Capabilities. The inherent Receiver Capabilities prevail over the EDID associated Capabilities. An EDID can further restrict inherent Receiver Capabilities but cannot expand them.
 
 ## Discovery
 
-The Flow Compatibility Management API should be advertised as a `control` endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:fc-ctrl` type. For consistency the href URL offered should always end with a trailing slash.
+The Flow Compatibility Management API SHOULD be advertised as a `control` endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:fc-ctrl` type. For consistency the href URL offered SHOULD always end with a trailing slash.
 
 Example:
 
@@ -32,11 +32,11 @@ Example:
     "controls": [
         {
             "type": "urn:x-nmos:control:sr-ctrl/v1.1",
-            "href": "http://hostname/x-nmos/connection/v1.1/"
+            "href": "http://api.example.com/x-nmos/connection/v1.1/"
         },
         {
             "type": "urn:x-nmos:control:fc-ctrl/v1.0",
-            "href": "http://hostname/x-nmos/flowcompatibility/v1.0/"
+            "href": "http://api.example.com/x-nmos/flowcompatibility/v1.0/"
         }
     ],
     "tags": {},
@@ -55,6 +55,6 @@ The UUIDs used to advertise Senders and Receivers in the Flow Compatibility Mana
 
 ## Version Increments
 
-In order to prevent unnecessary polling of the Flow Compatibility Management API, changes are signaled via the IS-04 versioning mechanism of the associated Sender and Receiver resources. E.g. when properties of any Input/Output associated with the Sender/Receiver are modified, when set of Inputs/Outputs associated with the Sender/Receiver is changed, or when Status of Sender/Receiver is updated, then the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
+In order to prevent unnecessary polling of the Flow Compatibility Management API, changes are signaled via the IS-04 versioning mechanism of the associated Sender and Receiver resources. E.g. when properties of any Input/Output associated with the Sender/Receiver are modified, when the set of Inputs/Outputs associated with the Sender/Receiver is changed, or when the Status of a Sender/Receiver is updated, then the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
 
 If properties of any resource such as Source, Flow, Sender, Receiver, etc. change over its lifetime, then its `version` attribute MUST be incremented as well.

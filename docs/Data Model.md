@@ -63,7 +63,7 @@ SHOULD change if:
 SHOULD NOT change if:
 
 - A Receiver is re-configured, adding or removing some Outputs, but keeping this one
-- A different upstream counterpart is connected to the same interface
+- A different downstream counterpart is connected to the same interface
 
 It is suggested that Output IDs be generated using the combination of:
 
