@@ -15,7 +15,7 @@ A Sender managed with IS-11 has the following states:
 - `Constrained` when the Active Constraints are satisfied.
 - `Active Constraints Violation` when at least one Parameter Constraint of each Constraint Set is not satisfied.
 - `No Signal` when there is no signal from Inputs associated with this Sender.
-- `Awaiting Signal` when Inputs associated with this Sender were reconfigured recently and the signal is not stable yet. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update such associated resources as Flow and Source while this Sender is in this state.
+- `Awaiting Signal` when the signal from Inputs associated to this Sender is transitioning and the signal is not stable yet. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
 
 ## State of Receiver
 

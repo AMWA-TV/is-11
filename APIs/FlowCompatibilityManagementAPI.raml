@@ -91,7 +91,8 @@ mediaType: application/json
         put:
           description: >
             Validates proposed Constraints against JSON Schema of request body
-            and Supported Parameter Constraints.
+            and Supported Parameter Constraints and upon success
+            replaces Active Constraints with the new ones.
           body:
             example: !include ../examples/constraints-active-get-200.json
             type: !include schemas/constraints_active.json
