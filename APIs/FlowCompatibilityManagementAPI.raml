@@ -99,15 +99,15 @@ mediaType: application/json
           responses:
             200:
               description: >
-                Returned when this Sender is capable to adhere at least one
-                of the proposed Constraint Sets.
+                Returned when this Sender supports Parameter Constraint URNs used
+                and all of Parameter Constraint values in all of Constraint Sets.
               body:
                 example: !include ../examples/constraints-active-get-200.json
                 type: !include schemas/constraints_active.json
             400:
               description: >
                 Returned when the Constraints are rejected due to schema validation failure
-                or if the Sender doesn't support Parameter Constraints used.
+                or if the Sender doesn't support Parameter Constraint URNs used.
               body:
                 type: !include schemas/error.json
             404:
@@ -117,7 +117,7 @@ mediaType: application/json
             422:
               description: >
                 Returned when the Sender isn't capable to adhere to the proposed Constraints
-                although the request is valid and the Sender supports all the Parameter Constraints used.
+                although the request is valid and the Sender supports all the Parameter Constraint URNs used.
               body:
                 type: !include schemas/error.json
             423:
