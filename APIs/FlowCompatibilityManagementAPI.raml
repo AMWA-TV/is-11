@@ -78,7 +78,7 @@ mediaType: application/json
               type: !include schemas/error.json
       /active:
         get:
-          description: Show the Active Constraints.
+          description: Shows the Active Constraints.
           responses:
             200:
               body:
@@ -89,19 +89,25 @@ mediaType: application/json
               body:
                 type: !include schemas/error.json
         put:
-          description: Replace Active Constraints with other ones.
+          description: >
+            Validates proposed Constraints against JSON Schema of request body
+            and Supported Parameter Constraints and upon success
+            replaces Active Constraints with the new ones.
           body:
             example: !include ../examples/constraints-active-get-200.json
             type: !include schemas/constraints_active.json
           responses:
             200:
-              description: Returned when success.
+              description: >
+                Returned when this Sender supports Parameter Constraint URNs used
+                and all of Parameter Constraint values in all of Constraint Sets.
               body:
                 example: !include ../examples/constraints-active-get-200.json
                 type: !include schemas/constraints_active.json
             400:
               description: >
-                Returned when the Constraints are rejected due to schema validation failure or if the Sender doesn't support Parameter Constraints used.
+                Returned when the Constraints are rejected due to schema validation failure
+                or if the Sender doesn't support Parameter Constraint URNs used.
               body:
                 type: !include schemas/error.json
             404:
@@ -110,7 +116,8 @@ mediaType: application/json
                 type: !include schemas/error.json
             422:
               description: >
-                Returned when the Sender isn't capable to adhere to the Constraints although the request is valid and the Sender supports all the Parameter Constraints used.
+                Returned when the Sender isn't capable to adhere to the proposed Constraints
+                although the request is valid and the Sender supports all the Parameter Constraint URNs used.
               body:
                 type: !include schemas/error.json
             423:
@@ -124,7 +131,7 @@ mediaType: application/json
               body:
                 type: !include schemas/error.json
         delete:
-          description: Reset the Active Constraints.
+          description: Resets the Active Constraints.
           responses:
             200:
               description: Returned when success.
