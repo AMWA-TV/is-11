@@ -38,17 +38,17 @@ Owned by:
 
 SHOULD change if:
 
-- Sender ID changes
-- A different physical interface (such as an HDMI output) is mapped to originate the essence
+- Device ID changes
+- A different physical interface (such as an SDI input) is mapped to originate the essence
 
 SHOULD NOT change if:
 
-- A Sender is re-configured, adding or removing some Inputs, but keeping this one
+- A Sender is re-configured
 - A different upstream counterpart is connected to the same interface
 
 It is suggested that Input IDs be generated using the combination of:
 
-- The parent Sender ID
+- The parent Device ID
 - A physical interface identifier such as its name, index or similar
 
 ### Output ID
@@ -59,15 +59,15 @@ Owned by:
 
 SHOULD change if:
 
-- Receiver ID changes
-- A different physical interface (such as an HDMI input) is mapped to consume the essence
+- Device ID changes
+- A different physical interface (such as an SDI output) is mapped to consume the essence
 
 SHOULD NOT change if:
 
-- A Receiver is re-configured, adding or removing some Outputs, but keeping this one
+- A Receiver is re-configured
 - A different upstream counterpart is connected to the same interface
 
 It is suggested that Output IDs be generated using the combination of:
 
-- The parent Receiver ID
+- The parent Device ID
 - A physical interface identifier such as its name, index or similar
