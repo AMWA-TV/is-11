@@ -21,15 +21,15 @@ A Sender managed with IS-11 has the following states:
 ## State of Receiver
 
 A Receiver managed with IS-11 has the following states:
-- `no_transport_file` when there's no active `transport_file`.
-- `ok` when this Receiver's active `transport_file` does not violate Receiver Capabilities.
-- `receiver_capabilities_violation` when this Receiver's active `transport_file` violates Receiver Capabilities.
+- `unknown` when this Receiver is inactive or it is active and it is impossible to say whether the Flow is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a `transport_file`).
+- `compliant_flow` when this Receiver is active and the Flow is compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` and it does not violate the Receiver Capabilities).
+- `non_compliant_flow` when this Receiver is active and the Flow is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities).
 
 ## Preventing restrictions violation
 
 At any time if State of an active Sender becomes `active_constraints_violation`, the Sender MUST become inactive. An inactive Sender in this state MUST NOT allow activations.
 
-At any time if State of an active Receiver becomes `receiver_capabilities_violation`, the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations.
+At any time if State of an active Receiver becomes `non_compliant_flow`, the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations.
 
 ## Signal altering indication
 
