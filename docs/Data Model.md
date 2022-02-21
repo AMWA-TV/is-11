@@ -36,7 +36,7 @@ Owned by:
 
 SHOULD change if:
 
-- Sender ID changes
+- Device ID changes
 - A different physical interface (such as an SDI input) is mapped to originate the essence
 
 SHOULD NOT change if:
