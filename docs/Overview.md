@@ -34,11 +34,11 @@ and "OPTIONAL" in this documentation set are to be interpreted as described in [
 
 ### Input
 
-An Input is a unit consuming media data for providing it to Sender(s). Input may present metadata about media consuming capabilities to its upstream counterpart. Each Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Input is a logical input connector which consumes video, audio and ancillary data for providing it to Sender(s) through a number of Sources and Flows. The precise relationship between the Inputs and such Sources and Flows is not specified and there may be an IS-08 mapping element in the system. The Input may present metadata about media consuming capabilities to its upstream counterpart. Each Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Output
 
-An Output is a unit producing media data provided by Receiver(s). Output may hold metadata about the media consuming capabilities from its downstream counterpart. Each Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Output is a logical output connector which produces video, audio and ancillary data provided by Receiver(s). Output may hold metadata about the media consuming capabilities from its downstream counterpart. Each Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ## API Structure
 
