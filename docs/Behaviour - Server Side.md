@@ -21,9 +21,9 @@ A Sender managed with IS-11 has the following states:
 ## State of Receiver
 
 A Receiver managed with IS-11 has the following states:
-- `unknown` when this Receiver is inactive or it is active and it is impossible to say whether the Flow is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a `transport_file`).
+- `unknown` when this Receiver is inactive or active and it is impossible to say whether the Flow is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a `transport_file`).
 - `compliant_flow` when this Receiver is active and the Flow is compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` and it does not violate the Receiver Capabilities).
-- `non_compliant_flow` when this Receiver is active and the Flow is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities).
+- `non_compliant_flow` when this Receiver is active and the Flow is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities). If the Receiver becomes inactive this state is preserved until the next activation.
 
 ## Preventing restrictions violation
 
