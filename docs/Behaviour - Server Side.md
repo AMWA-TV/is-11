@@ -12,24 +12,24 @@ Active Constraints are violated when at least one Parameter Constraint of each C
 ## State of Sender
 
 A Sender managed with IS-11 has the following states:
-- `Unconstrained` when Active Constraints of this Sender is an empty `constraint_sets` array.
-- `Constrained` when the Active Constraints are satisfied.
-- `Active Constraints Violation` when Active Constraints are violated.
-- `No Signal` when there is no signal from Inputs associated with this Sender.
-- `Awaiting Signal` when the signal from Inputs associated to this Sender is transitioning and the signal is not stable yet. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
+- `unconstrained` when Active Constraints of this Sender is an empty `constraint_sets` array.
+- `constrained` when the Active Constraints are satisfied.
+- `active_constraints_violation` when Active Constraints are violated.
+- `no_signal` when there is no signal from Inputs associated with this Sender.
+- `awaiting_signal` when the signal from Inputs associated to this Sender is transitioning and the signal is not stable yet. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
 
 ## State of Receiver
 
 A Receiver managed with IS-11 has the following states:
-- `No Transport File` when there's no active transport file.
-- `OK` when this Receiver's active transport file does not violate Receiver Capabilities.
-- `Receiver Capabilities Violation` when this Receiver's active transport file violates Receiver Capabilities.
+- `unknown` when this Receiver is inactive or active and it is impossible to say whether the Flow is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a `transport_file`).
+- `compliant_flow` when this Receiver is active and the Flow is compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` and it does not violate the Receiver Capabilities).
+- `non_compliant_flow` when this Receiver is active and the Flow is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities). If the Receiver becomes inactive this state is preserved until the next activation.
 
 ## Preventing restrictions violation
 
-At any time if State of an active Sender becomes `Active Constraints Violation`, the Sender MUST become inactive. An inactive Sender in this state MUST NOT allow activations.
+At any time if State of an active Sender becomes `active_constraints_violation`, the Sender MUST become inactive. An inactive Sender in this state MUST NOT allow activations.
 
-At any time if State of an active Receiver becomes `Receiver Capabilities Violation`, the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations.
+At any time if State of an active Receiver becomes `non_compliant_flow`, the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations.
 
 ## Signal altering indication
 
