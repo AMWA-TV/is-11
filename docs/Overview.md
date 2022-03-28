@@ -48,7 +48,7 @@ The API is divided into the following parts:
 
 ### Senders
 
-Each Sender has an `inputs` resource, which lists identifiers of all Inputs associated with this Sender, a `constraints` base resource in charge of restrictions for the Flow associated with this Sender and a `status` resource showing the Sender's state in terms of IS-11.
+Each Sender has an `inputs` resource, which lists identifiers of all Inputs associated with this Sender, a `constraints` base resource which allows controlling the restrictions for the Flow associated with this Sender and a `status` resource showing the Sender's state in terms of IS-11.
 
 #### Constraints
 
@@ -64,7 +64,7 @@ Each Input has a `properties` resource, which has metadata about this Input, and
 
 #### EDID
 
-There is a `base` resource which holds Base EDID used by the Input as the basis for creating the Effective EDID. The `effective` resource holds the Effective EDID presented to an upstream counterpart of this Input.
+There is a `base` resource which holds the Base EDID used by the Input as the basis for creating the Effective EDID. The `effective` resource holds the Effective EDID presented to an upstream counterpart of this Input.
 
 ### Outputs
 
