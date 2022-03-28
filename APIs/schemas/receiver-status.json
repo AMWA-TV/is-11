@@ -10,8 +10,8 @@
       "type": "string",
       "enum": [
         "unknown",
-        "compliant_flow",
-        "non_compliant_flow"
+        "compliant_stream",
+        "non_compliant_stream"
       ]
     }
   }

@@ -21,15 +21,15 @@ A Sender managed with IS-11 has the following states:
 ## State of Receiver
 
 A Receiver managed with IS-11 has the following states:
-- `unknown` when this Receiver is inactive or active and it is impossible to say whether the Flow is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a `transport_file`).
-- `compliant_flow` when this Receiver is active and the Flow is compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` and it does not violate the Receiver Capabilities).
-- `non_compliant_flow` when this Receiver is active and the Flow is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities). If the Receiver becomes inactive this state is preserved until the next activation.
+- `unknown` when it is not possible to say whether the active stream is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a `transport_file`).
+- `compliant_stream` when the active stream is compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` and it does not violate the Receiver Capabilities).
+- `non_compliant_stream` when the active stream is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities). If the Receiver becomes inactive this state is preserved until the next activation.
 
 ## Preventing restrictions violation
 
 At any time if State of an active Sender becomes `active_constraints_violation`, the Sender MUST become inactive. An inactive Sender in this state MUST NOT allow activations.
 
-At any time if State of an active Receiver becomes `non_compliant_flow`, the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations.
+At any time if State of an active Receiver becomes `non_compliant_stream`, the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations.
 
 ## Signal altering indication
 
@@ -43,13 +43,13 @@ The `/properties` endpoint shows properties of the Input. In particular, it MAY 
 
 ### Base EDID
 
-There is no Base EDID at the initial state. If Base EDID for an Input changes, then all Senders associated with this Input MUST update their versions (in registered mode this MUST update the registered resources).
+There is no Base EDID at the initial state. If the Base EDID for an Input changes, then all Senders associated with this Input MUST update their versions (in registered mode this MUST update the registered resources).
 
 ### Effective EDID
 
 Effective EDID is such combination of Base EDID and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
 
-If Base EDID is not set, Effective EDID is built on basis of a default Effective EDID defined for the Input by manufacturer.
+If Base EDID is not set, Effective EDID is built on the basis of a default Base EDID defined for the Input by the manufacturer.
 
 The `/edid/effective` endpoint allows a client to download the Effective EDID if it exists. If the Effective EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
