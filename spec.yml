@@ -1,9 +1,9 @@
 amwa_id: IS-11
 url: https://specs.amwa.tv/is-11
-name: Sink Metadata Processing
+name: Stream Compatibility Management
 status: Work In Progress
 repo_name: is-11
-alt_repo_name: nmos-flow-compatibility-management
+alt_repo_name: nmos-stream-compatibility-management
 repo_url: https://github.com/AMWA-TV/is-11
 releases:
 default_branch: v1.0-dev
