@@ -1,6 +1,99 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
+  "definitions": {
+    "contains-label": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:meta:label"] }
+        }
+      }
+    },
+    "contains-preference": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:meta:preference"] }
+        }
+      }
+    },
+    "contains-enabled": {
+        "not": {
+          "items": {
+            "not": { "enum": ["urn:x-nmos:cap:meta:enabled"] }
+          }
+        }
+    },
+    "contains-mediatype": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:media_type"] }
+        }
+      }
+    },
+    "contains-grainrate": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:grain_rate"] }
+        }
+      }
+    },
+    "contains-framewidth": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:frame_width"] }
+        }
+      }
+    },
+    "contains-frameheight": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:frame_height"] }
+        }
+      }
+    },
+    "contains-interlacemode": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:interlace_mode"] }
+        }
+      }
+    },
+    "contains-colorsampling": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:color_sampling"] }
+        }
+      }
+    },
+    "contains-componentdepth": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:component_depth"] }
+        }
+      }
+    },
+    "contains-channelcount": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:channel_count"] }
+        }
+      }
+    },
+    "contains-samplerate": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:sample_rate"] }
+        }
+      }
+    },
+    "contains-sampledepth": {
+      "not": {
+        "items": {
+          "not": { "enum": ["urn:x-nmos:cap:format:sample_depth"] }
+        }
+      }
+    }
+  },
   "required": [
     "parameter_constraints"
   ],
@@ -11,25 +104,21 @@
         "type": "string",
         "pattern": "^urn:x-nmos:cap:"
       },
-      "contains": {
-        "type": "string",
-        "enum": [
-          "urn:x-nmos:cap:meta:label",
-          "urn:x-nmos:cap:meta:preference",
-          "urn:x-nmos:cap:meta:enabled",
-          "urn:x-nmos:cap:format:media_type",
-          "urn:x-nmos:cap:format:grain_rate",
-          "urn:x-nmos:cap:format:frame_width",
-          "urn:x-nmos:cap:format:frame_height",
-          "urn:x-nmos:cap:format:interlace_mode",
-          "urn:x-nmos:cap:format:color_sampling",
-          "urn:x-nmos:cap:format:component_depth",
-          "urn:x-nmos:cap:format:channel_count",
-          "urn:x-nmos:cap:format:sample_rate",
-          "urn:x-nmos:cap:format:sample_depth"
-        ]
-      },
-      "minContains": 13,
+      "allOf": [
+        { "$ref": "#/definitions/contains-label" },
+        { "$ref": "#/definitions/contains-preference" },
+        { "$ref": "#/definitions/contains-enabled" },
+        { "$ref": "#/definitions/contains-mediatype" },
+        { "$ref": "#/definitions/contains-grainrate" },
+        { "$ref": "#/definitions/contains-framewidth" },
+        { "$ref": "#/definitions/contains-frameheight" },
+        { "$ref": "#/definitions/contains-interlacemode" },
+        { "$ref": "#/definitions/contains-colorsampling" },
+        { "$ref": "#/definitions/contains-componentdepth" },
+        { "$ref": "#/definitions/contains-channelcount" },
+        { "$ref": "#/definitions/contains-samplerate" },
+        { "$ref": "#/definitions/contains-sampledepth" }
+      ],
       "uniqueItems": true
     }
   }
