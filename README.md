@@ -1,4 +1,4 @@
-# \[Work In Progress\] AMWA IS-11 NMOS Flow Compatibility Management
+# \[Work In Progress\] AMWA IS-11 NMOS Stream Compatibility Management
 
 [![Lint Status](https://github.com/AMWA-TV/is-11/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/is-11/actions?query=workflow%3ALint)
 [![Render Status](https://github.com/AMWA-TV/is-11/workflows/Render/badge.svg)](https://github.com/AMWA-TV/is-11/actions?query=workflow%3ARender)
