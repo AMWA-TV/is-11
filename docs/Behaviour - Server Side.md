@@ -18,6 +18,8 @@ A Sender managed with IS-11 has the following states:
 - `no_signal` when there is no signal from Inputs associated with this Sender.
 - `awaiting_signal` when the signal from Inputs associated to this Sender is transitioning and the signal is not stable yet. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
 
+`no_signal` and `awaiting_signal` states MUST depend only on the signal from the Inputs. One of the rest of the states MUST be used when the signal is present, stable and can be validated against Active Constraints.
+
 ## State of Receiver
 
 A Receiver managed with IS-11 has the following states:
