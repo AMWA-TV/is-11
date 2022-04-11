@@ -9,6 +9,23 @@ Non-empty `constraint_sets` array MUST be treated as unordered unless at least o
 Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of [BCP-004-01][BCP-004-01].
 Active Constraints are violated when at least one Parameter Constraint of each Constraint Set is not satisfied in terms of [BCP-004-01][BCP-004-01].
 
+## Supported Constraints of Sender
+
+A Sender MUST present the list of supported parameter constraints in `/supported` endpoint. This list MUST include at least the parameter constraints from the following list which are applicable to the format of the Flow associated with this Sender:
+- `urn:x-nmos:cap:meta:label`
+- `urn:x-nmos:cap:meta:preference`
+- `urn:x-nmos:cap:meta:enabled`
+- `urn:x-nmos:cap:format:media_type`
+- `urn:x-nmos:cap:format:grain_rate`
+- `urn:x-nmos:cap:format:frame_width`
+- `urn:x-nmos:cap:format:frame_height`
+- `urn:x-nmos:cap:format:interlace_mode`
+- `urn:x-nmos:cap:format:color_sampling`
+- `urn:x-nmos:cap:format:component_depth`
+- `urn:x-nmos:cap:format:channel_count`
+- `urn:x-nmos:cap:format:sample_rate`
+- `urn:x-nmos:cap:format:sample_depth`
+
 ## State of Sender
 
 A Sender managed with IS-11 has the following states:
