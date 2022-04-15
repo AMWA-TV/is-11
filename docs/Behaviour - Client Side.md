@@ -21,6 +21,6 @@ NMOS Controller MUST track Sender's `subscription`'s `active` property during an
 
 ### Changes which do not break Active Constraints
 
-Sender's changes which follow the Active Constraints do not effect the `active` property so NMOS Controller MUST track version of Inputs, the Source, the Flow and the Sender. If any of them has changed, NMOS Controller SHOULD `PATCH /staged` of all the Receivers with new `transport_file` (if it's used for the IS-05 connection) and immediate activation.
+Sender's changes which follow the Active Constraints do not effect the `active` property so NMOS Controller MUST track version of Inputs, the Source, the Flow and the Sender. If transport file of the Sender has changed, NMOS Controller SHOULD `PATCH /staged` of all the Receivers with new `transport_file` (if it's used for the IS-05 connection) and immediate activation.
 
 [IS-05]: https://specs.amwa.tv/is-05/
