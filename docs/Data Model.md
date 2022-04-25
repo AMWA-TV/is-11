@@ -41,7 +41,7 @@ Owned by:
 SHOULD change if:
 
 - Device ID changes
-- A different physical interface (such as an SDI input) is mapped to originate the essence
+- A different physical interface (such as an SDI input) is mapped to originate the signal
 
 SHOULD NOT change if:
 
@@ -62,7 +62,7 @@ Owned by:
 SHOULD change if:
 
 - Device ID changes
-- A different physical interface (such as an SDI output) is mapped to consume the essence
+- A different physical interface (such as an SDI output) is mapped to consume the stream
 
 SHOULD NOT change if:
 
