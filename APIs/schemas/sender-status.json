@@ -12,8 +12,8 @@
         "unconstrained",
         "constrained",
         "active_constraints_violation",
-        "no_stream",
-        "awaiting_stream"
+        "no_signal",
+        "awaiting_signal"
       ]
     }
   }
