@@ -8,11 +8,11 @@ In order to ensure consistent behaviour in a facility employing this identity, s
 
 ![Extended IS-04 Model Diagram](../docs/images/is-11-data-model.png)
 
-The IS-04 hierarchy is preserved. Additionally, Senders managed with IS-11 SHOULD be associated with 1 or more Input resources and Receivers managed with IS-11 SHOULD be associated with 1 or more Output resources.
+The IS-04 hierarchy is preserved. Additionally, there are Input and Output resources introduced. Senders managed with IS-11 are associated with 0 or more Input resources and Receivers managed with IS-11 are associated with 0 or more Output resources.
 
-Inputs MAY be associated with multiple Senders, E.g. An Input carrying multiple media formats at a time (e.g. video and audio) MAY be associated with multiple Senders of varying formats, an Input carrying a given media format that is segmented into multiple parts MAY be associated with multiple Senders of the same formats.
+Inputs MAY be associated with multiple Senders, e.g. an Input carrying multiple media formats at a time (e.g. video and audio) MAY be associated with multiple Senders of varying formats, an Input carrying a given media format that is segmented into multiple parts MAY be associated with multiple Senders of the same formats.
 
-Outputs MAY be associated with multiple Receivers, E.g. An Output carrying multiple media formats at a time (e.g. video and audio) MAY be associated with multiple Receivers of varying formats, an Output carrying a given media format that is composited from multiple parts MAY be associated with multiple Receivers of the same formats.
+Outputs MAY be associated with multiple Receivers, e.g. an Output carrying multiple media formats at a time (e.g. video and audio) MAY be associated with multiple Receivers of varying formats, an Output carrying a given media format that is composited from multiple parts MAY be associated with multiple Receivers of the same formats.
 
 ## Input Representation
 
@@ -41,7 +41,7 @@ Owned by:
 SHOULD change if:
 
 - Device ID changes
-- A different physical interface (such as an SDI input) is mapped to originate the essence
+- A different physical interface (such as an SDI input) is mapped to originate the signal
 
 SHOULD NOT change if:
 
@@ -62,7 +62,7 @@ Owned by:
 SHOULD change if:
 
 - Device ID changes
-- A different physical interface (such as an SDI output) is mapped to consume the essence
+- A different physical interface (such as an SDI output) is mapped to consume the signal
 
 SHOULD NOT change if:
 

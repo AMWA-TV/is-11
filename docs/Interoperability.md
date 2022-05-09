@@ -55,6 +55,10 @@ The UUIDs used to advertise Senders and Receivers in the Stream Compatibility Ma
 
 ## Version Increments
 
-In order to prevent unnecessary polling of the Stream Compatibility Management API, changes are signaled via the IS-04 versioning mechanism of the associated Sender and Receiver resources. E.g. when properties of any Input/Output associated with the Sender/Receiver are modified, when the set of Inputs/Outputs associated with the Sender/Receiver is changed, or when the Status of a Sender/Receiver is updated, then the `version` attribute of the relevant IS-04 Sender/Receiver MUST be incremented.
+In order to prevent unnecessary polling of the Stream Compatibility Management API, changes are signaled via the IS-04 versioning mechanism.
 
-If properties of any resource such as Source, Flow, Sender, Receiver, etc. change over its lifetime, then its `version` attribute MUST be incremented as well.
+When properties of any Input/Output are changed, then the `version` attribute of the relevant IS-04 Device MUST be incremented.
+
+When Active Constraints of Sender are modified, then the `version` attribute of the relevant IS-04 Sender MUST be incremented.
+
+When State of Sender or Receiver is changed, or when the set of Inputs/Outputs associated with the Sender/Receiver is changed, then the `version` attribute of the relevant IS-04 Sender or Receiver MUST be incremented.
