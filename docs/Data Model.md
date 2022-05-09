@@ -62,7 +62,7 @@ Owned by:
 SHOULD change if:
 
 - Device ID changes
-- A different physical interface (such as an SDI output) is mapped to consume the stream
+- A different physical interface (such as an SDI output) is mapped to consume the signal
 
 SHOULD NOT change if:
 
