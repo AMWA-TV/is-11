@@ -28,7 +28,7 @@
           "enum": [
             "no_signal",
             "awaiting_signal",
-            "signal_is_present"
+            "signal_present"
           ]
         }
       }

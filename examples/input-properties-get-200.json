@@ -6,5 +6,5 @@
   "tags": {},
   "connected": true,
   "edid_support": true,
-  "signal_state": "signal_is_present"
+  "signal_state": "signal_present"
 }
