@@ -33,7 +33,7 @@ A Sender managed with IS-11 has the following states:
 - `constrained` when the Active Constraints are satisfied.
 - `active_constraints_violation` when Active Constraints are violated.
 - `no_essence` when the associated Source is not providing any Essence for this Sender to transmit, which, if the Sender has associated Inputs, can mean that one or more of these Inputs have no incoming signal.
-- `awaiting_essence` when the Essence, which the associated Source is providing, is not stable for this Sender to transmit. This is a transitional state until one of the previous ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
+- `awaiting_essence` when the Essence, which the associated Source is providing, is not stable for this Sender to transmit. This is a transitional state until one of the other ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
 
 `no_essence` and `awaiting_essence` states MUST depend on the state of the Inputs associated with this Sender when the Essence is based exclusively on the signal from these Inputs.
 
