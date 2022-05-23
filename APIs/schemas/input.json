@@ -9,7 +9,8 @@
       "type": "object",
       "required": [
         "connected",
-        "edid_support"
+        "edid_support",
+        "signal_state"
       ],
       "properties": {
         "base_edid": { "$ref": "edid.json" },
@@ -21,7 +22,15 @@
           "description": "Whether the Input supports EDID",
           "type": "boolean"
         },
-        "effective_edid": { "$ref": "edid.json" }
+        "effective_edid": { "$ref": "edid.json" },
+        "signal_state": {
+          "type": "string",
+          "enum": [
+            "no_signal",
+            "awaiting_signal",
+            "signal_is_present"
+          ]
+        }
       }
     }
   ]
