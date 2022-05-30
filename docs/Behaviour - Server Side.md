@@ -26,7 +26,16 @@ A Sender MUST present the list of supported parameter constraints in `/supported
 - `urn:x-nmos:cap:format:sample_rate`
 - `urn:x-nmos:cap:format:sample_depth`
 
-## State of Sender
+## Status of Input
+
+An Input has the following states:
+- `no_signal` when there is no incoming signal to this Input.
+- `awaiting_signal` when the incoming signal is not stable. This is a transitional state until one of the other ones can be established.
+- `signal_present` when the incoming signal is present and stable.
+
+Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
+
+## Status of Sender
 
 A Sender managed with IS-11 has the following states:
 - `unconstrained` when Active Constraints of this Sender is an empty `constraint_sets` array.
@@ -37,12 +46,16 @@ A Sender managed with IS-11 has the following states:
 
 `no_essence` and `awaiting_essence` states MUST depend on the state of the Inputs associated with this Sender when the Essence is based exclusively on the signal from these Inputs.
 
-## State of Receiver
+Debug information expressed through `debug` property SHOULD assist `no_essence` and `active_constraints_violation` states and MAY assist the other states.
+
+## Status of Receiver
 
 A Receiver managed with IS-11 has the following states:
 - `unknown` when it is not possible to say whether the active stream is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a `transport_file`).
 - `compliant_stream` when the active stream is compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` and it does not violate the Receiver Capabilities).
 - `non_compliant_stream` when the active stream is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities). If the Receiver becomes inactive this state is preserved until the next activation.
+
+Debug information expressed through `debug` property SHOULD assist `unknown` and `non_compliant_stream` states and MAY assist the other states.
 
 ## Preventing restrictions violation
 
