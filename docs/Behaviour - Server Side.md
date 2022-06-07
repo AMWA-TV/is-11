@@ -35,6 +35,14 @@ An Input has the following states:
 
 Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
 
+## Status of Output
+
+An Output has the following states that describe the signal provided by associated Receiver(s) to this Output:
+- `no_signal` when there is no signal.
+- `signal_present` when the signal is present and stable.
+
+Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
+
 ## Status of Sender
 
 A Sender managed with IS-11 has the following states:
