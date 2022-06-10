@@ -59,7 +59,7 @@ Debug information expressed through `debug` property SHOULD assist `unknown` and
 
 ## Status of Output
 
-An Output has the following states that describe the signal provided by associated Receiver(s) to this Output:
+An Output has the following states that describe the signal at this Output:
 - `no_signal` when there is no signal, which, if the Output has associated Receivers, can mean that one or more of these Receivers do not have a compliant incoming stream.
 - `signal_present` when the signal is present and stable.
 
