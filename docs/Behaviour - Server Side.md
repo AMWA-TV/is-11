@@ -35,21 +35,13 @@ An Input has the following states:
 
 Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
 
-## Status of Output
-
-An Output has the following states that describe the signal provided by associated Receiver(s) to this Output:
-- `no_signal` when there is no signal.
-- `signal_present` when the signal is present and stable.
-
-Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
-
 ## Status of Sender
 
 A Sender managed with IS-11 has the following states:
 - `unconstrained` when Active Constraints of this Sender is an empty `constraint_sets` array.
 - `constrained` when the Active Constraints are satisfied.
 - `active_constraints_violation` when Active Constraints are violated.
-- `no_essence` when the associated Source is not providing any Essence for this Sender to transmit, which, if the Sender has associated Inputs, can mean that one or more of these Inputs have no incoming signal.
+- `no_essence` when the associated Source is not providing any Essence for this Sender to transmit, which, if the Sender has associated Inputs, can mean that one or more of these Inputs do not have a valid incoming signal.
 - `awaiting_essence` when the Essence, which the associated Source is providing, is not stable for this Sender to transmit. This is a transitional state until one of the other ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state.
 
 `no_essence` and `awaiting_essence` states MUST depend on the state of the Inputs associated with this Sender when the Essence is based exclusively on the signal from these Inputs.
@@ -64,6 +56,14 @@ A Receiver managed with IS-11 has the following states:
 - `non_compliant_stream` when the active stream is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active `transport_file` which violates the Receiver Capabilities). If the Receiver becomes inactive this state is preserved until the next activation.
 
 Debug information expressed through `debug` property SHOULD assist `unknown` and `non_compliant_stream` states and MAY assist the other states.
+
+## Status of Output
+
+An Output has the following states that describe the signal provided by associated Receiver(s) to this Output:
+- `no_signal` when there is no signal, which, if the Output has associated Receivers, can mean that one or more of these Receivers do not have a compliant incoming stream.
+- `signal_present` when the signal is present and stable.
+
+Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
 
 ## Preventing restrictions violation
 
