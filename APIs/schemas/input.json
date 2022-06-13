@@ -10,7 +10,7 @@
       "required": [
         "connected",
         "edid_support",
-        "signal_state"
+        "status"
       ],
       "properties": {
         "base_edid": { "$ref": "edid.json" },
@@ -23,13 +23,25 @@
           "type": "boolean"
         },
         "effective_edid": { "$ref": "edid.json" },
-        "signal_state": {
-          "type": "string",
-          "enum": [
-            "no_signal",
-            "awaiting_signal",
-            "signal_present"
-          ]
+        "status": {
+          "description": "Status of Input",
+          "required": [
+            "state"
+          ],
+          "properties": {
+            "state": {
+              "type": "string",
+              "enum": [
+                "no_signal",
+                "awaiting_signal",
+                "signal_present"
+              ]
+            },
+            "debug": {
+              "description": "Debug information which may give additional information on the state",
+              "type": "string"
+            }
+          }
         }
       }
     }

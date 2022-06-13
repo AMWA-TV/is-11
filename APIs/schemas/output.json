@@ -9,7 +9,8 @@
       "type": "object",
       "required": [
         "connected",
-        "edid_support"
+        "edid_support",
+        "status"
       ],
       "properties": {
         "connected": {
@@ -20,6 +21,25 @@
         "edid_support": {
           "description": "Whether the Output supports EDID",
           "type": "boolean"
+        },
+        "status": {
+          "description": "Status of Output",
+          "required": [
+            "state"
+          ],
+          "properties": {
+            "state": {
+              "type": "string",
+              "enum": [
+                "no_signal",
+                "signal_present"
+              ]
+            },
+            "debug": {
+              "description": "Debug information which may give additional information on the state",
+              "type": "string"
+            }
+          }
         }
       }
     }

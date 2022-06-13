@@ -6,5 +6,7 @@
   "tags": {},
   "connected": true,
   "edid_support": true,
-  "signal_state": "signal_present"
+  "status": {
+    "state": "signal_present"
+  }
 }

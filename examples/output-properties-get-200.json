@@ -234,5 +234,8 @@
         }
       }
     ]
+  },
+  "status": {
+    "state": "signal_present"
   }
 }

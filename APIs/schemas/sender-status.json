@@ -15,6 +15,10 @@
         "no_essence",
         "awaiting_essence"
       ]
+    },
+    "debug": {
+      "description": "Debug information which may give additional information on the state",
+      "type": "string"
     }
   }
 }
