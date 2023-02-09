@@ -57,7 +57,8 @@ The UUIDs used to advertise Senders and Receivers in the Stream Compatibility Ma
 
 In order to prevent unnecessary polling of the Stream Compatibility Management API, changes are signaled via the IS-04 versioning mechanism.
 
-When properties of any Input/Output are changed, then the `version` attribute of the relevant IS-04 Device MUST be incremented. For this purpose Inputs/Outputs are linked to the corresponding devices via "device_id" property.
+When properties of any Input/Output are changed, then the `version` attribute of the relevant IS-04 Device MUST be incremented.
+Inputs/Outputs identify the corresponding Devices via the `device_id` property.
 
 When Active Constraints of Sender are modified, then the `version` attribute of the relevant IS-04 Sender MUST be incremented.
 
