@@ -5,6 +5,7 @@
   "description": "Video card in the PC placed in the office",
   "device_id": "8ff471c6-bf77-51b1-92e7-939d18d82802",
   "tags": {},
+  "base_edid_changeable": true,
   "connected": true,
   "edid_support": true,
   "status": {
