@@ -275,7 +275,7 @@ mediaType: application/json
                 application/octet-stream:
                   type: file
             204:
-              description: There is no Base EDID set.
+              description: There is no Base EDID set or the Input doesn't support Base EDID at all.
             307:
               description: A temporary redirect to the Base EDID file.
             404:
@@ -301,7 +301,7 @@ mediaType: application/json
               body:
                 type: !include schemas/error.json
             405:
-              description: Returned when the Input doesn't support changing Base EDID or doesn't support EDID at all.
+              description: Returned when the Input doesn't support Base EDID or doesn't support EDID at all.
               body:
                 type: !include schemas/error.json
             423:
@@ -324,7 +324,7 @@ mediaType: application/json
               body:
                 type: !include schemas/error.json
             405:
-              description: Returned when the Input doesn't support changing Base EDID or doesn't support EDID at all.
+              description: Returned when the Input doesn't support Base EDID or doesn't support EDID at all.
               body:
                 type: !include schemas/error.json
             423:

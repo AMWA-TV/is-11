@@ -8,7 +8,7 @@
     {
       "type": "object",
       "required": [
-        "base_edid_changeable",
+        "base_edid_support",
         "connected",
         "edid_support",
         "status",
@@ -16,8 +16,8 @@
       ],
       "properties": {
         "base_edid": { "$ref": "edid.json" },
-        "base_edid_changeable": {
-          "description": "Whether the Input supports changing Base EDID",
+        "base_edid_support": {
+          "description": "Whether the Input supports Base EDID",
           "type": "boolean"
         },
         "connected": {
