@@ -83,7 +83,9 @@ The `/properties` endpoint shows properties of the Input. In particular, it MAY 
 
 ### Base EDID
 
-There is no Base EDID at the initial state. If the Base EDID for an Input changes, then all Senders associated with this Input MUST update their versions (in registered mode this MUST update the registered resources).
+An Input MAY support external changing of Base EDID. If an Input does not support it, `base_edid_changeable` property of such Input MUST be `false` and `PUT` and `DELETE` requests to `/base/edid` resource MUST be responded with `405 Method Not Allowed`.
+
+If the Base EDID for an Input changes, then all Senders associated with this Input MUST update their versions (in registered mode this MUST update the registered resources).
 
 ### Effective EDID
 
