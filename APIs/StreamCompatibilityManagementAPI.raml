@@ -256,8 +256,6 @@ mediaType: application/json
             body:
               example: !include ../examples/input-edid-get-200.json
               type: !include schemas/input-edid-base.json
-          204:
-            description: The Input does not support EDID.
           404:
             description: Returned when the requested Input ID does not exist.
             body:
