@@ -83,13 +83,15 @@ The `/properties` endpoint shows properties of the Input. In particular, it MAY 
 
 ### Base EDID
 
+An Input MAY support Base EDID and MUST indicate it via `base_edid_support` property. The API documentation reflects how responses from `/edid/base` depend on this property.
+
 There is no Base EDID at the initial state. If the Base EDID for an Input changes, then all Senders associated with this Input MUST update their versions (in registered mode this MUST update the registered resources).
 
 ### Effective EDID
 
 Effective EDID is such combination of Base EDID and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
 
-If Base EDID is not set, Effective EDID is built on the basis of a default Base EDID defined for the Input by the manufacturer.
+If Base EDID is not set, Effective EDID is built on the basis of a default EDID defined for the Input by the manufacturer.
 
 The `/edid/effective` endpoint allows a client to download the Effective EDID if it exists. If the Effective EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
