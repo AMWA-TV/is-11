@@ -10,9 +10,9 @@ _(c) AMWA 2023, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_
 
 The Stream Compatibility Management API is specified using:
 
-* The following sub-sections describing common NMOS API properties.
-* [RAML](http://raml.org/) documents and [JSON schemas](http://tools.ietf.org/html/draft-zyp-json-schema-04) in the [APIs](../APIs/) folder.
-* Normative text in files in the [docs](../docs) directory.
+- The following sub-sections describing common NMOS API properties.
+- [RAML](http://raml.org/) documents and [JSON schemas](http://tools.ietf.org/html/draft-zyp-json-schema-04) in the [APIs](../APIs/) folder.
+- Normative text in files in the [docs](../docs) directory.
 
 Examples of JSON format output are provided in the [examples](../examples/) folder.
 
@@ -75,7 +75,7 @@ In order to overcome shortcomings in some common libraries, the following requir
 #### `GET` and `HEAD` Requests
 
 - Clients performing requests using these methods SHOULD correctly handle a `301` (Moved Permanently) response.
-- When a `301` is supported, the client MUST follow the redirect in order to retrieve the required response payload.
+- When a `301` is supported, the client MUST follow the redirect in order to retrieve the response payload.
 - Servers implementing the APIs MUST support requests using these methods to both the trailing slash and non-trailing slash path to each resource. One of these MAY produce a `301` response causing a redirect to the other if preferred.
 
 #### All Other Requests (`PUT`, `POST`, `DELETE`, `OPTIONS`, etc.)
