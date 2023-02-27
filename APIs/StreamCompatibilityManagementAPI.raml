@@ -88,6 +88,11 @@ mediaType: application/json
               description: Returned when the requested Sender ID does not exist.
               body:
                 type: !include schemas/error.json
+        options:
+          description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+          responses:
+            200:
+            403:
         put:
           description: >
             Validates proposed Constraints against JSON Schema of request body
@@ -281,6 +286,11 @@ mediaType: application/json
                 Returned when the requested Input ID doesn't exist.
               body:
                 type: !include schemas/error.json
+        options:
+          description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+          responses:
+            200:
+            403:
         put:
           description: Set Base EDID
           body:
