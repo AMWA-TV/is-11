@@ -42,7 +42,7 @@ After this the Controller can make the chosen connections via [IS-05][].
 
 Subsequently, after breaking these connections via IS-05, the Controller is RECOMMENDED to `DELETE /constraints/active` of the Sender after making it inactive.
 
-The Controller can also change the configuration of the Sender without establishing an IS-05 connection.
+The Controller MAY also change the configuration of the Sender without establishing an IS-05 connection.
 
 ## Dynamic format changes on Sender
 
