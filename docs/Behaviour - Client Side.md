@@ -2,16 +2,47 @@
 
 ## Active Constraints of Sender
 
-Before making an [IS-05][IS-05] connection, NMOS Controller chooses a Sender and a number of Receivers. Then NMOS Controller MUST `GET /constraints/supported` from the Sender, MUST collect Receiver Capabilities from the Receivers and make such processing of them that they can be utilized for building Active Constraints satisfying all (by default) or some (depending on user preferences) of the Receivers and using Parameter Constraint URNs supported by the Sender. If the Sender supports fewer Parameter Constraint URNs than used in the Receiver Capabilities, the NMOS Controller SHOULD inform the user about it. If the processing of the Receiver Capabilities results in an empty `constraint_sets` of Active Constraints, NMOS Controller SHOULD inform the user about it. After that NMOS Controller MUST `PUT /constraints/active` to the Sender and SHOULD make the IS-05 connections if the Constraints have been applied succesfully to the Sender. After breaking these connections via IS-05, NMOS Controller is RECOMMENDED to `DELETE /constraints/active` of the Sender.
+An NMOS Controller manages stream compatibility using the Active Constraints of the Sender.
+The Active Constraints of the Sender are expressed as Constraint Sets that restrict the stream the Sender can transmit.
+The Controller MAY build these Constraint Sets from the Receiver Capabilities of one or more Receivers.
 
-Constraint Sets of Active Constraints SHOULD represent a consensus among Receivers. For example, there are Receiver A, Receiver B, Receiver C with equal Receiver Capabilities consisting of Constraint Sets 1, 2, 3, 4, 5 and Receiver D with Constraint Sets 2, 3, 4, 5 and 6 which is incompatible with the previous ones. In this case the consensus is Constraint Sets 2, 3, 4, 5 which are common for all the four Receivers. The user may control how the consensus is obtained, providing preferences to the NMOS Controller among the Receivers and the Constraint Sets of each Receiver and criteria about the size of the consensus.
+### Building the Constraint Sets
 
-`urn:x-nmos:cap:meta:preference` property in Constraint Sets of Receiver Capabilities indicates relative preference between Constraint Sets of that Receiver. The NMOS Controller MAY use these values to make a decision about how to process these Constraint Sets and determine preference of Constraint Sets of Active Constraints. It SHOULD NOT propagate values of this property as is from Receiver Capabilities to Active Constraints.
+The NMOS Controller MUST `GET /constraints/supported` from the Sender, MUST collect Receiver Capabilities from the Receivers and process them to build Constraint Sets satisfying all (by default) or some (depending on User preferences) of the Receivers, using Parameter Constraints supported by the Sender.
+If the Sender does not support all the Parameter Constraints used in the Receiver Capabilities, the NMOS Controller SHOULD inform the User about it.
+If the processing of the Receiver Capabilities results in no Constraint Sets, the NMOS Controller SHOULD inform the User that all of the chosen Receivers cannot be satisfied at the same time.
 
-`urn:x-nmos:cap:meta:preference` property in Constraint Sets of Active Constraints indicates relative preference between Constraint Sets of the Active Constraints of the Sender. The NMOS Controller MAY fill in this property in Constraint Sets based on any additional information about Receivers. For example, if the user in any way informs the NMOS Controller that Receiver D has precedence over the consensus of Receivers A, B, C and `urn:x-nmos:cap:meta:preference` values of Receiver D state that Constraint Set 6 has higher preference than Constraints Sets 2, 3, 4, 5, then the Constraint Sets would be 2, 3, 4, 5, 6 where Constraint Set 6 has the highest preference.
+Constraint Sets built from the Receiver Capabilities SHOULD represent a consensus among the Receivers.
+
+For example, there are Receiver A, Receiver B, Receiver C with equal Receiver Capabilities consisting of Constraint Sets 1, 2, 3, 4, 5 and Receiver D with Constraint Sets 2, 3, 4, 5 and 6 which is incompatible with the previous ones.
+In this case the consensus is Constraint Sets 2, 3, 4, 5 which are common for all the four Receivers.
+The Controller MAY allow the User to control how the consensus is obtained, providing preferences to the Controller among the Receivers and the Constraint Sets of each Receiver and criteria about the size of the consensus.
+
+The `urn:x-nmos:cap:meta:preference` property in Constraint Sets of Receiver Capabilities indicates relative preference between Constraint Sets of that Receiver.
+The Controller MAY use these values to make a decision about how to process these Constraint Sets and determine preference of Constraint Sets of Active Constraints.
+It SHOULD NOT propagate values of this property as is from Receiver Capabilities to Active Constraints.
+
+The `urn:x-nmos:cap:meta:preference` property in Constraint Sets of Active Constraints indicates relative preference between Constraint Sets of the Active Constraints of the Sender.
+The Controller MAY fill in this property in Constraint Sets based on any additional information about Receivers.
+For example, if the User in any way informs the Controller that Receiver D has precedence over the consensus of Receivers A, B, C and `urn:x-nmos:cap:meta:preference` values of Receiver D state that Constraint Set 6 has higher preference than Constraints Sets 2, 3, 4, 5, then the Constraint Sets could be 2, 3, 4, 5, 6 where Constraint Set 6 has the highest preference.
 
 Constraint Sets of Receiver Capabilities with `urn:x-nmos:cap:meta:enabled` set to false MUST be ignored completely while making the processing.
 
+### Using the Constraint Sets
+
+If changing the configuration of the Sender, the Controller MUST `PUT /constraints/active` to the Sender to replace the Active Constraints.
+In case of changing the configuration of an active Sender, deactivating the Sender MAY be necessary.
+The Sender indicates the Active Constraints cannot currently be updated with the `423` Locked response.
+
+If keeping the configuration of the Sender, the Controller MUST instead `GET /constraints/active` from the Sender and evaluate these Active Constraints against the Constraint Sets built from the Receiver Capabilities.
+Sometimes there could be streams compliant with the current Active Constraints that would not be compliant with the Constraint Sets built from the Receiver Capabilities.
+In these scenarios, the Controller SHOULD inform the User that compatibility of the Sender's stream with the chosen Receivers cannot be assured without replacing the Active Constraints.
+
+After this the Controller can make the chosen connections via [IS-05][].
+
+Subsequently, after breaking these connections via IS-05, the Controller is RECOMMENDED to `DELETE /constraints/active` of the Sender after making it inactive.
+
+The Controller can also change the configuration of the Sender without establishing an IS-05 connection.
 
 ## Dynamic format changes on Sender
 
