@@ -13,14 +13,14 @@ Constraint Sets of Active Constraints SHOULD represent a consensus among Receive
 Constraint Sets of Receiver Capabilities with `urn:x-nmos:cap:meta:enabled` set to false MUST be ignored completely while making the processing.
 
 
-## Dynamic format changes on Sender
+## Dynamic Update of Resources
 
-### Changes which break Active Constraints
+The Controller MUST be capable of using Stream Compatibility API in conjunction with IS-04 Query API (if available) or IS-04 Node API to discover and dynamically report the state of any relevant resources, including Inputs, Outputs, Senders and Receivers.
 
-NMOS Controller MUST track Sender's `subscription`'s `active` property during and after the IS-05 connection. If it became `false` unexpectedly, NMOS Controller SHOULD `GET /status` to figure out the reason of breaking the connection. If the State of the Sender is `active_constraints_violation`, then NMOS Controller SHOULD either disconnect all the Receivers or `PUT /constraints/active` once again and re-enable Sender via IS-05.
-
-### Changes which do not break Active Constraints
-
-Sender's changes which meet the Active Constraints do not affect the `active` property so if the transport file of the Sender has changed, the NMOS Controller SHOULD `PATCH /staged` of all the connected Receivers with the new `transport_file` requesting immediate activation.
+* The Controller MUST indicate statutes of Inputs, Outputs, Senders and Receivers.
+* The Controller MUST report to the User when `status` attribute of the state of a Sender becomes `active_constraints_violation` and SHOULD report when it becomes `no_essence` or `awaiting_essence`.
+* The Controller SHOULD report to the User when `status` attribute of the state of an active Receiver becomes `non_compliant_stream`.
+* The Controller SHOULD `PATCH /staged` of all the connected Receivers with the new `transport_file` requesting immediate activation when the related active Sender updates the transport file.
+* The Controller MUST reflect changes in presence/absence of Inputs and Outputs to the User after a maximum of 30 seconds.
 
 [IS-05]: https://specs.amwa.tv/is-05/
