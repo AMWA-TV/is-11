@@ -6,8 +6,8 @@ The initial state of Active Constraints of a Sender MUST be an empty `constraint
 
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
-Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of [BCP-004-01][BCP-004-01].
-Active Constraints are violated when at least one Parameter Constraint of each Constraint Set is not satisfied in terms of [BCP-004-01][BCP-004-01].
+Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of [BCP-004-01][].
+Active Constraints are violated when at least one Parameter Constraint of each Constraint Set is not satisfied in terms of [BCP-004-01][].
 
 ## Supported Constraints of Sender
 
