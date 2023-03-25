@@ -33,6 +33,7 @@
               "type": "string",
               "enum": [
                 "no_signal",
+                "default_signal",
                 "signal_present"
               ]
             },
