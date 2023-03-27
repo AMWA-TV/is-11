@@ -18,10 +18,11 @@ Constraint Sets of Receiver Capabilities with `urn:x-nmos:cap:meta:enabled` set 
 The Controller MUST be capable of using Stream Compatibility API in conjunction with IS-04 APIs to discover and dynamically report the state of any relevant resources, including Inputs, Outputs, Senders and Receivers.
 
 In order to avoid polling of the Stream Compatibility API, it is RECOMMENDED that Controllers use the WebSocket subscription mechanism of IS-04 Query API.
-* The Controller MUST indicate statuses of Inputs, Outputs, Senders and Receivers.
-* The Controller MUST report to the User when `status` attribute of the state of a Sender becomes `active_constraints_violation` and SHOULD report when it becomes `no_essence` or `awaiting_essence`.
-* The Controller SHOULD report to the User when `status` attribute of the state of an active Receiver becomes `non_compliant_stream`.
-* The Controller SHOULD `PATCH /staged` of all the connected Receivers with the new `transport_file` requesting immediate activation when the related active Sender updates the transport file.
-* The Controller MUST reflect changes in presence/absence of Inputs and Outputs to the User after a maximum of 30 seconds.
+* The Controller MUST indicate whether each Sender/Receiver discovered via IS-04 APIs is present in Stream Compatibility API and indicate statuses of such Senders/Receivers
+* The Controller MUST report to the User when `state` attribute of the status of a Sender remains `active_constraints_violation` or `no_essence` after a maximum of 30 seconds.
+* The Controller SHOULD report to the User when `state` attribute of the status of an active Receiver becomes `non_compliant_stream`.
+* The Controller SHOULD be capable of performing `PATCH /staged` of all the connected Receivers with the new `transport_file` requesting immediate activation when the related active Sender updates the transport file.
+* The Controller SHOULD indicate statuses of Inputs and Outputs and indicate the Inputs associated to a given Sender and Outputs associated to a given Receiver for Senders/Receivers listed in Stream Compatibility APIs.
+* The Controller SHOULD reflect changes in presence/absence of Inputs and Outputs to the User after a maximum of 30 seconds.
 
 [IS-05]: https://specs.amwa.tv/is-05/
