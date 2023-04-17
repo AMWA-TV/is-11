@@ -61,6 +61,7 @@ Debug information expressed through `debug` property SHOULD assist `unknown` and
 
 An Output has the following states that describe the signal at this Output:
 - `no_signal` when this Output is not producing any signal to a downstream counterpart (e.g. if the Output has associated Receivers, it may mean that one or more of these Receivers do not have a compliant incoming stream).
+- `default_signal` when this Output is producing a default signal (i.e. not acquired from associated Receivers).
 - `signal_present` when the signal is present and stable.
 
 Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
