@@ -15,9 +15,8 @@ Constraint Sets of Receiver Capabilities with `urn:x-nmos:cap:meta:enabled` set 
 
 ## Dynamic Update of Resources
 
-The Controller MUST be capable of using Stream Compatibility API in conjunction with IS-04 APIs to discover and dynamically report the state of any relevant resources, including Inputs, Outputs, Senders and Receivers.
+The Controller uses Stream Compatibility API in conjunction with IS-04 APIs to discover and track the state of any relevant resources, including Inputs, Outputs, Senders and Receivers.
 
-In order to avoid polling of the Stream Compatibility API, it is RECOMMENDED that Controllers use the WebSocket subscription mechanism of IS-04 Query API.
 * The Controller MUST indicate whether each Sender/Receiver discovered via IS-04 APIs is present in Stream Compatibility API and indicate statuses of such Senders/Receivers
 * The Controller MUST report to the User when `state` attribute of the status of a Sender remains `active_constraints_violation` or `no_essence` after a maximum of 30 seconds.
 * The Controller SHOULD report to the User when `state` attribute of the status of an active Receiver becomes `non_compliant_stream`.
