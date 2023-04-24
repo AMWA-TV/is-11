@@ -2,81 +2,175 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "required": [
-    "manufacturer",
-    "manufacture_week",
-    "manufacture_year",
-    "screen_size",
+    "manufacturer_id",
+    "product_code",
+    "manufacture_date_or_model_year",
+    "edid_major_version",
+    "edid_minor_version",
     "gamma",
-    "color_samplings",
-    "established_timings"
+    "dpms_standby",
+    "dpms_suspend",
+    "dpms_active_off"
   ],
   "properties": {
-    "manufacturer": {
-      "type": "string"
+    "manufacturer_id": {
+      "description": "Manufacturer Name ID",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3
     },
-    "manufacture_week": {
-      "type": "integer"
+    "product_code": {
+      "description": "Manufacturer assigned product code",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
     },
-    "manufacture_year": {
-      "type": "integer"
+    "serial_number": {
+      "description": "Serial number",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
     },
-    "screen_size": {
-      "type": "object",
-      "required": [
-        "width",
-        "height"
-      ],
-      "properties": {
-        "width": {
-          "description": "Horizontal screen size, in centimetres",
-          "type": "integer"
+    "manufacture_date_or_model_year": {
+      "oneOf": [
+        {
+          "description": "Manufacture date",
+          "type":"object",
+          "additionalProperties": false,
+          "required": [
+            "year_of_manufacture"
+          ],
+          "properties": {
+            "week_of_manufacture": {
+              "description": "Week of manufacture",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 54
+            },
+            "year_of_manufacture": {
+              "description": "Year of manufacture",
+              "type": "integer",
+              "minimum": 1990,
+              "maximum": 2245
+            }
+          }
         },
-        "height": {
-          "description": "Vertical screen size, in centimetres",
-          "type": "integer"
+        {
+          "type":"object",
+          "additionalProperties": false,
+          "required": [
+            "model_year"
+          ],
+          "properties": {
+            "model_year": {
+              "description": "Model year",
+              "minimum": 1990,
+              "maximum": 2245
+            }
+          }
         }
-      }
+      ]
+    },
+    "edid_major_version": {
+      "description": "EDID structure version number (x.4)",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1
+    },
+    "edid_minor_version": {
+      "description": "EDID structure revision number (1.x)",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    },
+    "h_screen_size": {
+      "description": "Horizontal screen size, in centimetres",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255
+    },
+    "v_screen_size": {
+      "description": "Vertical screen size, in centimetres",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255
     },
     "gamma": {
-      "type": "number"
+      "description": "Display transfer characteristic * 100 - 100",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255
     },
-    "color_samplings": {
-      "description": "Digital display type in terms of supported subsampling modes",
+    "dpms_standby": {
+      "description": "Standby Mode support (Display Power Management Signaling)",
+      "type": "boolean"
+    },
+    "dpms_suspend": {
+      "description": "Suspend Mode support (Display Power Management Signaling)",
+      "type": "boolean"
+    },
+    "dpms_active_off": {
+      "description": "Active Off support (Display Power Management Signaling)",
+      "type": "boolean"
+    },
+    "digital_display_type": {
+      "description": "Supported color encoding formats",
+      "type": "string",
+      "enum": [
+        "RGB 4:4:4",
+        "RGB 4:4:4, YCrCb 4:4:4",
+        "RGB 4:4:4, YCrCb 4:2:2",
+        "RGB 4:4:4, YCrCb 4:4:4, YCrCb 4:2:2"
+      ]
+    },
+    "established_timings_1": {
+      "description": "Established Timings byte 1",
       "type": "array",
-      "minItems": 1,
-      "maxItems": 3,
+      "maxItems": 8,
       "uniqueItems": true,
       "items": {
         "type": "string",
         "enum": [
-          "RGB",
-          "YCbCr-4:4:4",
-          "YCbCr-4:2:2"
+          "720x400@70Hz",
+          "720x400@88Hz",
+          "640x480@60Hz",
+          "640x480@67Hz",
+          "640x480@72Hz",
+          "640x480@75Hz",
+          "800x600@56Hz",
+          "800x600@60Hz"
         ]
       }
     },
-    "established_timings": {
+    "established_timings_2": {
+      "description": "Established Timings byte 2",
       "type": "array",
+      "maxItems": 8,
+      "uniqueItems": true,
       "items": {
-        "$ref": "edid_timing.json"
+        "type": "string",
+        "enum": [
+          "800x600@72Hz",
+          "800x600@75Hz",
+          "832x624@75Hz",
+          "1024x768@87Hz interlaced",
+          "1024x768@60Hz",
+          "1024x768@70Hz",
+          "1024x768@75Hz",
+          "1280x1024@75Hz"
+        ]
       }
     },
-    "standard_timings": {
+    "established_timings_3": {
+      "description": "Established Timings byte 3",
       "type": "array",
+      "maxItems": 1,
+      "uniqueItems": true,
       "items": {
-        "$ref": "edid_timing.json"
-      }
-    },
-    "detailed_timings": {
-      "type": "array",
-      "items": {
-        "$ref": "edid_timing.json"
-      }
-    },
-    "cta_861_timings": {
-      "type": "array",
-      "items": {
-        "$ref": "edid_timing.json"
+        "type": "string",
+        "enum": [
+          "1152x870@75Hz"
+        ]
       }
     }
   }
