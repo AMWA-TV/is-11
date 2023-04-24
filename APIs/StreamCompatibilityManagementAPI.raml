@@ -112,7 +112,7 @@ mediaType: application/json
             400:
               description: >
                 Returned when the Constraints are rejected due to schema validation failure
-                or if the Sender doesn't support Parameter Constraint URNs used.
+                or if the Sender doesn't support a Parameter Constraint URN used in any of the Constraint Sets.
               body:
                 type: !include schemas/error.json
             404:
