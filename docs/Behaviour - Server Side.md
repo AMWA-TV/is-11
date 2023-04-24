@@ -11,7 +11,7 @@ Active Constraints are violated when at least one Parameter Constraint of each C
 
 ## Supported Constraints of Sender
 
-A Sender MUST present the list of supported parameter constraints in `/supported` endpoint. This list MUST include at least the parameter constraints from the following list which are applicable to the format of the Flow associated with this Sender:
+A Sender MUST present the list of supported constraint set metadata and parameter constraints in the `/supported` endpoint. This list MUST include at least the constraint set metadata from the following list and at least those parameter constraints from the following list which are applicable to the format of the Flow associated with this Sender:
 - `urn:x-nmos:cap:meta:label`
 - `urn:x-nmos:cap:meta:preference`
 - `urn:x-nmos:cap:meta:enabled`
