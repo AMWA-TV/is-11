@@ -6,12 +6,12 @@ The initial state of Active Constraints of a Sender MUST be an empty `constraint
 
 Non-empty `constraint_sets` array MUST be treated as unordered unless at least one Constraint Set has `urn:x-nmos:cap:meta:preference` attribute.
 
-Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of [BCP-004-01][BCP-004-01].
-Active Constraints are violated when at least one Parameter Constraint of each Constraint Set is not satisfied in terms of [BCP-004-01][BCP-004-01].
+Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of [BCP-004-01][].
+Active Constraints are violated when at least one Parameter Constraint of each Constraint Set is not satisfied in terms of [BCP-004-01][].
 
 ## Supported Constraints of Sender
 
-A Sender MUST present the list of supported parameter constraints in `/supported` endpoint. This list MUST include at least the parameter constraints from the following list which are applicable to the format of the Flow associated with this Sender:
+A Sender MUST present the list of supported constraint set metadata and parameter constraints in the `/supported` endpoint. This list MUST include at least the constraint set metadata from the following list and at least those parameter constraints from the following list which are applicable to the format of the Flow associated with this Sender:
 - `urn:x-nmos:cap:meta:label`
 - `urn:x-nmos:cap:meta:preference`
 - `urn:x-nmos:cap:meta:enabled`
