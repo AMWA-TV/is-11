@@ -18,7 +18,6 @@
           "description": "Whether the downstream counterpart of this Output is connected",
           "type": "boolean"
         },
-        "edid": { "$ref": "edid.json" },
         "edid_support": {
           "description": "Whether the Output supports EDID",
           "type": "boolean"

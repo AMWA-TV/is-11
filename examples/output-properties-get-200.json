@@ -7,31 +7,6 @@
   "tags": {},
   "connected": true,
   "edid_support": true,
-  "edid": {
-    "manufacturer_id": "ABC",
-    "product_code": 1234,
-    "manufacture_date_or_model_year": {
-      "week_of_manufacture":2,
-      "year_of_manufacture":2020
-    },
-    "edid_major_version":1,
-    "edid_minor_version":4,
-    "gamma": 1,
-    "dpms_active_off": false,
-    "dpms_standby": false,
-    "dpms_suspend": false,
-    "digital_display_type":"RGB 4:4:4, YCrCb 4:4:4",
-    "established_timings_1":[
-      "800x600@56Hz"
-    ],
-    "established_timings_2":[
-      "1024x768@70Hz",
-      "1024x768@87Hz interlaced"
-    ],
-    "established_timings_3":[
-      "1152x870@75Hz"
-    ]
-  },
   "status": {
     "state": "signal_present"
   }
