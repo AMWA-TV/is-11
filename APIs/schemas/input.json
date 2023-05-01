@@ -15,7 +15,6 @@
         "device_id"
       ],
       "properties": {
-        "base_edid": { "$ref": "edid.json" },
         "base_edid_support": {
           "description": "Whether the Input supports Base EDID",
           "type": "boolean"
@@ -28,7 +27,6 @@
           "description": "Whether the Input supports EDID",
           "type": "boolean"
         },
-        "effective_edid": { "$ref": "edid.json" },
         "status": {
           "description": "Status of Input",
           "required": [

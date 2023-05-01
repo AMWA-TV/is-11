@@ -80,7 +80,7 @@ A Device SHOULD provide parent Flows and parent Sources to a Sender's Flow and a
 
 ### Properties
 
-The `/properties` endpoint shows properties of the Input. In particular, it MAY contain information parsed from Base EDID (if set) and Effective EDID if the Input supports EDID and the Node is capable to parse EDID binaries.
+The `/properties` endpoint shows properties of the Input.
 
 ### Base EDID
 
@@ -100,7 +100,7 @@ The `/edid/effective` endpoint allows a client to download the Effective EDID if
 
 ### Properties
 
-The `/properties` endpoint shows properties of the Output. In particular, it MAY contain information parsed from EDID if it is present and the Node is capable to parse EDID binaries.
+The `/properties` endpoint shows properties of the Output.
 
 ### EDID
 
