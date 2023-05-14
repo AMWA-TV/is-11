@@ -51,7 +51,7 @@ Example:
 
 ## Sender and Receiver IDs
 
-The UUIDs used to advertise Senders and Receivers in the Stream Compatibility Management API must match those used in a corresponding IS-04 implementation.
+The UUIDs used to advertise Senders and Receivers in the Stream Compatibility Management API MUST match those used in a corresponding IS-04 implementation.
 
 ## Version Increments
 
