@@ -252,6 +252,36 @@ mediaType: application/json
             description: Returned when the requested Input ID does not exist.
             body:
               type: !include schemas/error.json
+      options:
+        description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+        responses:
+          200:
+          403:
+          404:
+      patch:
+        description: Update core information about a single Input
+        body:
+          type: !include schemas/resource_core_patch.json
+          examples:
+            label-description: !include ../examples/properties-patch.json
+            tags: !include ../examples/properties-patch-tags.json
+        responses:
+          200:
+            body:
+              example: !include ../examples/input-properties-get-200.json
+              type: !include schemas/input.json
+          400:
+            description: Returned when the request did not meet the schema
+            body:
+              type: !include schemas/error.json
+          404:
+            description: Returned when the requested Input ID does not exist
+            body:
+              type: !include schemas/error.json
+          500:
+            description: Returned when the request did not meet the API's additional constraints
+            body:
+              type: !include schemas/error.json
     /edid:
       get:
         description: List all the API endpoints for EDIDs associated with the Input.
@@ -397,6 +427,36 @@ mediaType: application/json
               type: !include schemas/output.json
           404:
             description: Returned when the requested Output ID does not exist.
+            body:
+              type: !include schemas/error.json
+      options:
+        description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+        responses:
+          200:
+          403:
+          404:
+      patch:
+        description: Update core information about a single Output
+        body:
+          type: !include schemas/resource_core_patch.json
+          examples:
+            label-description: !include ../examples/properties-patch.json
+            tags: !include ../examples/properties-patch-tags.json
+        responses:
+          200:
+            body:
+              example: !include ../examples/output-properties-get-200.json
+              type: !include schemas/input.json
+          400:
+            description: Returned when the request did not meet the schema
+            body:
+              type: !include schemas/error.json
+          404:
+            description: Returned when the requested Output ID does not exist
+            body:
+              type: !include schemas/error.json
+          500:
+            description: Returned when the request did not meet the API's additional constraints
             body:
               type: !include schemas/error.json
     /edid:
