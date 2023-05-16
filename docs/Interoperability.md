@@ -11,11 +11,13 @@ IS-05 dictates that IS-04 APIs SHOULD be operating at version 1.2 or greater in 
 
 Any references to terms and JSON Schemas defined in BCP-004-01 relate to version 1.0.
 
-Receivers, managed with IS-11 and associated with Outputs which support EDID, SHOULD use BCP-005-01 to express Receiver Capabilities that came from the EDID(s) and BCP-004-01 to express their own Receiver Capabilities. The inherent Receiver Capabilities prevail over the EDID associated Capabilities. An EDID can further restrict inherent Receiver Capabilities but cannot expand them.
+Receivers, managed with IS-11 and associated with Outputs which support EDID, SHOULD use BCP-005-01 to express Receiver Capabilities that came from the EDID(s) and BCP-004-01 to express their own Receiver Capabilities.
+The inherent Receiver Capabilities prevail over the EDID associated Capabilities.
+An EDID can further restrict inherent Receiver Capabilities but cannot expand them.
 
 ## Discovery
 
-The Stream Compatibility Management API SHOULD be advertised as a `control` endpoint under an IS-04 NMOS Device in the controls array using the `urn:x-nmos:control:stream-compat` type. For consistency the href URL offered SHOULD always end with a trailing slash.
+The Stream Compatibility Management API SHOULD be advertised as a 'control' endpoint under an IS-04 NMOS Device in the `controls` array using the `urn:x-nmos:control:stream-compat` type.
 
 Example:
 
