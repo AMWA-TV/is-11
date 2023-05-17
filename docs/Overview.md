@@ -8,7 +8,9 @@
 
 ## Introduction
 
-The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. A Receiver provides Receiver Capabilities and exposes its Outputs, each of which may hold EDID from its downstream counterpart. A Sender has Active Constraints, which restrict media formats allowed for sending, and Inputs, each of which may have an Effective EDID to present to its upstream media producing unit.
+The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers.
+A Receiver provides Receiver Capabilities and exposes its Outputs, each of which may hold EDID from its downstream counterpart.
+A Sender has Active Constraints, which restrict media formats allowed for sending, and Inputs, each of which may have an Effective EDID to present to its upstream media producing unit.
 
 The Specification includes:
 
@@ -17,9 +19,11 @@ The Specification includes:
   - An overview of the API and how it is used.
   - Normative requirements in addition to those included in the RAML and JSON schemas specifying the API.
   - Additional details and recommendations for implementers of API providers and clients.
-  - Information about compatibility between different API versions.
+  - Information about interoperability with other specifications and compatibility between different API versions.
 
-The terms 'Node', 'Device', 'Source', 'Flow', 'Sender' and 'Receiver' are used extensively in this documenation set. The [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/Technical_Overview.html) provides an outline of these terms, and IS-04 provides corresponding schema definitions.
+The [NMOS Glossary][Glossary] defines several common terms that have specific meanings in NMOS.
+The terms 'Node', 'Device', 'Source', 'Flow', 'Sender' and 'Receiver' are used extensively in this documentation set.
+The [NMOS Technical Overview](https://specs.amwa.tv/nmos/main/docs/Technical_Overview.html) provides an outline of these terms, and IS-04 provides corresponding schema definitions.
 
 The terms 'Parameter Constraint' and 'Constraint Set' used in this documentation set are defined in [BCP-004-01][BCP-004-01].
 
@@ -34,11 +38,16 @@ and "OPTIONAL" in this documentation set are to be interpreted as described in [
 
 ### Input
 
-An Input is a logical input connector which consumes video, audio and ancillary data for providing it to Sender(s) through a number of Sources and Flows. The precise relationship between the Inputs and such Sources and Flows is not specified and there may be an IS-08 mapping element in the system. The Input may present metadata about media consuming capabilities to its upstream counterpart. Each Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Input is a logical input connector which consumes video, audio and ancillary data for providing it to Sender(s) through a number of Sources and Flows.
+The precise relationship between the Inputs and such Sources and Flows is not specified and there may be an IS-08 mapping element in the system.
+The Input may present metadata about media consuming capabilities to its upstream counterpart.
+Each Input is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ### Output
 
-An Output is a logical output connector which produces video, audio and ancillary data provided by Receiver(s). Output may hold metadata about the media consuming capabilities from its downstream counterpart. Each Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
+An Output is a logical output connector which produces video, audio and ancillary data provided by Receiver(s).
+Output may hold metadata about the media consuming capabilities from its downstream counterpart.
+Each Output is a resource and based on [Resource Core JSON Schema][Resource-Core-Schema].
 
 ## API Structure
 
@@ -64,13 +73,15 @@ Each Input has a `properties` resource, which has metadata about this Input, and
 
 #### EDID
 
-There is a `base` resource which holds the Base EDID used by the Input as the basis for creating the Effective EDID. The `effective` resource holds the Effective EDID presented to an upstream counterpart of this Input.
+There is a `base` resource which holds the Base EDID used by the Input as the basis for creating the Effective EDID.
+The `effective` resource holds the Effective EDID presented to an upstream counterpart of this Input.
 
 ### Outputs
 
 Each Output has a `properties` resource, which has metadata about this Output, and an `edid` resource, which may hold the EDID presented to this Output by its downstream counterpart.
 
 [RFC-2119]: https://tools.ietf.org/html/rfc2119 "Key words for use in RFCs"
+[Glossary]: https://specs.amwa.tv/nmos/main/docs/Glossary.html "NMOS Glossary"
 [IS-04]: https://specs.amwa.tv/is-04 "IS-04 NMOS Discovery & Registration"
 [IS-05]: https://specs.amwa.tv/is-05 "IS-05 NMOS Device Connection Management"
 [BCP-004-01]: https://specs.amwa.tv/bcp-004-01 "BCP-004-01 NMOS Receiver Capabilities"
