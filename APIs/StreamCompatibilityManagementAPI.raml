@@ -293,6 +293,14 @@ mediaType: application/json
             403:
         put:
           description: Set Base EDID
+          queryParameters:
+            adjust_to_caps:
+              description: >
+                If true, the Input is allowed to adjust Base EDID to internal capabilities.
+                If omitted for an Input that supports it, the previous value is preserved.
+              type: boolean
+              required: false
+              example: adjust_to_caps=true
           body:
             application/octet-stream:
               type: file

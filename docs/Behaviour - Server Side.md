@@ -86,13 +86,19 @@ The `/properties` endpoint shows properties of the Input.
 
 An Input MAY support Base EDID and MUST indicate it via `base_edid_support` property. The API documentation reflects how responses from `/edid/base` depend on this property.
 
+Inputs that support Base EDID MAY additionally support adjusting Base EDID to internal capabilities (e.g. capabilities of an Input itself and Senders associated with this Input) via `adjust_to_caps` query parameter of a `PUT /edid/base` request. An Input MUST indicate support of `adjust_to_caps` query parameter via `adjust_to_caps` property presence in `GET /properties` responses.
+
 There is no Base EDID at the initial state. If the Base EDID for an Input changes, then all Senders associated with this Input MUST update their versions (in registered mode this MUST update the registered resources).
 
 ### Effective EDID
 
-Effective EDID is such combination of Base EDID and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
+If Active Constraints of all Senders associated with this Input are empty and `adjust_to_caps` is equal to `false` or not supported, the Effective EDID is equal to the Base EDID.
 
-If Base EDID is not set, Effective EDID is built on the basis of a default EDID defined for the Input by the manufacturer.
+If Active Constraints of all Senders associated with this Input are empty and `adjust_to_caps` is equal to `true`, the Effective EDID is a combination of the Base EDID and the internal capabilities.
+
+If Active Constraints of at least one Sender associated with this Input are not empty, the Effective EDID is such combination of the Base EDID, internal capabilities and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
+
+If the Base EDID is not set, the Effective EDID is built on the basis of a default EDID defined for the Input by the manufacturer.
 
 The `/edid/effective` endpoint allows a client to download the Effective EDID if it exists. If the Effective EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
