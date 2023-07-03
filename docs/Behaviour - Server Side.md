@@ -61,6 +61,7 @@ Debug information expressed through `debug` property SHOULD assist `unknown` and
 
 An Output has the following states that describe the signal at this Output:
 - `no_signal` when this Output is not producing any signal to a downstream counterpart (e.g. if the Output has associated Receivers, it may mean that one or more of these Receivers do not have a compliant incoming stream).
+- `default_signal` when this Output is producing a default signal (i.e. not acquired from associated Receivers).
 - `signal_present` when the signal is present and stable.
 
 Debug information expressed through `debug` property SHOULD assist `no_signal` state and MAY assist the other states.
@@ -79,9 +80,11 @@ A Device SHOULD provide parent Flows and parent Sources to a Sender's Flow and a
 
 ### Properties
 
-The `/properties` endpoint shows properties of the Input. In particular, it MAY contain information parsed from Base EDID (if set) and Effective EDID if the Input supports EDID and the Node is capable to parse EDID binaries.
+The `/properties` endpoint shows properties of the Input.
 
 ### Base EDID
+
+An Input MAY support Base EDID and MUST indicate it via `base_edid_support` property. The API documentation reflects how responses from `/edid/base` depend on this property.
 
 There is no Base EDID at the initial state. If the Base EDID for an Input changes, then all Senders associated with this Input MUST update their versions (in registered mode this MUST update the registered resources).
 
@@ -89,7 +92,7 @@ There is no Base EDID at the initial state. If the Base EDID for an Input change
 
 Effective EDID is such combination of Base EDID and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
 
-If Base EDID is not set, Effective EDID is built on the basis of a default Base EDID defined for the Input by the manufacturer.
+If Base EDID is not set, Effective EDID is built on the basis of a default EDID defined for the Input by the manufacturer.
 
 The `/edid/effective` endpoint allows a client to download the Effective EDID if it exists. If the Effective EDID for the Input changes and it is associated with any Senders, then all of the Senders in question MUST update their versions (in registered mode this MUST update the registered resources).
 
@@ -97,7 +100,7 @@ The `/edid/effective` endpoint allows a client to download the Effective EDID if
 
 ### Properties
 
-The `/properties` endpoint shows properties of the Output. In particular, it MAY contain information parsed from EDID if it is present and the Node is capable to parse EDID binaries.
+The `/properties` endpoint shows properties of the Output.
 
 ### EDID
 

@@ -88,6 +88,11 @@ mediaType: application/json
               description: Returned when the requested Sender ID does not exist.
               body:
                 type: !include schemas/error.json
+        options:
+          description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+          responses:
+            200:
+            403:
         put:
           description: >
             Validates proposed Constraints against JSON Schema of request body
@@ -107,7 +112,7 @@ mediaType: application/json
             400:
               description: >
                 Returned when the Constraints are rejected due to schema validation failure
-                or if the Sender doesn't support Parameter Constraint URNs used.
+                or if the Sender doesn't support a Parameter Constraint URN used in any of the Constraint Sets.
               body:
                 type: !include schemas/error.json
             404:
@@ -256,8 +261,6 @@ mediaType: application/json
             body:
               example: !include ../examples/input-edid-get-200.json
               type: !include schemas/input-edid-base.json
-          204:
-            description: The Input does not support EDID.
           404:
             description: Returned when the requested Input ID does not exist.
             body:
@@ -275,7 +278,7 @@ mediaType: application/json
                 application/octet-stream:
                   type: file
             204:
-              description: There is no Base EDID set.
+              description: There is no Base EDID set or the Input doesn't support Base EDID or EDID at all.
             307:
               description: A temporary redirect to the Base EDID file.
             404:
@@ -283,6 +286,11 @@ mediaType: application/json
                 Returned when the requested Input ID doesn't exist.
               body:
                 type: !include schemas/error.json
+        options:
+          description: A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes
+          responses:
+            200:
+            403:
         put:
           description: Set Base EDID
           body:
@@ -301,7 +309,7 @@ mediaType: application/json
               body:
                 type: !include schemas/error.json
             405:
-              description: Returned when the Input doesn't support changing Base EDID or doesn't support EDID at all.
+              description: Returned when the Input doesn't support Base EDID or doesn't support EDID at all.
               body:
                 type: !include schemas/error.json
             423:
@@ -324,7 +332,7 @@ mediaType: application/json
               body:
                 type: !include schemas/error.json
             405:
-              description: Returned when the Input doesn't support changing Base EDID or doesn't support EDID at all.
+              description: Returned when the Input doesn't support Base EDID or doesn't support EDID at all.
               body:
                 type: !include schemas/error.json
             423:

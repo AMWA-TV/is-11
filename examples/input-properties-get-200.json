@@ -3,7 +3,9 @@
   "version": "1441704616:592733244",
   "label": "Video card 1",
   "description": "Video card in the PC placed in the office",
+  "device_id": "8ff471c6-bf77-51b1-92e7-939d18d82802",
   "tags": {},
+  "base_edid_support": true,
   "connected": true,
   "edid_support": true,
   "status": {
