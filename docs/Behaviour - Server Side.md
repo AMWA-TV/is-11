@@ -94,9 +94,9 @@ There is no Base EDID at the initial state. If the Base EDID for an Input change
 
 If Active Constraints of all Senders associated with this Input are empty and `adjust_to_caps` is equal to `false` or not supported, the Effective EDID is equal to the Base EDID.
 
-If Active Constraints of all Senders associated with this Input are empty and `adjust_to_caps` is equal to `true`, the Effective EDID is a combination of the Base EDID and the internal capabilities.
+If Active Constraints of all Senders associated with this Input are empty and `adjust_to_caps` is supported and equal to `true`, the Effective EDID is a combination of the Base EDID and the internal capabilities.
 
-If Active Constraints of at least one Sender associated with this Input are not empty, the Effective EDID is such combination of the Base EDID, internal capabilities and Active Constraints of all Senders associated with this Input that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
+If Active Constraints of at least one Sender associated with this Input are not empty, the Effective EDID is a combination of the Base EDID, internal capabilities and Active Constraints of all Senders associated with this Input such that the baseband signal from the Input can be transmitted by the Senders without breaking Active Constraints.
 
 If the Base EDID is not set, the Effective EDID is built on the basis of a default EDID defined for the Input by the manufacturer.
 
