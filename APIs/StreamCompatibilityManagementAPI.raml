@@ -296,11 +296,13 @@ mediaType: application/json
           queryParameters:
             adjust_to_caps:
               description: >
-                If true, the Input is allowed to adjust Base EDID to internal capabilities.
-                If omitted for an Input that supports it, the previous value is preserved.
+                Sets the value of "adjust_to_caps" Input's property.
+                If omitted, the value of the property is preserved.
+                If an implementation doesn't support the property,
+                this query parameter is always ignored.
               type: boolean
               required: false
-              example: adjust_to_caps=true
+              example: true
           body:
             application/octet-stream:
               type: file
