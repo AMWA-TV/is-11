@@ -27,7 +27,7 @@ It SHOULD NOT propagate values of this property as is from Receiver Capabilities
 The `urn:x-nmos:cap:meta:preference` property in Constraint Sets of Active Constraints indicates relative preference between Constraint Sets of the Active Constraints of the Sender.
 The Controller MAY fill in this property in Constraint Sets based on any additional information about Receivers.
 
-For example, if the User in any way informs the Controller that Receiver D has precedence over the consensus of Receivers A, B, C and `urn:x-nmos:cap:meta:preference` values of Receiver D state that Constraint Set 6 has higher preference than Constraints Sets 2, 3, 4, 5, then the Constraint Sets could be 2, 3, 4, 5, 6 where Constraint Set 6 has the highest preference.
+For example, if the User in any way informs the Controller that Receiver D has precedence over the consensus of Receivers A, B, C and `urn:x-nmos:cap:meta:preference` values of Receiver D state that Constraint Set 6 has higher preference than Constraint Sets 2, 3, 4, 5, then the Constraint Sets could be 2, 3, 4, 5, 6 where Constraint Set 6 has the highest preference.
 
 Constraint Sets of Receiver Capabilities with `urn:x-nmos:cap:meta:enabled` set to `false` MUST be ignored completely during this process.
 
@@ -35,9 +35,9 @@ Constraint Sets of Receiver Capabilities with `urn:x-nmos:cap:meta:enabled` set 
 
 If changing the configuration of the Sender, the Controller MUST `PUT /constraints/active` to the Sender to replace the Active Constraints.
 In case of changing the configuration of an active Sender, deactivating the Sender MAY be necessary.
-The Sender indicates the Active Constraints cannot currently be updated with the `423` (Locked) response.
+The Sender indicates that the Active Constraints cannot currently be updated with the `423` (Locked) response.
 
-If keeping the configuration of the Sender, the Controller MUST `GET /constraints/active` from the Sender and evaluate these Active Constraints against the Constraint Sets it has built.
+If keeping the configuration of the Sender, the Controller MUST `GET /constraints/active` from the Sender and provide the User with the Active Constraints and the Constraint Sets it has built or with the results of evaluation the former against the latter if the Controller is able to do such evaluation.
 If the current Active Constraints allow streams, that would not be compliant with the Constraint Sets it has built, the Controller SHOULD inform the User that compatibility of the Sender's stream with the chosen Receivers cannot be assured without replacing the Active Constraints.
 
 After this the Controller can make connections via [IS-05][].
