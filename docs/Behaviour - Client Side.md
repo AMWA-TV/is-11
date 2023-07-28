@@ -33,13 +33,11 @@ Constraint Sets of Receiver Capabilities with `urn:x-nmos:cap:meta:enabled` set 
 
 ### Using the Constraint Sets
 
-After building the Constraint Sets the Controller SHOULD change but MAY keep the configuration of the Sender.
-
 If changing the configuration of the Sender, the Controller MUST `PUT /constraints/active` to the Sender to replace the Active Constraints.
 In case of changing the configuration of an active Sender, deactivating the Sender MAY be necessary.
 The Sender indicates that the Active Constraints cannot currently be updated with the `423` (Locked) response.
 
-If keeping the configuration of the Sender, the Controller MUST `GET /constraints/active` from the Sender and evaluate these Active Constraints against the Constraint Sets it has built.
+If keeping the configuration of the Sender, the Controller SHOULD `GET /constraints/active` from the Sender and evaluate these Active Constraints against the Constraint Sets it has built.
 If the current Active Constraints allow streams, that would not be compliant with the Constraint Sets it has built, the Controller SHOULD inform the User that compatibility of the Sender's stream with the chosen Receivers cannot be assured without replacing the Active Constraints.
 
 After this the Controller can make connections via [IS-05][].
