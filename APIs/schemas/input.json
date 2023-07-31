@@ -15,6 +15,10 @@
         "device_id"
       ],
       "properties": {
+        "adjust_to_caps": {
+          "description": "Whether the Input is configured to adjust Base EDID to internal capabilities. The property exists if the Input supports this feature",
+          "type": "boolean"
+        },
         "base_edid_support": {
           "description": "Whether the Input supports Base EDID",
           "type": "boolean"

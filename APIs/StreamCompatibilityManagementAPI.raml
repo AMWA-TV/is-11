@@ -293,6 +293,16 @@ mediaType: application/json
             403:
         put:
           description: Set Base EDID
+          queryParameters:
+            adjust_to_caps:
+              description: >
+                Sets the value of "adjust_to_caps" Input's property.
+                If omitted, the value of the property is preserved.
+                If an implementation doesn't support the property,
+                this query parameter is always ignored.
+              type: boolean
+              required: false
+              example: true
           body:
             application/octet-stream:
               type: file
