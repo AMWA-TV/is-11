@@ -1,4 +1,4 @@
-# AMWA IS-11 NMOS Stream Compatibility Management Specification: Overview \[Work In Progress\]
+# AMWA IS-11 NMOS Stream Compatibility Management Specification: Overview
 {:.no_toc}
 
 * A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
