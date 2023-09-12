@@ -5,6 +5,6 @@ status: AMWA Specification
 repo_name: is-11
 alt_repo_name: nmos-stream-compatibility-management
 repo_url: https://github.com/AMWA-TV/is-11
-releases:
+releases: v1.0.0
 default_branch: v1.0.x
 show_in_index: true
