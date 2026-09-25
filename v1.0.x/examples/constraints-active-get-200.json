@@ -1,0 +1,65 @@
+{
+  "constraint_sets": [
+    {
+      "urn:x-nmos:cap:meta:label": "1080i Format Group as per VSF TR-05:2018",
+      "urn:x-nmos:cap:format:frame_width": {
+        "enum": [ 1920 ]
+      },
+      "urn:x-nmos:cap:format:frame_height": {
+        "enum": [ 1080 ]
+      },
+      "urn:x-nmos:cap:format:interlace_mode": {
+        "enum": [ "interlaced_tff" ]
+      },
+      "urn:x-nmos:cap:format:grain_rate": {
+        "enum": [
+          { "numerator": 25, "denominator": 1 },
+          { "numerator": 30000, "denominator": 1001 }
+        ]
+      },
+      "urn:x-nmos:cap:format:color_sampling": {
+        "enum": [ "YCbCr-4:2:2" ]
+      },
+      "urn:x-nmos:cap:format:component_depth": {
+        "enum": [ 10 ]
+      },
+      "urn:x-nmos:cap:format:transfer_characteristic": {
+        "enum": [ "SDR" ]
+      },
+      "urn:x-nmos:cap:format:colorspace": {
+        "enum": [ "BT709" ]
+      }
+    },
+    {
+      "urn:x-nmos:cap:meta:label": "1080p Format Group as per VSF TR-05:2018",
+      "urn:x-nmos:cap:format:frame_width": {
+        "enum": [ 1920 ]
+      },
+      "urn:x-nmos:cap:format:frame_height": {
+        "enum": [ 1080 ]
+      },
+      "urn:x-nmos:cap:format:interlace_mode": {
+        "enum": [ "progressive" ]
+      },
+      "urn:x-nmos:cap:format:grain_rate": {
+        "enum": [
+          { "numerator": 24000, "denominator": 1001 },
+          { "numerator": 50, "denominator": 1 },
+          { "numerator": 60000, "denominator": 1001 }
+        ]
+      },
+      "urn:x-nmos:cap:format:color_sampling": {
+        "enum": [ "YCbCr-4:2:2" ]
+      },
+      "urn:x-nmos:cap:format:component_depth": {
+        "enum": [ 10 ]
+      },
+      "urn:x-nmos:cap:format:transfer_characteristic": {
+        "enum": [ "SDR" ]
+      },
+      "urn:x-nmos:cap:format:colorspace": {
+        "enum": [ "BT709" ]  
+      }
+    }
+  ]
+}
