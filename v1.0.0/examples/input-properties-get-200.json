@@ -1,0 +1,14 @@
+{
+  "id": "a2655c48-8a46-4c82-b9bc-98760d59d7f8",
+  "version": "1441704616:592733244",
+  "label": "Video card 1",
+  "description": "Video card in the PC placed in the office",
+  "device_id": "8ff471c6-bf77-51b1-92e7-939d18d82802",
+  "tags": {},
+  "base_edid_support": true,
+  "connected": true,
+  "edid_support": true,
+  "status": {
+    "state": "signal_present"
+  }
+}

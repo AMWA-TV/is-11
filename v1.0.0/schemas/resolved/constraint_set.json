@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Describes a Constraint Set",
+  "title": "Constraint Set",
+  "type": "object",
+  "minProperties": 1,
+  "properties": {
+    "urn:x-nmos:cap:meta:label": {
+      "description": "Freeform string label for the Constraint Set",
+      "type": "string"
+    },
+    "urn:x-nmos:cap:meta:preference": {
+      "description": "This value expresses the relative 'weight' that the Receiver assigns to its preference for the streams satisfied by the associated Constraint Set. The weight is an integer in the range -100 through 100, where -100 is least preferred and 100 is most preferred. When the attribute is omitted, the effective value for the associated Constraint Set is 0.",
+      "type": "integer",
+      "default": 0,
+      "maximum": 100,
+      "minimum": -100
+    },
+    "urn:x-nmos:cap:meta:enabled": {
+      "description": "This value indicates whether a Constraint Set is available to use immediately (true) or whether this is an offline capability which can be activated via some unspecified configuration mechanism (false). When the attribute is omitted its value is assumed to be true.",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "patternProperties": {
+    "^urn:x-nmos:cap:(?!meta:)": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Describes a Parameter Constraint",
+      "title": "Parameter Constraint",
+      "type": "object",
+      "anyOf": [
+        {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "description": "Describes a String Parameter Constraint",
+          "title": "String Parameter Constraint",
+          "type": "object",
+          "properties": {
+            "enum": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "description": "Describes an Integer Parameter Constraint",
+          "title": "Integer Parameter Constraint",
+          "type": "object",
+          "properties": {
+            "enum": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "integer"
+              }
+            },
+            "minimum": {
+              "type": "integer"
+            },
+            "maximum": {
+              "type": "integer"
+            }
+          }
+        },
+        {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "description": "Describes a Number Parameter Constraint",
+          "title": "Number Parameter Constraint",
+          "type": "object",
+          "properties": {
+            "enum": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "number"
+              }
+            },
+            "minimum": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "description": "Describes a Boolean Parameter Constraint",
+          "title": "Boolean Parameter Constraint",
+          "type": "object",
+          "properties": {
+            "enum": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "description": "Describes a Rational Parameter Constraint",
+          "title": "Rational Parameter Constraint",
+          "type": "object",
+          "properties": {
+            "enum": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/rational"
+              }
+            },
+            "minimum": {
+              "$ref": "#/definitions/rational"
+            },
+            "maximum": {
+              "$ref": "#/definitions/rational"
+            }
+          },
+          "definitions": {
+            "rational": {
+              "type": "object",
+              "required": [
+                "numerator"
+              ],
+              "properties": {
+                "numerator": {
+                  "type": "integer"
+                },
+                "denominator": {
+                  "type": "integer",
+                  "default": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "version": 1,
+  "repository": "AMWA-TV/is-11",
+  "documents": [
+    {
+      "title": "StreamCompatibilityManagementAPI",
+      "url": "https://specs.amwa.tv/new/is-11/latest/APIs/StreamCompatibilityManagementAPI/",
+      "text": "StreamCompatibilityManagementAPI StreamCompatibilityManagementAPI StreamCompatibilityManagementAPI - AMWA IS-11 NMOS Stream Compatibility Management Skip to content StreamCompatibilityManagementAPI Open StreamCompatibilityManagementAPI API documentation",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "Stream Compatibility Management version v1.0",
+      "url": "https://specs.amwa.tv/new/is-11/latest/APIs/StreamCompatibilityManagementAPI/",
+      "text": "Stream Compatibility Management version v1.0 Stream Compatibility Management version v1.0 Base HTTP status code 200 Body Senders HTTP status code 200 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 HTTP status code 403 URI Parameters Body HTTP status code 200 Body HTTP status code 400 Body HTTP status code 404 Body HTTP status code 422 Body HTTP status code 423 Body HTTP status code 500 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body HTTP status code 423 Body HTTP status code 500 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body Receivers HTTP status code 200 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body Inputs HTTP status code 200 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 204 HTTP status code 307 HTTP status code 404 Body URI Parameters HTTP status code 200 HTTP status code 403 URI Parameters Query Parameters Body HTTP status code 204 HTTP status code 400 Body HTTP status code 404 Body HTTP status code 405 Body HTTP status code 423 Body HTTP status code 500 Body URI Parameters HTTP status code 204 HTTP status code 404 Body HTTP status code 405 Body HTTP status code 423 Body HTTP status code 500 Body URI Parameters HTTP status code 200 Body HTTP status code 204 HTTP status code 307 HTTP status code 404 Body Outputs HTTP status code 200 Body URI Parameters HTTP status code 200 Body HTTP status code 404 URI Parameters HTTP status code 200 Body HTTP status code 404 Body URI Parameters HTTP status code 200 Body HTTP status code 204 HTTP status code 307 HTTP status code 404 Body Stream Compatibility Management Stream Compatibility Management version v1.0 http://api.example.com/x-nmos/streamcompatibility/{version} version : required (v1.0) Base / get get List of resources available from this API - Inputs, Outputs, Senders, and Receivers. Each are compulsory parts of the spec. × get / List of resources available from this API - Inputs, Outputs, Senders, and Receivers. Each are compulsory parts of the spec. Response HTTP status code 200 Body Media type : application/json Type : { \"$schema\": \"http://json-schema.org/draft-04/schema\", \"type\": \"array\", \"description\": \"Describes the Stream Compatibility Management API base resource\", \"title\": \"Stream Compatibility Management API base resource\", \"items\": { \"type\": \"string\", \"enum\": [ \"inputs/\", \"outputs/\", \"senders/\", \"receivers/\" ] }, \"minItems\": 4, \"maxItems\": 4, \"uniqueItems\": true } Example : [ \"inputs/\", \"outputs/\", \"senders/\", \"receivers/\" ] Senders /senders get get Sender root × get /senders Sender root Response HTTP status code 200 List Senders managed with IS-11. All UUIDs are appended with / to indicate that the ID forms part of the URL for the next layer down. Body Media type : application/json Type : { \"$schema\": \"http://json-schema.org/draft-04/schema\", \"type\": \"array\", \"description\": \"List of UUIDs\", \"title\": \"List of resources\", \"items\": { \"type\": \"string\", \"pattern\": \"^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/$\" }, \"uniqueItems\": true } Example : [ \"c72cca5b-01db-47aa-bb00-03893defbfae/\", \"171d5c80-7fff-4c23-9383-46503eb1c63e/\", \"a2655c48-8a46-4c82-b9bc-98760d59d7f8/\" ] /senders /{senderId} get get List all the API endpoints for a single sender. × get /senders /{senderId} List all the API endpoints for a single sender. Request Response URI Parameters senderId : required (string) HTTP status code 200 Returned when success. Body Media type : application/json Type : { \"$schema\": \"http://json-schema.org/draft-04/schema\", \"type\": \"array\", \"description\": \"Describes the Stream Compatibility Management API /senders/{senderId} base resource\", \"title\": \"Stream Compatibility Management API /senders/{senderId} base resource\", \"items\": { \"type\": \"string\", \"enum\": [ \"constraints/\", \"inputs/\", \"status/\" ] }, \"minItems\": 3, \"maxItems\": 3, \"uniqueItems\": true } Example : [ \"constraints/\", \"inputs/\", \"status/\" ] HTTP status code 404 Returned when the requested Sender ID does not exist. Body Media type : application/json Type : { \"$schema\": \"http://json-schema.org/draft-04/schema\", \"type\": \"object\", \"description\": \"Describes the standard error response which is returned with HTTP codes 400 and above\", \"title\": \"Error response\", \"required\": [ \"code\", \"error\", \"debug\" ], \"properties\": { \"code\": { \"description\": \"HTTP error code\", \"type\": \"integer\", \"minimum\": 400, \"maximum\": 599 }, \"error\": { \"description\": \"Human readable message which is suitable for user interface display, and helpful to the user\", \"type\": \"string\" }, \"debug\": { \"description\": \"Debug information which may assist a programmer working with the API\", \"type\": [\"null\", \"string\"] } } } /senders/{senderId} /inputs get get List of Inputs associated with the Sender. × get /senders/{senderId} /inputs List of Inputs associated with the Sender. Request Response URI Parameters senderId : required (string) HTTP status code 200 Returned when success. Body Media type : application/json Type : { \"$schema\": \"http://json-schema.org/draft-04/schema\", \"type\": \"array\", \"description\": \"List of UUIDs\", \"items\": { \"type\": \"string\", \"pattern\": \"^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\" }, \"uniqueItems\": true } Example : [ \"c72cca5b-01db-47aa-bb00-03893defbfae\", \"171d5c80-7fff-4c23-9383-46503eb1c63e\", \"a2655c",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "APIs",
+      "url": "https://specs.amwa.tv/new/is-11/latest/APIs/definitions/",
+      "text": "APIs APIs APIs - AMWA IS-11 NMOS Stream Compatibility Management Skip to content APIs StreamCompatibilityManagementAPI",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "APIs",
+      "url": "https://specs.amwa.tv/new/is-11/latest/APIs/",
+      "text": "APIs APIs API Specifications API Validation Content Types API Paths Versioning Common API Base Resource URLs: Approach to Trailing Slashes Error Codes & Responses APIs - AMWA IS-11 NMOS Stream Compatibility Management Skip to content APIs (c) AMWA 2023, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) API Specifications The Stream Compatibility Management API is specified using: The following sub-sections describing common NMOS API properties. RAML documents and JSON schemas in the APIs folder. Normative text in files in the docs directory. Examples of JSON format output are provided in the examples folder. API Validation JSON schemas are included with the RAML API definitions. These include validation for values used within the APIs. It is RECOMMENDED that implementers of a Stream Compatibility Management API use these JSON schemas as part of a validation stage when receiving requests from clients. Invalid requests SHOULD cause a 400 (Bad Request) HTTP error to be returned to the client. Content Types All APIs MUST provide a JSON representation signalled via Content-Type: application/json headers. This SHOULD be the default content type in the absence of any requested alternative by clients. Other content types (such as HTML) are permitted if they are explicitly requested via Accept headers. API Paths All NMOS APIs MUST use a path in the following format. Other HTTP resources MAY be presented on the same port by the Node, provided all NMOS resources are available from the /x-nmos/ path as follows: http(s)://<ip address or hostname>:<port>/x-nmos/<api type>/<api version>/ At each level of the API from the base resource upwards, the response SHOULD include a JSON format array of the child resources available from that point. Versioning All public APIs are versioned as follows: Requesting the API base resource (such as http(s)://<ip address or hostname>:<port>/x-nmos/streamcompatibility/ ) will provide a list containing the versions of the API present on the node. A versioned API response MUST include only resources which match the schema for that API version. Data which is held for mismatched minor API versions MAY be returned if it can be conformed to the correct schema (see example below). Data MUST NOT be conformed between major API versions. Example A v1.1 API response can include: v1.1 data without modification. Data conforming to schemas less than v2.0 but greater than v1.1, with any non-v1.1 keys removed. Common API Base Resource [ \"v1.0/\" , \"v2.0/\" , \"v3.0/\" ] Appending /v1.0/ to the API base resource will request the version v1.0 of the API if available. The versioning format is v<MAJOR>.<MINOR> MINOR increments will be performed for non-breaking changes (such as the addition of attributes in a response) MAJOR increments will be performed for breaking changes (such as the renaming of a resource or attribute) Versions MUST be represented as complete strings. Parsing MUST proceed as follows: separate into two strings, using the point ( . ) as a delimiter. Compare integer representations of MAJOR , MINOR version (such that v1.12 is greater than v1.5). Clients are responsible for identifying the correct API version they require. URLs: Approach to Trailing Slashes For consistency and in order to adhere to how these APIs are specified in RAML, the 'primary' path for every resource has the trailing slash omitted. In order to overcome shortcomings in some common libraries, the following requirements are imposed for the support of URL paths with or without trailing slashes. GET and HEAD Requests Clients performing requests using these methods SHOULD correctly handle a 301 (Moved Permanently) response. When a 301 is supported, the client MUST follow the redirect in order to retrieve the response payload. Servers implementing the APIs MUST support requests using these methods to both the trailing slash and non-trailing slash path to each resource. One of these MAY produce a 301 response causing a redirect to the other if preferred. All Other Requests ( PUT , POST , DELETE , OPTIONS , etc.) Clients performing requests using these methods MUST use URLs with no trailing slash present. Servers implementing the APIs MUST correctly interpret requests using these methods to paths without trailing slashes present. Servers implementing the APIs MAY correctly interpret requests using these methods to paths with trailing slashes present for backward compatibility. Servers SHOULD NOT respond with 3xx codes for these request types. Client Behaviour When a server implementation needs to indicate an API URL via an href or similar attribute, it is valid to either include a trailing slash or not provided that the listed path is accessible and follows the above rules. Clients appending paths to href type attributes MUST support both cases, avoiding doubled or missing slashes. Error Codes & Responses The NMOS APIs use HTTP status codes to indicate success, failure and other cases to clients as per RFC 7231 and related standards. Where the RAML specification of an API specifies explicit response codes it is expected that a client will handle these cases in a particular way. Explicit handling of every possible HTTP response code is not expected, but clients are expected to implement generic handling for ranges of response codes ( 1xx , 2xx , 3xx , 4xx and 5xx ). For HTTP codes 400 and upwards, a JSON format response MUST be returned as follows: Example Error Response { \"code\" : 400 , \"error\" : \"Human readable message which is suitable for user interface display, and helpful to the user\" , \"debug\" : \"Programmer / debugging detail or traceback\" } code SHOULD match the HTTP status code. error MUST always be present and in string format. debug MAY be null if no further debug information is available. Further details on when APIs will respond with particular codes is covered in the Behaviour section.",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "APIs: Server Side Implementation Notes",
+      "url": "https://specs.amwa.tv/new/is-11/latest/APIs%20-%20Server%20Side%20Implementation/",
+      "text": "APIs: Server Side Implementation Notes APIs: Server Side Implementation Notes Cross-Origin Resource Sharing (CORS) Server Side Implementation - AMWA IS-11 NMOS Stream Compatibility Management Skip to content APIs: Server Side Implementation Notes (c) AMWA 2023, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) Cross-Origin Resource Sharing (CORS) In order to permit web-based control interfaces to be hosted remotely, all NMOS APIs MUST implement valid CORS HTTP headers in responses to all requests. In addition to this, where highlighted in the API specifications servers MUST respond to HTTP pre-flight OPTIONS requests. Servers MAY additionally support HTTP OPTIONS requests made to any other API resource. In order to simplify development, the following headers MAY be returned in order to remove these restrictions as far as possible. Note that these are very relaxed and possibly not suitable for a production deployment. Access-Control-Allow-Origin: * Access-Control-Allow-Methods: GET, PUT, POST, PATCH, HEAD, OPTIONS, DELETE Access-Control-Allow-Headers: Content-Type, Accept Access-Control-Max-Age: 3600 To ensure compatibility, the response Access-Control-Allow-Headers could be set from the request's Access-Control-Request-Headers .",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "Behaviour",
+      "url": "https://specs.amwa.tv/new/is-11/latest/Behaviour/",
+      "text": "Behaviour Behaviour Behaviour - AMWA IS-11 NMOS Stream Compatibility Management Skip to content Behaviour (c) AMWA 2021, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) The following documents provide an overview of expected behaviour for Node and Controller. Additionally, this covers how they are expected to react in the event of error codes or conditions being encountered.",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "Behaviour: Client Side",
+      "url": "https://specs.amwa.tv/new/is-11/latest/Behaviour%20-%20Client%20Side/",
+      "text": "Behaviour: Client Side Behaviour: Client Side Active Constraints of Sender Building the Constraint Sets Using the Constraint Sets Dynamic Update of Resources Client Side - AMWA IS-11 NMOS Stream Compatibility Management Skip to content Behaviour: Client Side Active Constraints of Sender An NMOS Controller manages stream compatibility using the Active Constraints of the Sender. The Active Constraints of the Sender are expressed as BCP-004-01 Constraint Sets that restrict the stream the Sender can transmit. Building the Constraint Sets The Controller MAY build these Constraint Sets by processing the Receiver Capabilities of one or more Receivers, or directly to represent User requirements. The Controller MUST GET /constraints/supported from the Sender to determine the supported Parameter Constraints. If the Sender does not support all the Parameter Constraints needed to express the User requirements or used in the Receiver Capabilities, the Controller SHOULD inform the User about it. Constraint Sets built from Receiver Capabilities SHOULD represent a consensus among the Receivers, satisfying all (by default) or some (depending on User preferences) of the Receivers. If the Controller cannot build any Constraint Sets that represent a consensus, the Controller SHOULD inform the User that not all of the chosen Receivers can be satisfied at the same time. For example, there are Receiver A, Receiver B, Receiver C with equal Receiver Capabilities consisting of Constraint Sets 1, 2, 3, 4, 5 and Receiver D with Constraint Sets 2, 3, 4, 5, and 6 which is incompatible with the previous ones. In this case the consensus is Constraint Sets 2, 3, 4, 5 which are common for all four Receivers. The Controller MAY allow the User to control how the consensus is obtained, providing preferences to the Controller among the Receivers and the Constraint Sets of each Receiver and criteria about the size of the consensus. The urn:x-nmos:cap:meta:preference property in Constraint Sets of Receiver Capabilities indicates relative preference between Constraint Sets of that Receiver. The Controller MAY use these values to make a decision about how to process these Constraint Sets and determine preference of Constraint Sets of Active Constraints. It SHOULD NOT propagate values of this property as is from Receiver Capabilities to Active Constraints. The urn:x-nmos:cap:meta:preference property in Constraint Sets of Active Constraints indicates relative preference between Constraint Sets of the Active Constraints of the Sender. The Controller MAY fill in this property in Constraint Sets based on any additional information about Receivers. For example, if the User in any way informs the Controller that Receiver D has precedence over the consensus of Receivers A, B, C and urn:x-nmos:cap:meta:preference values of Receiver D state that Constraint Set 6 has higher preference than Constraint Sets 2, 3, 4, 5, then the Constraint Sets could be 2, 3, 4, 5, 6 where Constraint Set 6 has the highest preference. Constraint Sets of Receiver Capabilities with urn:x-nmos:cap:meta:enabled set to false MUST be ignored completely during this process. Using the Constraint Sets If changing the configuration of the Sender, the Controller MUST PUT /constraints/active to the Sender to replace the Active Constraints. In case of changing the configuration of an active Sender, deactivating the Sender MAY be necessary. The Sender indicates that the Active Constraints cannot currently be updated with the 423 (Locked) response. If keeping the configuration of the Sender, the Controller SHOULD GET /constraints/active from the Sender and evaluate these Active Constraints against the Constraint Sets it has built. If the current Active Constraints allow streams, that would not be compliant with the Constraint Sets it has built, the Controller SHOULD inform the User that compatibility of the Sender's stream with the chosen Receivers cannot be assured without replacing the Active Constraints. After this the Controller can make connections via IS-05 . Subsequently, after breaking these connections via IS-05, the Controller is RECOMMENDED to DELETE /constraints/active of the Sender after making it inactive. The Controller MAY also change the configuration of the Sender without establishing an IS-05 connection. Dynamic Update of Resources The Controller uses Stream Compatibility API in conjunction with IS-04 APIs to discover and track the state of any relevant resources, including Inputs, Outputs, Senders and Receivers. The Controller MUST indicate whether each Sender/Receiver discovered via IS-04 APIs is present in Stream Compatibility API and indicate statuses of such Senders/Receivers The Controller MUST report to the User when state attribute of the status of a Sender remains active_constraints_violation or no_essence after a maximum of 30 seconds. The Controller SHOULD report to the User when state attribute of the status of an active Receiver becomes non_compliant_stream . The Controller SHOULD be capable of performing PATCH /staged of all the connected Receivers with the new transport_file requesting immediate activation when the related active Sender updates the transport file. The Controller SHOULD indicate statuses of Inputs and Outputs and indicate the Inputs associated to a given Sender and Outputs associated to a given Receiver for Senders/Receivers listed in Stream Compatibility APIs. The Controller SHOULD reflect changes in presence/absence of Inputs and Outputs to the User after a maximum of 30 seconds.",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "Behaviour: Server Side",
+      "url": "https://specs.amwa.tv/new/is-11/latest/Behaviour%20-%20Server%20Side/",
+      "text": "Behaviour: Server Side Behaviour: Server Side Active Constraints of Sender Supported Constraints of Sender Status of Input Status of Sender Status of Receiver Status of Output Preventing restrictions violation Signal altering indication Inputs Properties Base EDID Effective EDID Outputs Properties EDID Server Side - AMWA IS-11 NMOS Stream Compatibility Management Skip to content Behaviour: Server Side Active Constraints of Sender The initial state of Active Constraints of a Sender MUST be an empty constraint_sets array. This state indicates a Sender is unconstrained. Non-empty constraint_sets array MUST be treated as unordered unless at least one Constraint Set has urn:x-nmos:cap:meta:preference attribute. Active Constraints are satisfied when any of its Constraint Sets are satisfied in terms of BCP-004-01 . Active Constraints are violated when at least one Parameter Constraint of each Constraint Set is not satisfied in terms of BCP-004-01 . Supported Constraints of Sender A Sender MUST present the list of supported constraint set metadata and parameter constraints in the /supported endpoint. This list MUST include at least the constraint set metadata from the following list and at least those parameter constraints from the following list which are applicable to the format of the Flow associated with this Sender: - urn:x-nmos:cap:meta:label - urn:x-nmos:cap:meta:preference - urn:x-nmos:cap:meta:enabled - urn:x-nmos:cap:format:media_type - urn:x-nmos:cap:format:grain_rate - urn:x-nmos:cap:format:frame_width - urn:x-nmos:cap:format:frame_height - urn:x-nmos:cap:format:interlace_mode - urn:x-nmos:cap:format:color_sampling - urn:x-nmos:cap:format:component_depth - urn:x-nmos:cap:format:channel_count - urn:x-nmos:cap:format:sample_rate - urn:x-nmos:cap:format:sample_depth Status of Input An Input has the following states: - no_signal when there is no incoming signal to this Input. - awaiting_signal when the incoming signal is not stable. This is a transitional state until one of the other ones can be established. - signal_present when the incoming signal is present and stable. Debug information expressed through debug property SHOULD assist no_signal state and MAY assist the other states. Status of Sender A Sender managed with IS-11 has the following states: - unconstrained when Active Constraints of this Sender is an empty constraint_sets array. - constrained when the Active Constraints are satisfied. - active_constraints_violation when Active Constraints are violated. - no_essence when the associated Source is not providing any Essence for this Sender to transmit, which, if the Sender has associated Inputs, can mean that one or more of these Inputs do not have a valid incoming signal. - awaiting_essence when the Essence, which the associated Source is providing, is not stable for this Sender to transmit. This is a transitional state until one of the other ones can be established. It is RECOMMENDED to not update resources such as Flow and Source associated with a Sender while in this state. no_essence and awaiting_essence states MUST depend on the state of the Inputs associated with this Sender when the Essence is based exclusively on the signal from these Inputs. Debug information expressed through debug property SHOULD assist no_essence and active_constraints_violation states and MAY assist the other states. Status of Receiver A Receiver managed with IS-11 has the following states: - unknown when it is not possible to say whether the active stream is compliant with Receiver Capabilities of this Receiver (e.g. it is activated without a transport_file ). - compliant_stream when the active stream is compliant with Receiver Capabilities of this Receiver (e.g. there is an active transport_file and it does not violate the Receiver Capabilities). - non_compliant_stream when the active stream is non compliant with Receiver Capabilities of this Receiver (e.g. there is an active transport_file which violates the Receiver Capabilities). If the Receiver becomes inactive this state is preserved until the next activation. Debug information expressed through debug property SHOULD assist unknown and non_compliant_stream states and MAY assist the other states. Status of Output An Output has the following states that describe the signal at this Output: - no_signal when this Output is not producing any signal to a downstream counterpart (e.g. if the Output has associated Receivers, it may mean that one or more of these Receivers do not have a compliant incoming stream). - default_signal when this Output is producing a default signal (i.e. not acquired from associated Receivers). - signal_present when the signal is present and stable. Debug information expressed through debug property SHOULD assist no_signal state and MAY assist the other states. Preventing restrictions violation At any time if State of an active Sender becomes active_constraints_violation , the Sender MUST become inactive. An inactive Sender in this state MUST NOT allow activations. At any time if State of an active Receiver becomes non_compliant_stream , the Receiver SHOULD become inactive. An inactive Receiver in this state SHOULD NOT allow activations. Signal altering indication A Device SHOULD provide parent Flows and parent Sources to a Sender's Flow and associated Source if the signal being transmitted from the Sender is not identical to the signal being captured from the Input(s). Inputs Properties The /properties endpoint shows properties of the Input. Base EDID An Input MAY support Base EDID and MUST indicate it via base_edid_support property. The API documentation reflects how responses from /edid/base depend on this property. Inputs that support Base EDID MAY additionally support adjusting Base EDID to internal capabilities (e.g. capabilities of an Input itself and Senders associated with this Input) via adjust_to_caps query parameter of a PUT /edid/base request. An Input MUST indicate support of adjust_to_caps query parameter via",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "Data Model: Identifier Mapping",
+      "url": "https://specs.amwa.tv/new/is-11/latest/Data%20Model/",
+      "text": "Data Model: Identifier Mapping Data Model: Identifier Mapping Identity Hierarchy Input Representation Output Representation Identifier Persistence Input ID Output ID Data Model - AMWA IS-11 NMOS Stream Compatibility Management Skip to content Data Model: Identifier Mapping All the language in IS-04 takes precedence. In order to ensure consistent behaviour in a facility employing this identity, some rules apply when generating and handling identifiers. Identity Hierarchy The IS-04 hierarchy is preserved. Additionally, there are Input and Output resources introduced. Senders managed with IS-11 are associated with 0 or more Input resources and Receivers managed with IS-11 are associated with 0 or more Output resources. Inputs MAY be associated with multiple Senders, e.g. an Input carrying multiple media formats at a time (e.g. video and audio) MAY be associated with multiple Senders of varying formats, an Input carrying a given media format that is segmented into multiple parts MAY be associated with multiple Senders of the same formats. Outputs MAY be associated with multiple Receivers, e.g. an Output carrying multiple media formats at a time (e.g. video and audio) MAY be associated with multiple Receivers of varying formats, an Output carrying a given media format that is composited from multiple parts MAY be associated with multiple Receivers of the same formats. Input Representation A new Input is created in the following circumstance: At the presence of a physical interface for connection to an upstream media producing unit Output Representation A new Output is created in the following circumstance: At the presence of a physical interface for connection to a downstream media consuming unit Identifier Persistence As per IS-04, Persistent identity helps to ensure that users’ expectations meet with reality. For example, if a piece of equipment is switched off and back on, the user would expect it to return with ... the identifiers used by the Node remain the same. Input ID Owned by: Device ID SHOULD change if: Device ID changes A different physical interface (such as an SDI input) is mapped to consume the signal SHOULD NOT change if: A Sender is re-configured A different upstream counterpart is connected to the same interface It is suggested that Input IDs be generated using the combination of: The parent Device ID A physical interface identifier such as its name, index or similar Output ID Owned by: Device ID SHOULD change if: Device ID changes A different physical interface (such as an SDI output) is mapped to produce the signal SHOULD NOT change if: A Receiver is re-configured A different downstream counterpart is connected to the same interface It is suggested that Output IDs be generated using the combination of: The parent Device ID A physical interface identifier such as its name, index or similar",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "Interoperability",
+      "url": "https://specs.amwa.tv/new/is-11/latest/Interoperability/",
+      "text": "Interoperability Interoperability Discovery Sender and Receiver IDs Version Increments Interoperability - AMWA IS-11 NMOS Stream Compatibility Management Skip to content Interoperability The Stream Compatibility Management Specification was designed to be used alongside the following NMOS specifications: IS-04 Discovery & Registration IS-05 Connection Management BCP-004-01 NMOS Receiver Capabilities BCP-005-01 NMOS EDID to Receiver Capabilities Mapping IS-05 dictates that IS-04 APIs SHOULD be operating at version 1.2 or greater in order to ensure full interoperability and the Stream Compatibility Management Specification inherits this requirement. Any references to terms and JSON Schemas defined in BCP-004-01 relate to version 1.0. Receivers, managed with IS-11 and associated with Outputs which support EDID, SHOULD use BCP-005-01 to express Receiver Capabilities that came from the EDID(s) and BCP-004-01 to express their own Receiver Capabilities. The inherent Receiver Capabilities prevail over the EDID associated Capabilities. An EDID can further restrict inherent Receiver Capabilities but cannot expand them. Discovery The Stream Compatibility Management API SHOULD be advertised as a 'control' endpoint under an IS-04 NMOS Device in the controls array using the urn:x-nmos:control:stream-compat type. Example: { \"senders\" : [ \"79ceab1f-a0e7-42e9-967e-7d766c009d77\" , \"e2495aa8-a828-4c7d-ad68-32a0db6c908b\" ], \"receivers\" : [ \"e0f6e7d3-4d8f-40b7-9ff4-c15993bad770\" , \"575ae98f-77c6-4a6a-a6ee-592e6be1bb4b\" ], \"controls\" : [ { \"type\" : \"urn:x-nmos:control:sr-ctrl/v1.1\" , \"href\" : \"http://api.example.com/x-nmos/connection/v1.1/\" }, { \"type\" : \"urn:x-nmos:control:stream-compat/v1.0\" , \"href\" : \"http://api.example.com/x-nmos/streamcompatibility/v1.0/\" } ], \"tags\" : {}, \"type\" : \"urn:x-nmos:device:generic\" , \"label\" : \"Example Device\" , \"version\" : \"1529676926:000000000\" , \"node_id\" : \"3309f357-9676-439a-bb64-8106f934bd08\" , \"id\" : \"ab79e404-1bca-4557-8afc-0ddf28b1e1e7\" , \"description\" : \"Example Device\" } Sender and Receiver IDs The UUIDs used to advertise Senders and Receivers in the Stream Compatibility Management API MUST match those used in a corresponding IS-04 implementation. Version Increments In order to prevent unnecessary polling of the Stream Compatibility Management API, changes are signaled via the IS-04 versioning mechanism. When properties of any Input/Output are changed, then the version attribute of the relevant IS-04 Device MUST be incremented. Inputs/Outputs identify the corresponding Devices via the device_id property. When Active Constraints of Sender are modified, then the version attribute of the relevant IS-04 Sender MUST be incremented. When State of Sender or Receiver is changed, or when the set of Inputs/Outputs associated with the Sender/Receiver is changed, then the version attribute of the relevant IS-04 Sender or Receiver MUST be incremented.",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "AMWA IS-11 NMOS Stream Compatibility Management Specification: Overview",
+      "url": "https://specs.amwa.tv/new/is-11/latest/Overview/",
+      "text": "AMWA IS-11 NMOS Stream Compatibility Management Specification: Overview AMWA IS-11 NMOS Stream Compatibility Management Specification: Overview Introduction Use of Normative Language Terminology Input Output API Structure Senders Receivers Inputs Outputs Overview - AMWA IS-11 NMOS Stream Compatibility Management Skip to content AMWA IS-11 NMOS Stream Compatibility Management Specification: Overview Introduction The purpose of AMWA IS-11 is to provide a mechanism by which to configure Sources, Flows and Senders using information from Receivers. A Receiver provides Receiver Capabilities and exposes its Outputs, each of which may hold EDID from its downstream counterpart. A Sender has Active Constraints, which restrict media formats allowed for sending, and Inputs, each of which may have an Effective EDID to present to its upstream media producing unit. The Specification includes: RAML and JSON Schema definitions, with supporting JSON examples This documentation set, which provides: An overview of the API and how it is used. Normative requirements in addition to those included in the RAML and JSON schemas specifying the API. Additional details and recommendations for implementers of API providers and clients. Information about interoperability with other specifications and compatibility between different API versions. The NMOS Glossary defines several common terms that have specific meanings in NMOS. The terms 'Node', 'Device', 'Source', 'Flow', 'Sender' and 'Receiver' are used extensively in this documentation set. The NMOS Technical Overview provides an outline of these terms, and IS-04 provides corresponding schema definitions. The terms 'Parameter Constraint' and 'Constraint Set' used in this documentation set are defined in BCP-004-01 . IS-11 is intended to be used in conjunction with an IS-04 , IS-05 , BCP-004-01 and BCP-005-01 deployment; however it has been written in such a way to provide useful functionality even in the absence of such a system. Use of Normative Language The key words \"MUST\", \"MUST NOT\", \"REQUIRED\", \"SHALL\", \"SHALL NOT\", \"SHOULD\", \"SHOULD NOT\", \"RECOMMENDED\", \"MAY\", and \"OPTIONAL\" in this documentation set are to be interpreted as described in RFC 2119 . Terminology Input An Input is a logical input connector which consumes video, audio and ancillary data for providing it to Sender(s) through a number of Sources and Flows. The precise relationship between the Inputs and such Sources and Flows is not specified and there may be an IS-08 mapping element in the system. The Input may present metadata about media consuming capabilities to its upstream counterpart. Each Input is a resource and based on Resource Core JSON Schema . Output An Output is a logical output connector which produces video, audio and ancillary data provided by Receiver(s). Output may hold metadata about the media consuming capabilities from its downstream counterpart. Each Output is a resource and based on Resource Core JSON Schema . API Structure The API provides a mechanism to get information about Inputs associated with Senders and Outputs associated with Receivers and to constrain a Sender from sending a Flow not supported by its subscribers. The API is divided into the following parts: Senders Each Sender has an inputs resource, which lists identifiers of all Inputs associated with this Sender, a constraints base resource which allows controlling the restrictions for the Flow associated with this Sender and a status resource showing the Sender's state in terms of IS-11. Constraints There is an active resource which holds Active Constraints and a supported resource which lists all the Parameter Constraints supported by this Sender. Receivers Each Receiver has an outputs resource, which lists identifiers of all Outputs associated with this Receiver, and a status resource showing the Receiver's state in terms of IS-11. Inputs Each Input has a properties resource, which has metadata about this Input, and an edid resource, which may hold EDIDs associated with this Input. EDID There is a base resource which holds the Base EDID used by the Input as the basis for creating the Effective EDID. The effective resource holds the Effective EDID presented to an upstream counterpart of this Input. Outputs Each Output has a properties resource, which has metadata about this Output, and an edid resource, which may hold the EDID presented to this Output by its downstream counterpart.",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "base-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/base-get-200/",
+      "text": "base-get-200.json base-get-200.json base-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content base-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "constraints-active-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/constraints-active-get-200/",
+      "text": "constraints-active-get-200.json constraints-active-get-200.json constraints-active-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content constraints-active-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "constraints-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/constraints-get-200/",
+      "text": "constraints-get-200.json constraints-get-200.json constraints-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content constraints-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "constraints-supported-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/constraints-supported-get-200/",
+      "text": "constraints-supported-get-200.json constraints-supported-get-200.json constraints-supported-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content constraints-supported-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "empty-constraints-active-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/empty-constraints-active-get-200/",
+      "text": "empty-constraints-active-get-200.json empty-constraints-active-get-200.json empty-constraints-active-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content empty-constraints-active-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "Examples",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/",
+      "text": "Examples Examples Examples - AMWA IS-11 NMOS Stream Compatibility Management Skip to content Examples base-get-200.json constraints-active-get-200.json constraints-get-200.json constraints-supported-get-200.json empty-constraints-active-get-200.json input-edid-get-200.json input-output-get-200.json input-properties-get-200.json output-properties-get-200.json receiver-get-200.json receiver-status-get-200.json resourcelist-get-200.json sender-get-200.json sender-status-get-200.json uuidlist-get-200.json",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "input-edid-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/input-edid-get-200/",
+      "text": "input-edid-get-200.json input-edid-get-200.json input-edid-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content input-edid-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "input-output-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/input-output-get-200/",
+      "text": "input-output-get-200.json input-output-get-200.json input-output-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content input-output-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "input-properties-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/input-properties-get-200/",
+      "text": "input-properties-get-200.json input-properties-get-200.json input-properties-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content input-properties-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "output-properties-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/output-properties-get-200/",
+      "text": "output-properties-get-200.json output-properties-get-200.json output-properties-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content output-properties-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "receiver-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/receiver-get-200/",
+      "text": "receiver-get-200.json receiver-get-200.json receiver-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content receiver-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "receiver-status-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/receiver-status-get-200/",
+      "text": "receiver-status-get-200.json receiver-status-get-200.json receiver-status-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content receiver-status-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "resourcelist-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/resourcelist-get-200/",
+      "text": "resourcelist-get-200.json resourcelist-get-200.json resourcelist-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content resourcelist-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "sender-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/sender-get-200/",
+      "text": "sender-get-200.json sender-get-200.json sender-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content sender-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "sender-status-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/sender-status-get-200/",
+      "text": "sender-status-get-200.json sender-status-get-200.json sender-status-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content sender-status-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "uuidlist-get-200.json",
+      "url": "https://specs.amwa.tv/new/is-11/latest/examples/uuidlist-get-200/",
+      "text": "uuidlist-get-200.json uuidlist-get-200.json uuidlist-get-200.json - AMWA IS-11 NMOS Stream Compatibility Management Skip to content uuidlist-get-200.json View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "README",
+      "url": "https://specs.amwa.tv/new/is-11/latest/images/",
+      "text": "README README README - AMWA IS-11 NMOS Stream Compatibility Management Skip to content README This directory is for images used in documentation",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "AMWA IS-11 NMOS Stream Compatibility Management",
+      "url": "https://specs.amwa.tv/new/is-11/latest/",
+      "text": "AMWA IS-11 NMOS Stream Compatibility Management AMWA IS-11 NMOS Stream Compatibility Management What does it do? Why does it matter? How does it work? Getting started AMWA IS-11 NMOS Stream Compatibility Management - AMWA IS-11 NMOS Stream Compatibility Management Skip to content AMWA IS-11 NMOS Stream Compatibility Management This repository holds the source for this Specification, part of the family of Networked Media Open Specifications from the Advanced Media Workflow Association What does it do? Introduces Inputs associated with Senders and Outputs associated with Receivers Allows the configuration of media parameters of Senders and Inputs using information coming from Receivers and Outputs. Why does it matter? State of a Sender can be tuned to be compatible with a corresponding Receiver or many compatible Receivers How does it work? An endpoint on the side of Senders is introduced for media parameters control Senders and Receivers are followed with endpoints which list Inputs and Outputs respectively and describe them in detail Getting started There is more information about the NMOS Specifications and their GitHub repos at https://specs.amwa.tv/nmos .",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "constraint_set",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/constraint_set/",
+      "text": "constraint_set constraint_set constraint_set - AMWA IS-11 NMOS Stream Compatibility Management Skip to content constraint_set With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "constraints-base",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/constraints-base/",
+      "text": "constraints-base constraints-base constraints-base - AMWA IS-11 NMOS Stream Compatibility Management Skip to content constraints-base With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "constraints_active",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/constraints_active/",
+      "text": "constraints_active constraints_active constraints_active - AMWA IS-11 NMOS Stream Compatibility Management Skip to content constraints_active With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "constraints_supported",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/constraints_supported/",
+      "text": "constraints_supported constraints_supported constraints_supported - AMWA IS-11 NMOS Stream Compatibility Management Skip to content constraints_supported With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "empty_constraints_active",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/empty_constraints_active/",
+      "text": "empty_constraints_active empty_constraints_active empty_constraints_active - AMWA IS-11 NMOS Stream Compatibility Management Skip to content empty_constraints_active With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "error",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/error/",
+      "text": "error error error - AMWA IS-11 NMOS Stream Compatibility Management Skip to content error With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "JSON Schemas",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/",
+      "text": "JSON Schemas JSON Schemas JSON Schemas - AMWA IS-11 NMOS Stream Compatibility Management Skip to content JSON Schemas constraint_set constraints-base constraints_active constraints_supported empty_constraints_active error input-edid-base input-output-base input output param_constraint param_constraint_boolean param_constraint_integer param_constraint_number param_constraint_rational param_constraint_string receiver-base receiver-status resource-list resource_core sender-base sender-status streamcompatibility-api-base uuid-list",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "input",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/input/",
+      "text": "input input input - AMWA IS-11 NMOS Stream Compatibility Management Skip to content input With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "input-edid-base",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/input-edid-base/",
+      "text": "input-edid-base input-edid-base input-edid-base - AMWA IS-11 NMOS Stream Compatibility Management Skip to content input-edid-base With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "input-output-base",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/input-output-base/",
+      "text": "input-output-base input-output-base input-output-base - AMWA IS-11 NMOS Stream Compatibility Management Skip to content input-output-base With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "output",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/output/",
+      "text": "output output output - AMWA IS-11 NMOS Stream Compatibility Management Skip to content output With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "param_constraint",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/param_constraint/",
+      "text": "param_constraint param_constraint param_constraint - AMWA IS-11 NMOS Stream Compatibility Management Skip to content param_constraint With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "param_constraint_boolean",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/param_constraint_boolean/",
+      "text": "param_constraint_boolean param_constraint_boolean param_constraint_boolean - AMWA IS-11 NMOS Stream Compatibility Management Skip to content param_constraint_boolean With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "param_constraint_integer",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/param_constraint_integer/",
+      "text": "param_constraint_integer param_constraint_integer param_constraint_integer - AMWA IS-11 NMOS Stream Compatibility Management Skip to content param_constraint_integer With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "param_constraint_number",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/param_constraint_number/",
+      "text": "param_constraint_number param_constraint_number param_constraint_number - AMWA IS-11 NMOS Stream Compatibility Management Skip to content param_constraint_number With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "param_constraint_rational",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/param_constraint_rational/",
+      "text": "param_constraint_rational param_constraint_rational param_constraint_rational - AMWA IS-11 NMOS Stream Compatibility Management Skip to content param_constraint_rational With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "param_constraint_string",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/param_constraint_string/",
+      "text": "param_constraint_string param_constraint_string param_constraint_string - AMWA IS-11 NMOS Stream Compatibility Management Skip to content param_constraint_string With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "receiver-base",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/receiver-base/",
+      "text": "receiver-base receiver-base receiver-base - AMWA IS-11 NMOS Stream Compatibility Management Skip to content receiver-base With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "receiver-status",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/receiver-status/",
+      "text": "receiver-status receiver-status receiver-status - AMWA IS-11 NMOS Stream Compatibility Management Skip to content receiver-status With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "resource-list",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/resource-list/",
+      "text": "resource-list resource-list resource-list - AMWA IS-11 NMOS Stream Compatibility Management Skip to content resource-list With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "resource_core",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/resource_core/",
+      "text": "resource_core resource_core resource_core - AMWA IS-11 NMOS Stream Compatibility Management Skip to content resource_core With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "sender-base",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/sender-base/",
+      "text": "sender-base sender-base sender-base - AMWA IS-11 NMOS Stream Compatibility Management Skip to content sender-base With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "sender-status",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/sender-status/",
+      "text": "sender-status sender-status sender-status - AMWA IS-11 NMOS Stream Compatibility Management Skip to content sender-status With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "streamcompatibility-api-base",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/streamcompatibility-api-base/",
+      "text": "streamcompatibility-api-base streamcompatibility-api-base streamcompatibility-api-base - AMWA IS-11 NMOS Stream Compatibility Management Skip to content streamcompatibility-api-base With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    },
+    {
+      "title": "uuid-list",
+      "url": "https://specs.amwa.tv/new/is-11/latest/schemas/uuid-list/",
+      "text": "uuid-list uuid-list uuid-list - AMWA IS-11 NMOS Stream Compatibility Management Skip to content uuid-list With refs Resolved View: Folding Raw Expand all Collapse all View: Folding Raw Expand all Collapse all",
+      "repository": "AMWA-TV/is-11"
+    }
+  ]
+}
