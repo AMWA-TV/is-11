@@ -1,159 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/Overview/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/404/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/APIs/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/APIs%20-%20Server%20Side%20Implementation/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/APIs%20-%20Server%20Side%20Implementation/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/APIs/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/Interoperability/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/APIs/StreamCompatibilityManagementAPI/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/Data%20Model/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/APIs/definitions/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/Behaviour/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/Behaviour%20-%20Client%20Side/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/Behaviour%20-%20Server%20Side/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/Behaviour%20-%20Server%20Side/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/Behaviour%20-%20Client%20Side/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/Behaviour/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/APIs/definitions/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/Data%20Model/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/APIs/StreamCompatibilityManagementAPI/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/Interoperability/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/Overview/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/constraint_set/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/constraints-base/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/base-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/constraints_active/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/constraints-active-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/constraints_supported/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/constraints-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/empty_constraints_active/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/constraints-supported-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/error/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/empty-constraints-active-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/input-edid-base/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/input-edid-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/input-output-base/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/input-output-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/input/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/input-properties-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/output/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/output-properties-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/param_constraint/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/receiver-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/param_constraint_boolean/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/receiver-status-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/param_constraint_integer/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/resourcelist-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/param_constraint_number/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/sender-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/param_constraint_rational/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/sender-status-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/param_constraint_string/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/examples/uuidlist-get-200/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/receiver-base/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/images/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/receiver-status/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/resource-list/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/constraint_set/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/resource_core/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/constraints-base/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/sender-base/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/constraints_active/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/sender-status/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/constraints_supported/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/streamcompatibility-api-base/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/empty_constraints_active/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/schemas/uuid-list/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/error/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/input-edid-base/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/base-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/input-output-base/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/constraints-active-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/input/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/constraints-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/output/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/constraints-supported-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/param_constraint/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/empty-constraints-active-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/param_constraint_boolean/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/input-edid-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/param_constraint_integer/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/input-output-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/param_constraint_number/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/input-properties-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/param_constraint_rational/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/output-properties-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/param_constraint_string/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/receiver-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/receiver-base/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/receiver-status-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/receiver-status/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/resourcelist-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/resource-list/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/sender-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/resource_core/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/sender-status-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/sender-base/</loc>
       </url>
       <url>
-        <loc>https://specs.amwa.tv/new/is-11/v1.0.x/examples/uuidlist-get-200/</loc>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/sender-status/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/streamcompatibility-api-base/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/is-11/v1.0.x/v1.0.x/schemas/uuid-list/</loc>
       </url>
 </urlset>
