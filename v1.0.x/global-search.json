@@ -3,12 +3,6 @@
   "repository": "AMWA-TV/is-11",
   "documents": [
     {
-      "title": "Page not found",
-      "url": "https://specs.amwa.tv/is-11/latest/404/",
-      "text": "Page not found Page not found Page not found - AMWA IS-11 NMOS Stream Compatibility Management Skip to content Page not found The page you requested could not be found. Return to the documentation home",
-      "repository": "AMWA-TV/is-11"
-    },
-    {
       "title": "StreamCompatibilityManagementAPI",
       "url": "https://specs.amwa.tv/is-11/latest/APIs/StreamCompatibilityManagementAPI/",
       "text": "StreamCompatibilityManagementAPI StreamCompatibilityManagementAPI StreamCompatibilityManagementAPI - AMWA IS-11 NMOS Stream Compatibility Management Skip to content StreamCompatibilityManagementAPI Open StreamCompatibilityManagementAPI API documentation",
