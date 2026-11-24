@@ -165,12 +165,6 @@
       "repository": "AMWA-TV/is-11"
     },
     {
-      "title": "README",
-      "url": "https://specs.amwa.tv/is-11/latest/images/",
-      "text": "README README README - AMWA IS-11 NMOS Stream Compatibility Management Skip to content README This directory is for images used in documentation",
-      "repository": "AMWA-TV/is-11"
-    },
-    {
       "title": "AMWA IS-11 NMOS Stream Compatibility Management",
       "url": "https://specs.amwa.tv/is-11/latest/",
       "text": "AMWA IS-11 NMOS Stream Compatibility Management AMWA IS-11 NMOS Stream Compatibility Management What does it do? Why does it matter? How does it work? Getting started AMWA IS-11 NMOS Stream Compatibility Management - AMWA IS-11 NMOS Stream Compatibility Management Skip to content AMWA IS-11 NMOS Stream Compatibility Management This repository holds the source for this Specification, part of the family of Networked Media Open Specifications from the Advanced Media Workflow Association What does it do? Introduces Inputs associated with Senders and Outputs associated with Receivers Allows the configuration of media parameters of Senders and Inputs using information coming from Receivers and Outputs. Why does it matter? State of a Sender can be tuned to be compatible with a corresponding Receiver or many compatible Receivers How does it work? An endpoint on the side of Senders is introduced for media parameters control Senders and Receivers are followed with endpoints which list Inputs and Outputs respectively and describe them in detail Getting started There is more information about the NMOS Specifications and their GitHub repos at https://specs.amwa.tv/nmos .",
